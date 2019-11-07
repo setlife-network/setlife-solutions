@@ -1,6 +1,6 @@
 This document is the first draft of a case study to demonstrate methods and processes used in the project management and engineering of modern software applications, particularly in the context of upgrading an existing software application to meet modern standard.
 
-The core of this study will be a fully detailed development plan for a sample project carried out in 2019.
+The core of this study will be a detailed development plan for a sample project carried out in 2019.
 
 ------------
 
