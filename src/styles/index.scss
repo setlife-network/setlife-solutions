@@ -1,0 +1,45 @@
+$enable-responsive-font-sizes: true;
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+    margin: 0;
+    font-family: Roboto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+// Styles that can be used anywhere go here
+
+.clickable {
+    cursor: pointer;
+}
+
+// Styles for specific components go here
+
+.HomePage {
+    
+}
+
+// Responsive styles go here
+
+@media (min-width: 576px) {
+    // Landscape phones (sm)
+    
+}
+
+@media (min-width: 768px) {
+    // Tablets, small laptops (md)
+
+}
+
+@media (min-width: 992px) {
+    // Desktops, laptops (lg)
+
+}
+
+@media (min-width: 1200px) {
+    // Large monitors (xl)
+
+}
