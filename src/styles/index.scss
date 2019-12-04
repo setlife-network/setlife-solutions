@@ -1,4 +1,13 @@
 $enable-responsive-font-sizes: true;
+$enable-shadows: true;
+
+$blue-green: #006F87;
+$light-gray: #edf1eb;
+
+$theme-colors: (
+    'primary': $blue-green,
+    'secondary': $light-gray,
+);
 
 @import 'node_modules/bootstrap/scss/bootstrap';
 
