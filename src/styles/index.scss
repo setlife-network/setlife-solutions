@@ -3,10 +3,12 @@ $enable-shadows: true;
 
 $blue-green: #006F87;
 $light-gray: #edf1eb;
+$light-blue-green:#0092b3;
 
 $theme-colors: (
     'primary': $blue-green,
     'secondary': $light-gray,
+    'secondaryB': $light-blue-green,
 );
 
 @import 'node_modules/bootstrap/scss/bootstrap';
@@ -17,6 +19,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+   
 }
 
 // Styles that can be used anywhere go here
@@ -28,9 +31,23 @@ body {
 // Styles for specific components go here
 
 .HomePage {
-    
+    overflow: hidden;
 }
 
+.MainBanner {
+    block-size: 40rem;
+    margin-bottom: 0rem;
+    background-image: url('https://user-images.githubusercontent.com/4914611/71026199-b3366c80-20d6-11ea-8d17-ab2dcb52e151.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    color: white;
+    
+    
+   
+    
+}
 // Responsive styles go here
 
 @media (min-width: 576px) {

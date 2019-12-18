@@ -1,7 +1,7 @@
 import React from 'react';
-import { Jumbotron, Container} from'react-bootstrap';
 
 import Header from '../components/Header';
+import MainBanner from '../components/MainBanner';
 
 class HomePage extends React.Component {
     render() {
@@ -9,14 +9,7 @@ class HomePage extends React.Component {
 
             <div className='m-auto'>
                 <Header/>
-                <Jumbotron fluid>
-                    <Container>
-                        <h1>Engineer Software Analytical Studies</h1>
-                        <p>
-                        We will provide you with the latest technological tools for your upcoming projects
-                        </p>
-                    </Container>
-                </Jumbotron>
+                <MainBanner/>
                 
             </div>
         );
