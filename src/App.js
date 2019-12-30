@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Route } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
+import AdminLoginPage from './pages/AdminLoginPage';
 
 class App extends React.Component {
 
@@ -9,6 +10,12 @@ class App extends React.Component {
         return (
             <div className='App'>
                 <Route
+                    exact
+                    path='/admin/login'
+                    render={() => <AdminLoginPage/>}
+                />
+                <Route
+                    exact
                     path='/'
                     render={() => <HomePage/>}
                 />

@@ -19,10 +19,19 @@ const Header = (props) => {
                 </Navbar.Collapse>
             </Navbar>
             <div className='col-12 d-flex col-md-2'>
-                <Button className='m-auto'
-                variant="secondaryB">
-                    <a href='https://app.acuityscheduling.com/schedule.php?owner=18759378&appointmentType=12390700://acuityscheduling.com/' target='_blank' rel='noopener noreferrer'>Free Consultation</a>
-                </Button>
+                <a 
+                    className='m-auto'
+                    href='https://app.acuityscheduling.com/schedule.php? owner=18759378&appointmentType=12390700://acuityscheduling.com/' 
+                    target='_blank' 
+                    rel='noopener noreferrer'
+                >
+                    <Button                       
+                        variant="info"
+                    >
+                        Free Consultation
+                    </Button>
+                </a>
+                
             </div>
             
         </div>
