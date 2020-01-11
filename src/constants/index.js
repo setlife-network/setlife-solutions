@@ -1,0 +1,1 @@
+export const SCHEDULING_LINK = 'https://app.acuityscheduling.com/schedule.php? owner=18759378&appointmentType=12390700://acuityscheduling.com/' 

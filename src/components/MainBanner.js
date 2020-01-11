@@ -19,7 +19,7 @@ const MainBanner = (props) => {
                 latest tech and business tools for your upcoming projects
                 </p>
             </Container>
-            <div className='m-auto col-12'/*className='col-12 flex-column col-md-2'*/>
+            <div className='m-auto col-12'>
                 <Button className='m-auto' 
                 variant="secondary">View all Services</Button>
             </div>
