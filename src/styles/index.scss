@@ -36,6 +36,7 @@ body {
 }
 
 .MainBanner {
+    position: relative;
     block-size: 40rem;
     margin-bottom: 0rem;
     background-image: url('https://user-images.githubusercontent.com/4914611/71026199-b3366c80-20d6-11ea-8d17-ab2dcb52e151.jpg');
@@ -43,10 +44,18 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     text-align: center;
-    color: white;
-    
-}
+    color: white;    
 
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.45);
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
     
 
 // Responsive styles go here
