@@ -8,7 +8,8 @@ module.exports = {
     'airbnb-typescript',
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking'
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:@next/next/recommended'
   ],
   parserOptions: {
     sourceType: 'module',
