@@ -1,4 +1,4 @@
-const { makeExecutableSchema } = require('apollo-server')
+const { makeExecutableSchema }  = require('@graphql-tools/schema');
 const { mergeTypeDefs, mergeResolvers } = require('@graphql-tools/merge')
 
 // Import types
@@ -18,7 +18,7 @@ const resolvers = mergeResolvers([
 ])
 
 // Export generated schema
-const schema = ({
+const schema: any = makeExecutableSchema({
   typeDefs,
   resolvers
 })
