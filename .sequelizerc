@@ -1,0 +1,7 @@
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('/pages/api/models', 'config.ts'),
+  'models-path': path.resolve('/pages/api/models', 'index'),
+  'migrations-path': path.resolve('/pages/api/migrations', '')
+};
