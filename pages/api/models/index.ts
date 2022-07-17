@@ -1,6 +1,5 @@
 const { Sequelize } = require('sequelize')
 
-
 const { POSTGRES } = require('../../../config/credentials')
 
 const {

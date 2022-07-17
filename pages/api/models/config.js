@@ -1,11 +1,12 @@
-const { POSTGRES } = require('../../../config/credentials')
+const { POSTGRES } = require('../../../config/credentials.ts')
+
+console.log(POSTGRES)
 
 const {
     DB_HOST,
     DB_USERNAME,
     DB_PASSWORD,
-    DB_NAME,
-    DB_PORT
+    DB_NAME
 } = POSTGRES
 
 module.exports = {
