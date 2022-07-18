@@ -31,6 +31,7 @@ export const sequelize = new Sequelize(
 export const db = {
     sequelize,
     models: {
+        Project: require('./Project')(sequelize),
     }
 };
 
