@@ -1,64 +1,25 @@
 module.exports = {
-  root: true,
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+  ],
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
   plugins: [
+    'react',
     '@typescript-eslint',
   ],
-  extends: [
-    'airbnb-typescript',
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:@next/next/recommended'
-  ],
-  parserOptions: {
-    sourceType: 'module',
-    project: [
-      './tsconfig.json',
-      "./tailwind.config.js",
-      "./postcss.config.js"
-    ],
-  },
   rules: {
-    '@typescript-eslint/ban-ts-comment': [
-      'error',
-      {
-        'ts-expect-error': 'allow-with-description',
-        'ts-ignore': true,
-        'ts-nocheck': true,
-        'ts-check': false,
-        minimumDescriptionLength: 5,
-      },
-    ],
-    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-    '@typescript-eslint/explicit-function-return-type': 'error',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-empty-function': [
-      'error',
-      { allow: ['arrowFunctions'] },
-    ],
-    '@typescript-eslint/no-explicit-any': 'error',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/prefer-for-of': 'error',
-    '@typescript-eslint/prefer-nullish-coalescing': 'error',
-    '@typescript-eslint/prefer-optional-chain': 'error',
-    '@typescript-eslint/unbound-method': 'off',
-    '@typescript-eslint/prefer-as-const': 'error',
-    '@typescript-eslint/restrict-template-expressions': [
-      'error',
-      {
-        allowNumber: true,
-        allowBoolean: true,
-        allowAny: true,
-        allowNullish: true,
-        allowRegExp: true,
-      },
-    ],
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
-    ],
     'array-callback-return': ['off'],
     'arrow-body-style': ['off'],
     'arrow-parens': ['off'],
@@ -76,7 +37,6 @@ module.exports = {
     'import/prefer-default-export': ['off'],
     'import/no-extraneous-dependencies': 'off',
     'class-methods-use-this': ['off'],
-    'indent': ['error', 4, { 'SwitchCase': 1 }],
     'import/first': 'off',
     'import/no-cycle': 'off',
     'import/order': 'off',
@@ -129,5 +89,10 @@ module.exports = {
     'space-in-parens': ['off'],
     'vars-on-top': ['off'],
     'wrap-iife': ['off'],
-  }
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };

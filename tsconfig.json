@@ -19,7 +19,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".eslintrc.cjs",
     "pages/api/models/config.js"
   ],
   "exclude": ["node_modules",]
