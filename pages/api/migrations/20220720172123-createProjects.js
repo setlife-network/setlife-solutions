@@ -1,0 +1,44 @@
+'use strict'
+
+module.exports = {
+  
+  async up (queryInterface, Sequelize) {
+    return queryInterface.createTable('projects', {
+      id: {
+          type: Sequelize.DataTypes.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+          allowNull: false
+      },
+      name: {
+          type: Sequelize.DataTypes.STRING,
+          allowNull: false
+      },
+      description: {
+          type: Sequelize.DataTypes.STRING,
+          allowNull: false
+      },
+      client_name: {
+          type: Sequelize.DataTypes.STRING,
+          allowNull: false
+      },
+      client_description: {
+          type: Sequelize.DataTypes.STRING,
+          allowNull: false
+      },
+      project_resource: {
+          type: Sequelize.DataTypes.STRING,
+          allowNull: false
+      },
+      other_resource: {
+          type: Sequelize.DataTypes.STRING,
+          allowNull: false
+      }
+    })
+  },
+
+  async down (queryInterface, Sequelize) {
+    return queryInterface.dropTable('projects');
+  }
+
+}
