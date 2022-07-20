@@ -6,7 +6,8 @@ const {
     DB_HOST,
     DB_USERNAME,
     DB_PASSWORD,
-    DB_NAME
+    DB_NAME,
+    DB_PORT
 } = POSTGRES
 
 module.exports = {
@@ -15,6 +16,7 @@ module.exports = {
         password: DB_PASSWORD,
         database: DB_NAME,
         host: DB_HOST,
+        port: DB_PORT,
         dialect: 'postgres'
     },
     staging: {
@@ -22,6 +24,7 @@ module.exports = {
         password: DB_PASSWORD,
         database: DB_NAME,
         host: DB_HOST,
+        port: DB_PORT,
         dialect: 'postgres'
     },
     test: {
@@ -29,6 +32,7 @@ module.exports = {
         password: DB_PASSWORD,
         database: DB_NAME,
         host: DB_HOST,
+        port: DB_PORT,
         dialect: 'postgres'
     },
     production: {
@@ -36,6 +40,7 @@ module.exports = {
         password: DB_PASSWORD,
         database: DB_NAME,
         host: DB_HOST,
+        port: DB_PORT,
         dialect: 'postgres'
     }
 }
