@@ -28,11 +28,9 @@ module.exports = {
       },
       project_resource: {
           type: Sequelize.DataTypes.STRING,
-          allowNull: false
       },
       other_resource: {
           type: Sequelize.DataTypes.STRING,
-          allowNull: false
       }
     })
   },

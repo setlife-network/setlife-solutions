@@ -27,11 +27,9 @@ module.exports = (sequelize: any) => {
         },
         project_resource: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         other_resource: {
             type: DataTypes.STRING,
-            allowNull: false
         }
     },
     {
