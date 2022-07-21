@@ -31,6 +31,7 @@ export const sequelize = new Sequelize(
 export const db = {
     sequelize,
     models: {
+        ServicePackage: require('./ServicePackage')(sequelize),
     }
 };
 
