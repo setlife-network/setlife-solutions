@@ -1,4 +1,4 @@
-const { makeExecutableSchema }  = require('@graphql-tools/schema');
+const { makeExecutableSchema } = require('@graphql-tools/schema');
 const { mergeTypeDefs, mergeResolvers } = require('@graphql-tools/merge')
 
 // Import types
@@ -9,18 +9,18 @@ const TestResolver = require('./resolvers/TestResolver')
 
 // Merge types
 const typeDefs = mergeTypeDefs([
-  TestType
+    TestType
 ])
 
 // Merge resolvers
 const resolvers = mergeResolvers([
-  TestResolver
+    TestResolver
 ])
 
 // Export generated schema
 const schema: any = makeExecutableSchema({
-  typeDefs,
-  resolvers
+    typeDefs,
+    resolvers
 })
 
 export default schema
