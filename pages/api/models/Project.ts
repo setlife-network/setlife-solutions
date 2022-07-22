@@ -1,3 +1,5 @@
+const { DataTypes, Model } = require('sequelize')
+
 module.exports = (sequelize: any) => {
 
     class Project extends Model {}
@@ -42,3 +44,5 @@ module.exports = (sequelize: any) => {
     return Project
 
 }
+
+export {}
