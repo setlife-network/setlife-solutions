@@ -7,25 +7,25 @@ import { GET_TEST } from '../operations/queries/TestQueries'
 
 const Home: NextPage = () => {
 
-  const { error, data, loading } = useQuery<GetTestData>(
-    GET_TEST
-  )
+    const { error, data, loading } = useQuery<GetTestData>(
+        GET_TEST
+    )
   
-  const {
-    getTest
-  } = {...data}
+    const {
+        getTest
+    } = {...data}
 
-  if (error || loading) (
-      <>
+    if (error || loading) (
+        <>
         ...
-      </>
-  )
+        </>
+    )
 
-  return (
-    <h1 className='text-3xl font-bold'>
+    return (
+        <h1 className='text-3xl font-bold'>
       Home { data && getTest!.title }
-    </h1>
-  )
+        </h1>
+    )
 }
 
 export default Home
