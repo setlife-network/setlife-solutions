@@ -30,3 +30,5 @@ module.exports = (sequelize: any) => {
     return Service
 
 }
+
+export {}
