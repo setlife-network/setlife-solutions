@@ -10,7 +10,6 @@ const {
     DB_PORT
 } = POSTGRES
 
-
 export const sequelize = new Sequelize(
     DB_NAME,
     DB_USERNAME,
@@ -50,4 +49,3 @@ const associations = ({}) => {
 associations(db.models)
 
 module.exports = db;
-

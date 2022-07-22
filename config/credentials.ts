@@ -1,3 +1,6 @@
+const dotenv = require('dotenv')
+dotenv.config()
+
 module.exports = {
     POSTGRES: {
         DB_HOST: process.env.POSTGRES_DB_HOST,

@@ -1,6 +1,6 @@
 import { gql } from 'apollo-server-micro'
 
-module.exports = gql `
+module.exports = gql`
 
   type Test {
     id: Int
