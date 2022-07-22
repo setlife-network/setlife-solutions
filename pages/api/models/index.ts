@@ -23,7 +23,13 @@ export const sequelize = new Sequelize(
             min: 0,
             idle: 10000
         },
-        logging: false
+        logging: false,
+        dialectOptions: {
+            ssl: {
+              require: true,
+              rejectUnauthorized: false
+            }
+        },
     }
 );
 
