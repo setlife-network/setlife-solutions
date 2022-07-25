@@ -1,12 +1,11 @@
 const { POSTGRES } = require('../../../config/credentials.ts')
 
-console.log(POSTGRES)
-
 const {
     DB_HOST,
     DB_USERNAME,
     DB_PASSWORD,
-    DB_NAME
+    DB_NAME,
+    DB_PORT
 } = POSTGRES
 
 module.exports = {
@@ -15,13 +14,21 @@ module.exports = {
         password: DB_PASSWORD,
         database: DB_NAME,
         host: DB_HOST,
-        dialect: 'postgres'
+        port: DB_PORT,
+        dialect: 'postgres',
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        },
     },
     staging: {
         username: DB_USERNAME,
         password: DB_PASSWORD,
         database: DB_NAME,
         host: DB_HOST,
+        port: DB_PORT,
         dialect: 'postgres'
     },
     test: {
@@ -29,6 +36,7 @@ module.exports = {
         password: DB_PASSWORD,
         database: DB_NAME,
         host: DB_HOST,
+        port: DB_PORT,
         dialect: 'postgres'
     },
     production: {
@@ -36,6 +44,7 @@ module.exports = {
         password: DB_PASSWORD,
         database: DB_NAME,
         host: DB_HOST,
+        port: DB_PORT,
         dialect: 'postgres'
     }
 }
