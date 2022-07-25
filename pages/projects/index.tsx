@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 
 const ProjectsPage: NextPage = () => {
-  return (
-    <div>
+    return (
+        <div>
       ProjectsPage
-    </div>
-  )
+        </div>
+    )
 }
 
 export default ProjectsPage

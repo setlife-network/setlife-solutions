@@ -5,11 +5,11 @@ import client from '../config/apollo-client'
 import '../styles/index.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider>
-  )
+    return (
+        <ApolloProvider client={client}>
+            <Component {...pageProps} />
+        </ApolloProvider>
+    )
 }
 
 export default MyApp

@@ -10,7 +10,6 @@ const {
     DB_PORT
 } = POSTGRES
 
-
 export const sequelize = new Sequelize(
     DB_NAME,
     DB_USERNAME,
@@ -24,13 +23,21 @@ export const sequelize = new Sequelize(
             min: 0,
             idle: 10000
         },
-        logging: false
+        logging: false,
+        dialectOptions: {
+            ssl: {
+              require: true,
+              rejectUnauthorized: false
+            }
+        },
     }
 );
 
 export const db = {
     sequelize,
     models: {
+        Service: require('./Service')(sequelize),
+        Project: require('./Project')(sequelize),
         ServicePackage: require('./ServicePackage')(sequelize),
     }
 };
@@ -50,4 +57,3 @@ const associations = ({}) => {
 associations(db.models)
 
 module.exports = db;
-
