@@ -38,6 +38,7 @@ export const db = {
     models: {
         Service: require('./Service')(sequelize),
         Project: require('./Project')(sequelize),
+        ProvidedService: require('./ProvidedService')(sequelize),
     }
 };
 
@@ -50,7 +51,13 @@ sequelize
         console.log('Unable to connect to the database:', err);
     });
 
-const associations = ({}) => {
+const associations = ({
+    Service,
+    Project,
+    ProvidedService,
+}: any) => {
+    ProvidedService.belongsTo(Service, { foreignKey: 'service_id' })
+    ProvidedService.belongsTo(Project, { foreignKey: 'project_id' })
 }
 
 associations(db.models)
