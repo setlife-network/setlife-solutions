@@ -48,7 +48,7 @@ export const db = {
 sequelize
     .authenticate()
     .then(async () => {
-        await db.sequelize.sync({ force: true })
+        await db.sequelize.sync({ alter: true })
     })
     .catch(function (err: Error) {
         console.log('Unable to connect to the database:', err);
