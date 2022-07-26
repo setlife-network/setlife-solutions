@@ -26,8 +26,8 @@ export const sequelize = new Sequelize(
         logging: false,
         dialectOptions: {
             ssl: {
-              require: true,
-              rejectUnauthorized: false
+                require: true,
+                rejectUnauthorized: false
             }
         },
     }

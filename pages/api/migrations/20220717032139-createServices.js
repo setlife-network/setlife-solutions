@@ -19,7 +19,7 @@ module.exports = {
         })
     },
 
-    async down (queryInterface, Sequelize) {
+    async down (queryInterface) {
         return queryInterface.dropTable('services');
     }
 
