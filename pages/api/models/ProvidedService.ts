@@ -10,7 +10,7 @@ module.exports = (sequelize: any) => {
             primaryKey: true,
             allowNull: false,
             references: {
-                model: 'Project',
+                model: 'projects',
                 key: 'id'
             }
         },
@@ -19,7 +19,7 @@ module.exports = (sequelize: any) => {
             primaryKey: true,
             allowNull: false,
             references: {
-                model: 'Service',
+                model: 'services',
                 key: 'id'
             }
         },

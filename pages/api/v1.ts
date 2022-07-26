@@ -2,7 +2,7 @@ import { ApolloServer } from 'apollo-server-micro'
 import Cors from 'micro-cors'
 
 import schema from './graphql/schema'
-import { db } from './models'
+import db from './models'
 
 const cors = Cors()
 
@@ -12,6 +12,7 @@ const apolloServer = new ApolloServer({
         ...db
     }),
 })
+
 const startServer = apolloServer.start()
 
 export default cors(async (req, res) => {
