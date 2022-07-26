@@ -26,8 +26,8 @@ export const sequelize = new Sequelize(
         logging: false,
         dialectOptions: {
             ssl: {
-              require: true,
-              rejectUnauthorized: false
+                require: true,
+                rejectUnauthorized: false
             }
         },
     }
@@ -37,6 +37,8 @@ export const db = {
     sequelize,
     models: {
         Service: require('./Service')(sequelize),
+        ServiceDetail: require('./ServiceDetail')(sequelize),
+        ServicePackage: require('./ServicePackage')(sequelize),
         Project: require('./Project')(sequelize),
         ProvidedService: require('./ProvidedService')(sequelize),
     }
@@ -55,9 +57,11 @@ const associations = ({
     Service,
     Project,
     ProvidedService,
+    ServiceDetail
 }: any) => {
     ProvidedService.belongsTo(Service, { foreignKey: 'service_id' })
     ProvidedService.belongsTo(Project, { foreignKey: 'project_id' })
+    Service.hasMany(ServiceDetail, { foreignKey: 'service_id' })
 }
 
 associations(db.models)

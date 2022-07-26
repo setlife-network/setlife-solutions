@@ -2,9 +2,9 @@ const { DataTypes, Model } = require('sequelize')
 
 module.exports = (sequelize: any) => {
 
-    class Service extends Model {}
+    class ServicePackage extends Model {}
 
-    Service.init({
+    ServicePackage.init({
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -18,17 +18,30 @@ module.exports = (sequelize: any) => {
         description: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        estimated_cost: {
+            type: DataTypes.STRING,
+        },
+        minimum_cost: {
+            type: DataTypes.STRING,
+        },
+        meeting_frequency: {
+            type: DataTypes.STRING,
+        },
+        subtitle: {
+            type: DataTypes.STRING,
+        },
+        additional_notice: {
+            type: DataTypes.STRING,
+        },
     },
     {
         sequelize,
-        modelName: 'services',
+        modelName: 'service_packages',
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     })
 
-    return Service
+    return ServicePackage
 
 }
-
-export {}
