@@ -2,9 +2,9 @@ const { DataTypes, Model } = require('sequelize')
 
 module.exports = (sequelize: any) => {
 
-    class Service extends Model {}
+    class Project extends Model {}
 
-    Service.init({
+    Project.init({
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -18,16 +18,30 @@ module.exports = (sequelize: any) => {
         description: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        client_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        client_description: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        project_resource: {
+            type: DataTypes.STRING,
+        },
+        other_resource: {
+            type: DataTypes.STRING,
         }
     },
     {
         sequelize,
-        modelName: 'services',
+        modelName: 'projects',
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     })
 
-    return Service
+    return Project
 
 }
 

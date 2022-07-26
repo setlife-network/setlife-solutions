@@ -1,18 +1,22 @@
 module.exports = {
   
     async up (queryInterface, Sequelize) {
-        return queryInterface.createTable('services', {
+        return queryInterface.createTable('service_details', {
             id: {
                 type: Sequelize.DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
                 allowNull: false
             },
-            name: {
-                type: Sequelize.DataTypes.STRING,
-                allowNull: false
+            service_id: {
+                type: Sequelize.DataTypes.INTEGER,
+                allowNull: false,
+                references: {
+                    model: 'services',
+                    key: 'id'
+                }
             },
-            description: {
+            detail: {
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false
             }
@@ -20,7 +24,7 @@ module.exports = {
     },
 
     async down (queryInterface) {
-        return queryInterface.dropTable('services');
+        return queryInterface.dropTable('service_details');
     }
 
 }
