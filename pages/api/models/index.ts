@@ -48,7 +48,7 @@ export const db = {
 sequelize
     .authenticate()
     .then(async () => {
-        await db.sequelize.sync()
+        await db.sequelize.sync({ force: true })
     })
     .catch(function (err: Error) {
         console.log('Unable to connect to the database:', err);
@@ -71,4 +71,4 @@ const associations = ({
 
 associations(db.models)
 
-module.exports = db;
+export default db
