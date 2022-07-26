@@ -35,7 +35,7 @@ module.exports = (sequelize: any) => {
     },
     {
         sequelize,
-        modelName: 'ServicePackage',
+        modelName: 'service_packages',
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     })
