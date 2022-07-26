@@ -36,11 +36,12 @@ export const sequelize = new Sequelize(
 export const db = {
     sequelize,
     models: {
+        PackagedService: require('./PackagedService')(sequelize),
+        Project: require('./Project')(sequelize),
+        ProvidedService: require('./ProvidedService')(sequelize),
         Service: require('./Service')(sequelize),
         ServiceDetail: require('./ServiceDetail')(sequelize),
         ServicePackage: require('./ServicePackage')(sequelize),
-        Project: require('./Project')(sequelize),
-        ProvidedService: require('./ProvidedService')(sequelize),
     }
 };
 
@@ -54,11 +55,15 @@ sequelize
     });
 
 const associations = ({
-    Service,
-    Project,
+    PackagedService,
     ProvidedService,
-    ServiceDetail
+    Project,
+    ServiceDetail,
+    Service,
+    ServicePackage,
 }: any) => {
+    PackagedService.belongsTo(Service, { foreignKey: 'service_id' })
+    PackagedService.belongsTo(ServicePackage, { foreignKey: 'service_package_id' })
     ProvidedService.belongsTo(Service, { foreignKey: 'service_id' })
     ProvidedService.belongsTo(Project, { foreignKey: 'project_id' })
     Service.hasMany(ServiceDetail, { foreignKey: 'service_id' })
