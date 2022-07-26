@@ -2,33 +2,35 @@ const { DataTypes, Model } = require('sequelize')
 
 module.exports = (sequelize: any) => {
 
-    class Service extends Model {}
+    class ServiceDetail extends Model {}
 
-    Service.init({
+    ServiceDetail.init({
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
+        service_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'Service',
+                key: 'id',
+            }
         },
-        description: {
+        detail: {
             type: DataTypes.STRING,
             allowNull: false
         }
     },
     {
         sequelize,
-        modelName: 'services',
+        modelName: 'service_details',
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     })
 
-    return Service
+    return ServiceDetail
 
 }
-
-export {}

@@ -26,8 +26,8 @@ export const sequelize = new Sequelize(
         logging: false,
         dialectOptions: {
             ssl: {
-              require: true,
-              rejectUnauthorized: false
+                require: true,
+                rejectUnauthorized: false
             }
         },
     }
@@ -37,6 +37,7 @@ export const db = {
     sequelize,
     models: {
         Service: require('./Service')(sequelize),
+        ServiceDetail: require('./ServiceDetail')(sequelize),
         Project: require('./Project')(sequelize),
     }
 };
@@ -50,7 +51,11 @@ sequelize
         console.log('Unable to connect to the database:', err);
     });
 
-const associations = ({}) => {
+const associations = ({
+    Service, 
+    ServiceDetail
+}: any) => {
+    Service.hasMany(ServiceDetail, { foreignKey: 'service_id' })
 }
 
 associations(db.models)
