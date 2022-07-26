@@ -40,6 +40,7 @@ export const db = {
         ServiceDetail: require('./ServiceDetail')(sequelize),
         ServicePackage: require('./ServicePackage')(sequelize),
         Project: require('./Project')(sequelize),
+        ProvidedService: require('./ProvidedService')(sequelize),
     }
 };
 
@@ -53,9 +54,13 @@ sequelize
     });
 
 const associations = ({
-    Service, 
+    Service,
+    Project,
+    ProvidedService,
     ServiceDetail
 }: any) => {
+    ProvidedService.belongsTo(Service, { foreignKey: 'service_id' })
+    ProvidedService.belongsTo(Project, { foreignKey: 'project_id' })
     Service.hasMany(ServiceDetail, { foreignKey: 'service_id' })
 }
 
