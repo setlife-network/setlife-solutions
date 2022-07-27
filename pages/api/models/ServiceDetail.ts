@@ -15,7 +15,7 @@ module.exports = (sequelize: any) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Service',
+                model: 'services',
                 key: 'id',
             }
         },
@@ -34,3 +34,5 @@ module.exports = (sequelize: any) => {
     return ServiceDetail
 
 }
+
+export {}
