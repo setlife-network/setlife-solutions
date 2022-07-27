@@ -4,8 +4,8 @@ module.exports = {
     },
 
     Query: {
-        fetchServices: (service : any, args: any, db: any) => (
-            db.models.Service.findAll()
+        fetchServices: (service : any, args: any, { Service }: any) => (
+            Service.findAll()
         )
     },
 
