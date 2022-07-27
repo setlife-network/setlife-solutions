@@ -13,15 +13,15 @@ const TestResolver = require('./resolvers/TestResolver')
 
 // Merge types
 const typeDefs = mergeTypeDefs([
-    ServiceType,
     ProjectType,
+    ServiceType,
     TestType
 ])
 
 // Merge resolvers
 const resolvers = mergeResolvers([
-    ServiceResolver,
     ProjectResolver,
+    ServiceResolver,
     TestResolver
 ])
 
