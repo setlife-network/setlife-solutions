@@ -3,29 +3,29 @@ const { mergeTypeDefs, mergeResolvers } = require('@graphql-tools/merge')
 
 // Import types
 const ProjectType = require('./types/ProjectType')
-const ServiceType = require('./types/ServiceType')
 const ServiceDetailType = require('./types/ServiceDetailType')
+const ServiceType = require('./types/ServiceType')
 const TestType = require('./types/TestType')
 
 // Import resolvers
 const ProjectResolver = require('./resolvers/ProjectResolver')
-const ServiceResolver = require('./resolvers/ServiceResolver')
 const ServiceDetailResolver = require('./resolvers/ServiceDetailResolver')
+const ServiceResolver = require('./resolvers/ServiceResolver')
 const TestResolver = require('./resolvers/TestResolver')
 
 // Merge types
 const typeDefs = mergeTypeDefs([
     ProjectType,
-    ServiceType,
     ServiceDetailType,
+    ServiceType,
     TestType
 ])
 
 // Merge resolvers
 const resolvers = mergeResolvers([
     ProjectResolver,
-    ServiceResolver,
     ServiceDetailResolver,
+    ServiceResolver,
     TestResolver
 ])
 
