@@ -9,7 +9,7 @@ const cors = Cors()
 const apolloServer = new ApolloServer({
     schema,
     context: () => ({
-        ...db
+        ...db.models
     }),
 })
 
