@@ -4,12 +4,14 @@ const { mergeTypeDefs, mergeResolvers } = require('@graphql-tools/merge')
 // Import types
 const ProjectType = require('./types/ProjectType')
 const ServiceDetailType = require('./types/ServiceDetailType')
+const ServicePackageType = require('./types/ServicePackageType')
 const ServiceType = require('./types/ServiceType')
 const TestType = require('./types/TestType')
 
 // Import resolvers
 const ProjectResolver = require('./resolvers/ProjectResolver')
 const ServiceDetailResolver = require('./resolvers/ServiceDetailResolver')
+const ServicePackageResolver = require('./resolvers/ServicePackageResolver')
 const ServiceResolver = require('./resolvers/ServiceResolver')
 const TestResolver = require('./resolvers/TestResolver')
 
@@ -17,6 +19,7 @@ const TestResolver = require('./resolvers/TestResolver')
 const typeDefs = mergeTypeDefs([
     ProjectType,
     ServiceDetailType,
+    ServicePackageType,
     ServiceType,
     TestType
 ])
@@ -25,6 +28,7 @@ const typeDefs = mergeTypeDefs([
 const resolvers = mergeResolvers([
     ProjectResolver,
     ServiceDetailResolver,
+    ServicePackageResolver,
     ServiceResolver,
     TestResolver
 ])

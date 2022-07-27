@@ -11,6 +11,7 @@ module.exports = gql`
 
   type Query {
     fetchServices: [Service]
+    fetchService(id: Int!): Service
   }
 
 ` 
