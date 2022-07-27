@@ -14,7 +14,7 @@ module.exports = gql`
 
   type Query {
     fetchProjects: [Project]
-    fetchProject(id: Int): Project
+    fetchProject(id: Int!): Project
   }
 
 `
