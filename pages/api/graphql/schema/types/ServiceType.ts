@@ -6,6 +6,7 @@ module.exports = gql`
     id: Int
     name: String
     description: String
+    serviceDetails: [ServiceDetail]
   }
 
   type Query {
