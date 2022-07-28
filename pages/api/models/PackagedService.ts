@@ -8,12 +8,20 @@ module.exports = (sequelize: any) => {
         service_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: 'services',
+                key: 'id'
+            }
         },
         service_package_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: 'service_packages',
+                key: 'id'
+            }
         },
     },
     {
