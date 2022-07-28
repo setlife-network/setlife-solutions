@@ -11,6 +11,7 @@ module.exports = gql`
     meeting_frequency: String
     subtitle: String
     additional_notice: String
+    services: [Service]
   }
 
   type Query {
