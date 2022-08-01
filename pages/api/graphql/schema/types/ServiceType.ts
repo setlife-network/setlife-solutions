@@ -7,6 +7,7 @@ module.exports = gql`
     name: String
     description: String
     serviceDetails: [ServiceDetail]
+    projects: [Project]
   }
 
   type Query {
