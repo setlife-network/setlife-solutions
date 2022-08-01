@@ -1,8 +1,19 @@
 module.exports = {
 
     Service: {
-        serviceDetails: (service: any, args:any, { ServiceDetail }: any) => (
+        serviceDetails: (service: any, args: any, { ServiceDetail }: any) => (
             ServiceDetail.findAll({ where: { service_id: service.id }})
+        ),
+        projects: (service: any, args: any, { ProvidedService, Project }: any) => (
+            Project.findAll({
+                raw: true,
+                include: {
+                    model: ProvidedService,
+                    where: {
+                        service_id: service.id
+                    }
+                }
+            })
         )
     },
 
