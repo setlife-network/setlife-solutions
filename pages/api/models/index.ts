@@ -38,6 +38,7 @@ export const db = {
     models: {
         PackagedService: require('./PackagedService')(sequelize),
         Project: require('./Project')(sequelize),
+        ProjectDetail: require('./ProjectDetail')(sequelize),
         ProvidedService: require('./ProvidedService')(sequelize),
         Service: require('./Service')(sequelize),
         ServiceDetail: require('./ServiceDetail')(sequelize),
@@ -56,17 +57,17 @@ sequelize
 
 const associations = ({
     PackagedService,
-    ProvidedService,
     Project,
-    ServiceDetail,
+    ProjectDetail,
+    ProvidedService,
     Service,
+    ServiceDetail,
     ServicePackage,
 }: any) => {
     PackagedService.belongsTo(Service, { foreignKey: 'service_id' })
     PackagedService.belongsTo(ServicePackage, { foreignKey: 'service_package_id' })
+    Project.hasMany(ProjectDetail, { foreignKey: 'project_id' })
     Project.hasMany(ProvidedService, { foreignKey: 'project_id' }) 
-    ProvidedService.belongsTo(Service, { foreignKey: 'service_id' })
-    ProvidedService.belongsTo(Project, { foreignKey: 'project_id' })
     ServicePackage.hasMany(PackagedService, { foreignKey: 'service_package_id' })
     Service.hasMany(PackagedService, { foreignKey: 'service_id' })
     Service.hasMany(ProvidedService, { foreignKey: 'service_id' })

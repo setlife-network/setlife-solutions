@@ -10,6 +10,7 @@ module.exports = gql`
     client_description: String
     project_resource: String
     other_resource: String
+    projectDetails: [ProjectDetail]
   }
 
   type Query {
