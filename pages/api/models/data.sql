@@ -21,3 +21,14 @@ VALUES
     (9, 4, 'Architecting, configuring, and administering the application infrastructure', '2022-07-28', '2022-07-28'),
     (10, 5, 'Ensuring the availability and stability of all versions of the application', '2022-07-28', '2022-07-28'),
     (11, 5, 'Receiving bug reports, debugging the source code, and deploying bugfixes in a timely and clearly communicated manner', '2022-07-28', '2022-07-28');
+
+-- Projects
+INSERT INTO public.projects
+VALUES
+    (1, 'Careerscore', 'CareerScore, a Job Application Tracking tool, which helps schools measure and improve student job placement', 'Quotanda', 'Quotanda is expanding opportunities for institutions to increase educational access and improve student outcomes.', 'https://www.careerscore.com', null, '2022-07-28', '2022-07-28'),
+    (2, 'WorkSTEPS', 'CareerScore, a Job Application Tracking tool, which helps schools measure and improve student job placement', 'Quotanda', 'Quotanda is expanding opportunities for institutions to increase educational access and improve student outcomes.', 'https://www.worksteps.com', null, '2022-07-28', '2022-07-28'),
+    (3, 'Angling Lines', 'CareerScore, a Job Application Tracking tool, which helps schools measure and improve student job placement', 'Quotanda', 'Quotanda is expanding opportunities for institutions to increase educational access and improve student outcomes.', 'https://www.anglinglines.com', null, '2022-07-28', '2022-07-28'),
+    (4, 'Compass', 'CareerScore, a Job Application Tracking tool, which helps schools measure and improve student job placement', 'Quotanda', 'Quotanda is expanding opportunities for institutions to increase educational access and improve student outcomes.', 'https://compassmining.io', null, '2022-07-28', '2022-07-28'),
+    (5, 'Guatt', 'CareerScore, a Job Application Tracking tool, which helps schools measure and improve student job placement', 'Guatt', `Guatt is an early-stage startup building a bitcoin-native digital bank using Galoy's open-source banking platform.`, 'https://guatt.io', null, '2022-07-28', '2022-07-28');
+
+
