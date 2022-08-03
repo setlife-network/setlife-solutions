@@ -1,0 +1,9 @@
+@import './colors.scss';
+
+@mixin color-vars-default() {
+    --primary: #{map-get($theme-colors, 'primary')};
+    --primary-alt: #{map-get($theme-colors, 'primary-alt')};
+    --solid-black: #{map-get($theme-colors, 'solid-black')};
+    --solid-white: #{map-get($theme-colors, 'solid-white')};
+    --light-gray: #{map-get($theme-colors, 'light-gray')};
+};
