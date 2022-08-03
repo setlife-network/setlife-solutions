@@ -15,7 +15,7 @@ module.exports = {
                 allowNull: false
             },
             description: {
-                type: Sequelize.DataTypes.STRING,
+                type: Sequelize.DataTypes.TEXT,
                 allowNull: false
             },
             estimated_cost: {

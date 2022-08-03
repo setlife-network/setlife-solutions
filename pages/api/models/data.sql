@@ -31,6 +31,7 @@ VALUES
     (4, 'Compass', 'CareerScore, a Job Application Tracking tool, which helps schools measure and improve student job placement', 'Quotanda', 'Quotanda is expanding opportunities for institutions to increase educational access and improve student outcomes.', 'https://compassmining.io', null, '2022-07-28', '2022-07-28'),
     (5, 'Guatt', 'CareerScore, a Job Application Tracking tool, which helps schools measure and improve student job placement', 'Guatt', 'Guatt is an early-stage startup building a bitcoin-native digital bank using Galoy`s open-source banking platform.', 'https://guatt.io', null, '2022-07-28', '2022-07-28');
 
+-- Project details
 INSERT INTO public.project_details
 VALUES
     (1, 1, 'Lead engineering & development of core technology and full software stack', 'services_provided', null, '2022-07-28', '2022-07-28'),
@@ -57,4 +58,15 @@ VALUES
     (22, 5, 'Communicated project updates between engineers and product owners', 'services_provided', 'Project/Engineering Management', '2022-07-28', '2022-07-28'),
     (23, 5, '9+ months of design, ideation, and development of the MVP', 'impact', 'dedicated_development', '2022-07-28', '2022-07-28'),
     (24, 5, 'Guatts product beta is demo-ready with a production-scale foundation to attract seed investment and drive further product development & engineering', 'impact', 'production_grade', '2022-07-28', '2022-07-28');
+
+-- Service packages
+INSERT INTO public.service_packages
+VALUES
+    (1, 'Code Review & Technical Assessment', 'A Technical Assessment will be provided as documentation that explains which technologies are used in the system and how they are implemented. This document will also provide some measure of code quality and technical debt that will determine howdifficulty it would be to continue building  onto the existing system.', '$500 - $3,000', null, '2 meetings', 'SetLife will dedicate a software solutions engineer to review the codebase and architecture  of your existing system.', null, '2022-07-28', '2022-07-28'),
+    (2, 'Preliminary Development Approach', 'This document will provide a structure and foundation for the technical requirements of a project as well as some cost frameworking for how to proceed further with development. For most projects (especially larger ones), the Development Plan should be a living document owned by the client that contains enough of the business requirements and technical details to begin executing on a focused phase of design or engineering.', '$1,000 - $6,000', null, '3 meetings', 'SetLife will dedicate a software solutions engineer to produce a preliminary draft for a Development Plan.', null, '2022-07-28', '2022-07-28'),
+    (3, 'Dedicated Solutions Engineering', 'This package has a minimum 3-month term to deliver at least 1 software release that can be deployed & tested against a set of business requirements. An agile development workflow may be established for continuous software release cycles (typically 4-6 weeks) subject to client satisfaction.', null, '$10,000 per month for 3 months', '1 weekly meeting', 'After a clear plan for development has been provided, a full-time effort will be made to begin executing on the proposed solution.', '1 full-time engineering lead or 1 part-time technial PM and 1 full-time engineer', '2022-07-28', '2022-07-28');
+  
+
+
+
 
