@@ -1,3 +1,10 @@
+@import './themes/default.scss';
+
+//Themes
+.default-theme {
+  @include color-vars-default;
+};
+
 html,
 body {
   padding: 0;
