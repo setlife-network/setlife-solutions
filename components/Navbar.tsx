@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { LOGO_URL } from '../constants'
+
 function NavLink({to, children}: any) {
     return <a href={to} className={`mx-4`}>
         {children}
@@ -9,8 +11,13 @@ function NavLink({to, children}: any) {
 function MobileNav({open, setOpen}: any) {
     return (
         <div className={`absolute top-0 bg-solid-white left-0 h-screen w-screen transform ${open ? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out filter drop-shadow-md `}>
-            <div className="flex items-center justify-center bg-solid-black filter drop-shadow-md bg-white h-20">
-                <a className="text-xl font-semibold text-solid-white" href="/">LOGO</a>
+            <div className="flex items-center justify-center filter drop-shadow-md bg-solid-black h-20">
+                <a href="/">
+                    <img 
+                        src={LOGO_URL}
+                        alt='Logo'
+                    />
+                </a>
             </div>
             <div className="flex flex-col ml-4">
                 <a className="text-2xl font-bold my-4 text-primary" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
@@ -40,7 +47,12 @@ export default function Navbar() {
         <nav className="flex filter drop-shadow-md bg-solid-black px-4 py-4 h-20 items-center">
             <MobileNav open={open} setOpen={setOpen}/>
             <div className="w-3/12 flex items-center">
-                <a className="text-2xl font-semibold text-solid-white" href="/">LOGO</a>
+                <a href="/">
+                <img 
+                    src={LOGO_URL}
+                    alt='Logo'
+                />
+                </a>
             </div>
             <div className='w-9/12 flex justify-center'>
                 <p className='font-semibold text-2xl text-solid-white'>setlife</p><p className='text-2xl font-thin text-primary'>solutions</p>
@@ -51,19 +63,10 @@ export default function Navbar() {
                     setOpen(!open)
                 }}>
                     {/* hamburger button */}
-                    <span className={`h-1 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-3.5" : ""}`} />
-                    <span className={`h-1 w-full bg-solid-white rounded-lg transition-all duration-300 ease-in-out ${open ? "w-0" : "w-full"}`} />
-                    <span className={`h-1 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-3.5" : ""}`} />
+                    <span className={`h-0.5 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-3.5" : ""}`} />
+                    <span className={`h-0.5 w-full bg-solid-white rounded-lg transition-all duration-300 ease-in-out ${open ? "w-0" : "w-full"}`} />
+                    <span className={`h-0.5 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-3.5" : ""}`} />
                 </div>
-
-                {/* <div className="hidden md:flex">
-                    <NavLink to="/contact">
-                        CONTACT
-                    </NavLink>
-                    <NavLink to="/about">
-                        ABOUT
-                    </NavLink>
-                </div> */}
             </div>
         </nav>
     )
