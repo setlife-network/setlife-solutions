@@ -5,6 +5,8 @@ import { GetTestData } from '../interfaces/TestInterfaces'
 
 import { GET_TEST } from '../operations/queries/TestQueries'
 
+import Hero from '../components/Hero'
+
 const Home: NextPage = () => {
 
     const { error, data, loading } = useQuery<GetTestData>(
@@ -23,7 +25,7 @@ const Home: NextPage = () => {
 
     return (
         <h1 className='text-3xl font-bold'>
-            Home { data && getTest!.title }
+            <Hero />
         </h1>
     )
 }
