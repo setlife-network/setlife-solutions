@@ -32,6 +32,12 @@ const variants = [
             'weight': 'font-bold',
             'size': 'text-2xl'
         }
+    }, 
+    {
+        'alternative': {
+            'weight': 'font-normal',
+            'size': 'text-3xl'
+        }
     }
 ]
 
