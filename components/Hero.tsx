@@ -3,21 +3,27 @@ import React from 'react'
 import Text from './Text'
 import Title from './Title'
 
+import {
+    MAKE_SOFTWARE,
+    YOUR_SUPERPOWER,
+    RATHER_THAN_DELIVERING_A_BLACKBOX
+} from '../constants/strings'
+
 const Hero = ({}) => {
     return (
         <div className='Hero grid grid-cols-1 md:grid-cols-2'>
             <div className='grid grid-rows-2'>
                 <div className=''>
                     <Title tone='setlife' variant='secondary'>
-                        Make software
+                        { MAKE_SOFTWARE }
                     </Title>
                     <Title tone='solid' variant='secondary'>
-                        your superpower
+                        { YOUR_SUPERPOWER }
                     </Title>
                 </div>
                 <div className='mt-16'>
                     <Text>
-                        Rather than delivering a software “blackbox”, SetLife’s solutions engineering process features thoughtful guidance and detailed documentation so you can develop & maintain your project in the future (with or without us!)
+                        { RATHER_THAN_DELIVERING_A_BLACKBOX }
                     </Text>
                 </div>
             </div>
