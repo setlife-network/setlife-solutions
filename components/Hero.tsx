@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Text from './Text'
-import Title from './Title'
+import Headline from './Headline'
 
 import {
     MAKE_SOFTWARE,
@@ -18,12 +18,12 @@ const Hero = ({}) => {
         <div className='Hero grid grid-cols-1 md:grid-cols-2'>
             <div className='grid grid-rows-2 px-2 lg:px-4'>
                 <div className=''>
-                    <Title tone='setlife' variant='secondary'>
+                    <Headline variant='xxl' color='solid-black' alignment='text-center md:text-left'>
                         { MAKE_SOFTWARE }
-                    </Title>
-                    <Title tone='solid' variant='secondary'>
+                    </Headline>
+                    <Headline variant='xxl' color='primary' alignment='text-center md:text-left'>
                         { YOUR_SUPERPOWER }
-                    </Title>
+                    </Headline>
                 </div>
                 <div className='mt-8 xl:mt-0'>
                     <Text>
