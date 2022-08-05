@@ -1,0 +1,7 @@
+export const ABOUT: string = 'About'
+export const CONSULTATION: string = 'Consultation'
+export const PORTFOLIO: string = 'Portfolio'
+export const SERVICE_PACKAGES: string = 'Service Packages'
+export const SERVICES: string = 'Services'
+export const SETLIFE = 'setlife'
+export const SOLUTIONS = 'solutions'

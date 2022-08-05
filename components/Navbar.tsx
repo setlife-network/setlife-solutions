@@ -1,6 +1,11 @@
 import { useState } from 'react'
 
-import { LOGO_URL, NAV_ITEMS, SETLIFE, SOLUTIONS } from '../constants'
+import { LOGO_URL, NAV_ITEMS } from '../constants'
+import {
+    SETLIFE,
+    SOLUTIONS
+} from '../constants/strings'
+
 import HamburgerButton from './HamburgerButton'
 
 const renderNavItems = () => {
@@ -34,10 +39,8 @@ function MobileNav({open, setOpen}: any) {
                     />
                 </a>
             </div>
-            <div className="flex flex-col ml-4">
-                {
-                    renderNavItems()
-                }
+            <div className='flex flex-col ml-4'>
+                { renderNavItems() }
             </div>  
         </div>
     )
@@ -46,11 +49,12 @@ function MobileNav({open, setOpen}: any) {
 export default function Navbar() {
 
     const [open, setOpen] = useState(false)
+    
     return (
-        <nav className="flex filter drop-shadow-md bg-solid-black px-4 py-4 h-20 items-center md:bg-solid-white">
+        <nav className='flex filter drop-shadow-md bg-solid-black px-4 py-4 h-20 items-center md:bg-solid-white'>
             <MobileNav open={open} setOpen={setOpen} />
-            <div className="w-3/12 flex md:hidden items-center">
-                <a href="/">
+            <div className='w-3/12 flex md:hidden items-center'>
+                <a href='/'>
                 <img 
                     src={LOGO_URL}
                     alt='Logo'
@@ -63,14 +67,11 @@ export default function Navbar() {
             </div>
             <div className="w-3/12 flex justify-end items-center md:w-6/12">
                 <HamburgerButton 
-                    open = {open}
-                    setOpen = {setOpen}
+                    open={open}
+                    setOpen={setOpen}
                 />
-
                 <div className="hidden md:flex">
-                    {
-                        renderNavItems()
-                    }
+                    { renderNavItems() }
                 </div>
             </div>
         </nav>
