@@ -1,12 +1,21 @@
 import { useState } from 'react'
 
-import { LOGO_URL } from '../constants'
+import { LOGO_URL, NAV_ITEMS, SETLIFE, SOLUTIONS } from '../constants'
+import HamburgerButton from './HamburgerButton'
 
-function NavLink({to, children}: any) {
+const renderNavItems = () => {
     return (
-        <a href={to} className='mx-4'>
-            {children}
-        </a>
+        NAV_ITEMS.map((n, i) => {
+            return (
+                <a 
+                    className='text-2xl font-bold my-4 text-primary md:mx-4 md:text-base md:text-solid-black md:my-0' 
+                    href={n.toLowerCase().replace(' ', '-')} 
+                    key={i}
+                >
+                    {n}
+                </a>
+            )
+        })
     )
 }
 
@@ -26,21 +35,9 @@ function MobileNav({open, setOpen}: any) {
                 </a>
             </div>
             <div className="flex flex-col ml-4">
-                <a className="text-2xl font-bold my-4 text-primary" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-                    About
-                </a>
-                <a className="text-2xl font-bold my-4 text-primary" href="/services" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-                    Services
-                </a>
-                <a className="text-2xl font-bold my-4 text-primary" href="/conssultation" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-                    Consultation
-                </a>
-                <a className="text-2xl font-bold my-4 text-primary" href="/portfolio" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-                    Portfolio
-                </a>
-                <a className="text-2xl font-bold my-4 text-primary" href="/service-packages" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-                    Service package
-                </a>
+                {
+                    renderNavItems()
+                }
             </div>  
         </div>
     )
@@ -50,9 +47,9 @@ export default function Navbar() {
 
     const [open, setOpen] = useState(false)
     return (
-        <nav className="flex filter drop-shadow-md bg-solid-black px-4 py-4 h-20 items-center">
+        <nav className="flex filter drop-shadow-md bg-solid-black px-4 py-4 h-20 items-center md:bg-solid-white">
             <MobileNav open={open} setOpen={setOpen} />
-            <div className="w-3/12 flex items-center">
+            <div className="w-3/12 flex md:hidden items-center">
                 <a href="/">
                 <img 
                     src={LOGO_URL}
@@ -60,20 +57,20 @@ export default function Navbar() {
                 />
                 </a>
             </div>
-            <div className='w-9/12 flex justify-center'>
-                <p className='font-semibold text-2xl text-solid-white'>setlife</p><p className='text-2xl font-thin text-primary'>solutions</p>
+            <div className='w-9/12 flex justify-center md:justify-start md:ml-5 md:w-6/12'>
+                <a className='font-semibold text-2xl text-solid-white md:text-solid-black'>{SETLIFE}</a>
+                <a className='text-2xl font-thin text-primary'>{SOLUTIONS}</a>
             </div>
-            <div className="w-3/12 flex justify-end items-center">
-                <div 
-                    className="z-50 flex relative w-8 h-8 flex-col justify-between items-center" 
-                    onClick={() => {
-                        setOpen(!open)
-                    }}
-                >
-                    {/* hamburger button */}
-                    <span className={`h-0.5 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-3.5" : ""}`} />
-                    <span className={`h-0.5 w-full bg-solid-white rounded-lg transition-all duration-300 ease-in-out ${open ? "w-0" : "w-full"}`} />
-                    <span className={`h-0.5 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-3.5" : ""}`} />
+            <div className="w-3/12 flex justify-end items-center md:w-6/12">
+                <HamburgerButton 
+                    open = {open}
+                    setOpen = {setOpen}
+                />
+
+                <div className="hidden md:flex">
+                    {
+                        renderNavItems()
+                    }
                 </div>
             </div>
         </nav>
