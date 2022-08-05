@@ -1,34 +1,38 @@
 import React from 'react'
 
-interface HeadlineProps {
-    children: string,
-    alignment?: string,
-    color?: string,
-    variant?: string,
-}
-
-interface StyleProps {
-    weight: string,
-    size: string
-}
-
-interface variantsProps {
-    variant: string
-}
+import TextProps from '../interfaces/TextProps'
 
 const variants = [
-    {'xxl': {
-        'weight': 'font-bold',
-        'size': 'text-5xl lg:text-6xl'
-    }},
-    {'xl': {
-        'weight': 'font-bold',
-        'size': 'text-3xl lg:text-4xl'
-    }}, 
-    {'l': {
-        'weight': 'font-normal',
-        'size': 'text-2xl'
-    }}
+    {
+        'xxl': {
+            'weight': 'font-bold',
+            'size': 'text-6xl'
+        }
+    },
+    {
+        'xl': {
+            'weight': 'font-bold',
+            'size': 'text-5xl'
+        }
+    }, 
+    {
+        'l': {
+            'weight': 'font-normal',
+            'size': 'text-4xl'
+        }
+    },
+    {
+        'h1': {
+            'weight': 'font-bold',
+            'size': 'text-3xl'
+        }
+    },
+    {
+        'h2': {
+            'weight': 'font-bold',
+            'size': 'text-2xl'
+        }
+    }
 ]
 
 const Headline = ({
@@ -36,7 +40,7 @@ const Headline = ({
     children,
     color,
     variant
-}: HeadlineProps) => {
+}: TextProps) => {
 
     const styleProps: any = Object.values(variants.filter(v => Object.keys(v)[0] == variant)[0])[0]
 
