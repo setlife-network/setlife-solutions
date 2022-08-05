@@ -30,11 +30,11 @@ const Title = ({
     if (variant == 'primary') {
         styleProps.alignment = 'text-center'
     } else if (variant == 'secondary') {
-        styleProps.alignment = 'text-center sm:text-left'
+        styleProps.alignment = 'text-center md:text-left'
     }
 
     return (
-        <div className={`Title text-5xl sm:text-6xl font-bold text-${styleProps.color} ${styleProps.alignment}`}>
+        <div className={`Title text-5xl lg:text-6xl font-bold text-${styleProps.color} ${styleProps.alignment}`}>
             { children }
         </div>
     )
