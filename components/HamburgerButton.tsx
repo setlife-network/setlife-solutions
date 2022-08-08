@@ -12,9 +12,9 @@ const HamburgerButton = (props: any) => {
                 setOpen(!open)
             }}
         >
-            <span className={`h-0.5 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out`} />
-            <span className={`h-0.5 w-full bg-solid-white rounded-lg transition-all duration-300 ease-in-out`} />
-            <span className={`h-0.5 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out`} />
+            <span className='h-0.5 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out' />
+            <span className='h-0.5 w-full bg-solid-white rounded-lg transition-all duration-300 ease-in-out' />
+            <span className='h-0.5 w-full bg-solid-white rounded-lg transform transition duration-300 ease-in-out' />
         </div>
     )
 }
