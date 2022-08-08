@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Text from './Text'
 import Headline from './Headline'
+import Paragraph from './Paragraph'
 
 import {
     MAKE_SOFTWARE,
@@ -26,9 +26,9 @@ const Hero = ({}) => {
                     </Headline>
                 </div>
                 <div className='mt-8 xl:mt-0'>
-                    <Text>
+                    <Paragraph>
                         { RATHER_THAN_DELIVERING_A_BLACKBOX }
-                    </Text>
+                    </Paragraph>
                 </div>
             </div>
             <div className='grid px-2 lg:px-4 max-w-md md:max-w-lg place-content-center mt-12 md:mt-0 m-auto'>
