@@ -15,7 +15,7 @@ import {
 
 const Hero = ({}) => {
     return (
-        <div className='Hero grid grid-cols-1 md:grid-cols-2'>
+        <div className='Hero grid grid-cols-1 md:grid-cols-2 mx-8 md:mx-24 xl:mx-48'>
             <div className='grid grid-rows-2 px-2 lg:px-4'>
                 <div className=''>
                     <Headline variant='xxl' color='solid-black' alignment='text-center md:text-left'>

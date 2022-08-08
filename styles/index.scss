@@ -1,9 +1,14 @@
 @import './themes/default.scss';
 
-//Themes
+// Globals
+@import 'flex.scss';
+
+// Themes
 .default-theme {
   @include color-vars-default;
 };
+
+@import './ServiceTile.scss';
 
 html,
 body {

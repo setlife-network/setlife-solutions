@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <ApolloProvider client={client}>
             <div className='default-theme'>
-                <div className='mx-8 md:mx-24 xl:mx-48'>
+                <div className=''>
                     <Component {...pageProps} />
                 </div>
             </div>

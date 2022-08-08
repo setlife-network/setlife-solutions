@@ -5,13 +5,13 @@ import TextProps from '../interfaces/TextProps'
 const variants = [
     {
         'm': {
-            'weight': 'font-regular',
+            'weight': 'font-light',
             'size': 'text-base'
         }
     },
     {
-        's': {
-            'weight': 'font-regular',
+        'sm': {
+            'weight': 'font-light',
             'size': 'text-sm'
         }
     }
