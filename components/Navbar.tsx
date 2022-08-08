@@ -51,7 +51,7 @@ export default function Navbar() {
     const [open, setOpen] = useState(false)
     
     return (
-        <nav className='flex filter drop-shadow-md bg-solid-black px-4 py-4 h-20 items-center md:bg-solid-white'>
+        <nav className='flex filter bg-solid-black px-4 py-4 h-20 items-center md:bg-solid-white'>
             <MobileNav open={open} setOpen={setOpen} />
             <div className='w-3/12 flex md:hidden items-center'>
                 <a href='/'>
