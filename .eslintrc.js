@@ -46,6 +46,8 @@ module.exports = {
         'import/no-cycle': 'off',
         'import/no-unresolved': 'off',
         'import/order': 'off',
+        'jsx-a11y/click-events-have-key-events': ['off'],
+        'jsx-a11y/no-static-element-interactions': ['off'],
         'jsx-quotes': ['off'],
         'keyword-spacing': ['error', { 'after': true }],
         'lines-between-class-members': 'off',
