@@ -55,15 +55,15 @@ export default function Navbar() {
             <MobileNav open={open} setOpen={setOpen} />
             <div className='w-3/12 flex md:hidden items-center'>
                 <a href='/'>
-                <img 
-                    src={LOGO_URL}
-                    alt='Logo'
-                />
+                    <img 
+                        src={LOGO_URL}
+                        alt='Logo'
+                    />
                 </a>
             </div>
             <div className='w-9/12 flex justify-center md:justify-start md:ml-5 md:w-6/12'>
-                <a className='font-semibold text-2xl text-solid-white md:text-solid-black'>{SETLIFE}</a>
-                <a className='text-2xl font-thin text-primary'>{SOLUTIONS}</a>
+                <a href='/' className='font-semibold text-2xl text-solid-white md:text-solid-black'>{SETLIFE}</a>
+                <a href='/' className='text-2xl font-thin text-primary'>{SOLUTIONS}</a>
             </div>
             <div className="w-3/12 flex justify-end items-center md:w-6/12">
                 <HamburgerButton 
