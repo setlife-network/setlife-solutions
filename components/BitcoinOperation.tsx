@@ -7,14 +7,10 @@ import {
     CLICK_TO_LEARN_MORE
 } from '../constants/strings'
 
-import {
-    BITCOIN_IMAGE_URL
-} from '../constants'
-
 const BitcoinOperation = ({}) => {
     return (
         <div className='bg-primary'>
-            <div className={`grid grid-rows-2 gap-6 mx-8 pt-12 md:mx-24 xl:mx-48 bg-[url('https://setlife-solutions.s3.amazonaws.com/images/B+bitcoin.png')] bg-no-repeat bg-right bg-contain`}>
+            <div className='grid grid-rows-2 gap-6 mx-8 pt-12 md:mx-24 xl:mx-48 bg-bitcoin bg-no-repeat bg-right bg-contain'>
                 <div className=''>
                     <Headline variant='xxl' color='solid-white'>
                         { SETLIFE_OPERATES }
