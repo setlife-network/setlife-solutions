@@ -13,8 +13,8 @@ import {
 
 const BitcoinOperation = ({}) => {
     return (
-        <div className='grid grid-cols-3 bg-primary'>
-            <div className='grid grid-rows-2 col-span-2 ml-8 pt-12 md:ml-24 xl:ml-48'>
+        <div className='bg-primary'>
+            <div className={`grid grid-rows-2 gap-6 mx-8 pt-12 md:mx-24 xl:mx-48 bg-[url('https://setlife-solutions.s3.amazonaws.com/images/B+bitcoin.png')] bg-no-repeat bg-right bg-contain`}>
                 <div className=''>
                     <Headline variant='xxl' color='solid-white'>
                         { SETLIFE_OPERATES }
@@ -24,13 +24,10 @@ const BitcoinOperation = ({}) => {
                     </Headline>
                 </div>
                 <div className=''>
-                    <Headline variant='alternative' color='solid-white'>
+                    <Headline variant='alternative' color='solid-black'>
                         { CLICK_TO_LEARN_MORE }
                     </Headline>
                 </div>
-            </div>
-            <div className='grid text-center pt-5 mr-8 pt-12 md:mr-24 xl:mr-48'>
-                <img src={BITCOIN_IMAGE_URL} alt='Bitcoin' />
             </div>
         </div>
     )
