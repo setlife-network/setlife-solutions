@@ -1,11 +1,11 @@
 import React from 'react'
-import Headline from './Headline'
 
 import {
     SETLIFE_OPERATES,
     ON_A_BITCOIN_STANDARD,
     CLICK_TO_LEARN_MORE
 } from '../constants/strings'
+import LearnMore from './LearnMore'
 
 const BitcoinOperation = ({}) => {
     return (
@@ -19,19 +19,8 @@ const BitcoinOperation = ({}) => {
                         { ON_A_BITCOIN_STANDARD }
                     </h1>
                 </div>
-                <div className='grid grid-cols-2 md:grid-cols-4'>
-                    <div className=''>
-                        <a href='/' className='text-base font-normal md:text-2xl'>
-                            { CLICK_TO_LEARN_MORE } 
-                        </a>
-                    </div>
-                    <div className='md:col-span-3'>
-                        <a href='/'>
-                            <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 mt-4 md:mt-3 md:w-6 md:h-6' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2}>
-                                <path strokeLinecap='round' strokeLinejoin='round' d='M14 5l7 7m0 0l-7 7m7-7H3' />
-                            </svg>
-                        </a>
-                    </div>
+                <div className=''>
+                    <LearnMore text={CLICK_TO_LEARN_MORE} url='/' />
                 </div>
             </div>
         </div>
