@@ -6,6 +6,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            backgroundSize: {
+                '44': '11rem'
+            },
             backgroundImage: {
                 'bitcoin': 'url("https://setlife-solutions.s3.amazonaws.com/images/B+bitcoin.png")'
             },
