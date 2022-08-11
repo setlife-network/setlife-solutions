@@ -6,6 +6,7 @@ import { GetTestData } from '../interfaces/TestInterfaces'
 import { GET_TEST } from '../operations/queries/TestQueries'
 
 import Hero from '../components/Hero'
+import Section from '../components/Section'
 import Services from '../components/Services'
 
 const Home: NextPage = () => {
@@ -26,8 +27,12 @@ const Home: NextPage = () => {
 
     return (
         <h1 className='text-3xl font-bold'>
-            <Hero />
-            <Services />
+            <Section color='solid-white'>
+                <Hero />
+            </Section>
+            <Section color='light-gray'>
+                <Services />
+            </Section>
         </h1>
     )
 }

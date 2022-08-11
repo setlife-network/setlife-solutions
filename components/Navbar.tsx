@@ -65,12 +65,12 @@ export default function Navbar() {
                 <a href='/' className='font-semibold text-2xl text-solid-white md:text-solid-black'>{SETLIFE}</a>
                 <a href='/' className='text-2xl font-thin text-primary'>{SOLUTIONS}</a>
             </div>
-            <div className="w-3/12 flex justify-end items-center md:w-6/12">
+            <div className="w-12/12 flex justify-end items-center md:w-6/12">
                 <HamburgerButton 
                     open={open}
                     setOpen={setOpen}
                 />
-                <div className="hidden md:flex">
+                <div className="grid grid-cols-5 hidden md:flex text-center">
                     { renderNavItems() }
                 </div>
             </div>
