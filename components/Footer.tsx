@@ -12,13 +12,14 @@ import {
 const renderFootItems = () => {
     return (
         FOOT_ITEMS.map((n, i) => {
+            const logoName = n.substring(50).replace('.png', '')
             return (
                 <a 
-                    href={n.toLowerCase().substring(50).replace('.png', '')} 
+                    href='/' 
                     key={i}
                     className='mx-8 self-center md:mx-6'
                 >
-                    <img src={n} alt='test' />
+                    <img src={n} alt={logoName} />
                 </a>
             )
         })
