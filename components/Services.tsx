@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from '@apollo/client'
 
-import GraySection from './GraySection'
+import Section from './Section'
 import Headline from './Headline'
 import ServiceTile from './ServiceTile'
 
@@ -57,36 +57,34 @@ const Services = () => {
     }
 
     return (
-        <GraySection>
-            <div className='Services'>
-                <div className='mb-12'>
-                    <Headline variant='h1' color='solid-black' alignment='text-center md:text-left'>
-                        { SERVICES }
-                    </Headline>
-                </div>
-                <div className='grid grid-rows-1 gap-8'>
-                    <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
-                        <div key={services[0].id}>
-                            <ServiceTile name={services[0].name} description={services[0].description} url={`/services/${services[0].id}`} />
-                        </div>
-                        <div key={services[1].id}>
-                            <ServiceTile name={services[1].name} description={services[1].description} url={`/services/${services[1].id}`} />
-                        </div>
-                        <div key={services[2].id}>
-                            <ServiceTile name={services[2].name} description={services[2].description} url={`/services/${services[2].id}`} />
-                        </div>
+        <div className='Services'>
+            <div className='mb-12'>
+                <Headline variant='h1' color='solid-black' alignment='text-center md:text-left'>
+                    { SERVICES }
+                </Headline>
+            </div>
+            <div className='grid grid-rows-1 gap-8'>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+                    <div key={services[0].id}>
+                        <ServiceTile name={services[0].name} description={services[0].description} url={`/services/${services[0].id}`} />
                     </div>
-                    <div className='grid grid-cols-1 lg:grid-cols-6 gap-8'>
-                        <div className='lg:col-start-2 lg:col-span-2' key={services[3].id}>
-                            <ServiceTile name={services[3].name} description={services[3].description} url={`/services/${services[3].id}`} />
-                        </div>
-                        <div className='lg:col-start-4 lg:col-span-2' key={services[4].id}>
-                            <ServiceTile name={services[4].name} description={services[4].description} url={`/services/${services[4].id}`} />
-                        </div>
+                    <div key={services[1].id}>
+                        <ServiceTile name={services[1].name} description={services[1].description} url={`/services/${services[1].id}`} />
+                    </div>
+                    <div key={services[2].id}>
+                        <ServiceTile name={services[2].name} description={services[2].description} url={`/services/${services[2].id}`} />
+                    </div>
+                </div>
+                <div className='grid grid-cols-1 lg:grid-cols-6 gap-8'>
+                    <div className='lg:col-start-2 lg:col-span-2' key={services[3].id}>
+                        <ServiceTile name={services[3].name} description={services[3].description} url={`/services/${services[3].id}`} />
+                    </div>
+                    <div className='lg:col-start-4 lg:col-span-2' key={services[4].id}>
+                        <ServiceTile name={services[4].name} description={services[4].description} url={`/services/${services[4].id}`} />
                     </div>
                 </div>
             </div>
-        </GraySection>
+        </div>
     )
 }
 
