@@ -7,6 +7,8 @@ import { GET_TEST } from '../operations/queries/TestQueries'
 
 import Hero from '../components/Hero'
 import Services from '../components/Services'
+import BitcoinOperation from '../components/BitcoinOperation'
+import Section from '../components/Section'
 
 const Home: NextPage = () => {
 
@@ -26,8 +28,15 @@ const Home: NextPage = () => {
 
     return (
         <h1 className='text-3xl font-bold'>
-            <Hero />
-            <Services />
+            <Section>
+                <Hero />
+            </Section>
+            <Section color='light-gray'>
+                <Services />
+            </Section>
+            <Section color='primary' paddingBottom=''>
+                <BitcoinOperation />
+            </Section>
         </h1>
     )
 }
