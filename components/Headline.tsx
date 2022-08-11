@@ -58,7 +58,7 @@ const Headline = ({
 }
 
 Headline.defaultProps = {
-    alignment: 'left',
+    alignment: 'text-left',
     color: 'solid-black',
     variant: 'l'
 }

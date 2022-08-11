@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Headline from './Headline'
+
 import {
     SETLIFE_OPERATES,
     ON_A_BITCOIN_STANDARD,
@@ -13,12 +15,12 @@ const BitcoinOperation = ({}) => {
             <div className='bg-bitcoin bg-no-repeat mr-8 bg-right-bottom md:mr-24 md:bg-right bg-44 md:bg-contain'>
                 <div className='grid grid-rows-2 gap-6 mx-8 pt-12 md:mx-24 xl:mx-48'>
                     <div className=''>
-                        <h1 className='text-2xl font-bold text-solid-white md:text-6xl'>
+                        <Headline variant='xxl' color='solid-white' alignment='text-left'>
                             { SETLIFE_OPERATES }
-                        </h1>
-                        <h1 className='text-2xl font-bold text-solid-white md:text-6xl'>
+                        </Headline>
+                        <Headline variant='xxl' color='solid-white' alignment='text-left'>
                             { ON_A_BITCOIN_STANDARD }
-                        </h1>
+                        </Headline>
                     </div>
                     <div className=''>
                         <LearnMore text={CLICK_TO_LEARN_MORE} url='/' />
