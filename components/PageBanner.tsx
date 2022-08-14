@@ -4,12 +4,14 @@ import Headline from './Headline'
 
 interface PageBannerProps {
     image: string,
-    title: string
+    title: string,
+    titleAlignment?: string
 }
 
 const PageBanner = ({
     image,
-    title
+    title,
+    titleAlignment
 }: PageBannerProps) => {
 
     return (
@@ -20,13 +22,17 @@ const PageBanner = ({
         >
             <div className='title-container bg-primary-alt grid grid-cols px-12 py-8'>
                 <div className=''>
-                    <Headline color='solid-white' variant='xl'>
+                    <Headline color='solid-white' variant='xl' alignment={titleAlignment}>
                         { title }
                     </Headline>
                 </div>
             </div>
         </div>
     )
+}
+
+PageBanner.defaultProps = {
+    titleAlignment: 'left'
 }
 
 export default PageBanner
