@@ -27,6 +27,10 @@ module.exports = (sequelize: any) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        image_url: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         project_resource: {
             type: DataTypes.STRING,
         },
