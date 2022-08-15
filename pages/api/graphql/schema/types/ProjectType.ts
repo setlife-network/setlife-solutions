@@ -8,6 +8,7 @@ module.exports = gql`
     description: String
     client_name: String
     client_description: String
+    image_url: String
     project_resource: String
     other_resource: String
     projectDetails: [ProjectDetail]
