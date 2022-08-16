@@ -3,11 +3,7 @@ import Headline from './Headline'
 
 import { 
     FOOT_ITEMS,
-    GITHUB_URL,
-    LINKEDIN_URL,
     SETLIFE_NETWORK_URL,
-    TWITTER_URL,
-    YOUTUBE_URL,
 } from '../constants'
 import {
     SETLIFE,
@@ -19,29 +15,21 @@ import {
 const renderFootItems = () => {
     return (
         FOOT_ITEMS.map((n, i) => {
-            const logoName = n.substring(50).replace('.png', '')
-            const URL = () => {
-                if (logoName == 'Youtube') {
-                    return YOUTUBE_URL
-                } else if (logoName == 'Twitter') {
-                    return TWITTER_URL
-                } else if (logoName == 'Github') {
-                    return GITHUB_URL
-                } else if (logoName == 'Linkedin') {
-                    return LINKEDIN_URL
-                }
+            if (n.match('amazonaws')) {
+                const logoName = n.substring(50).replace('.png', '')
+                const URL = FOOT_ITEMS[i + 1]
+                return (
+                    <a 
+                        href={URL}
+                        rel='noopener noreferrer'
+                        target='_blank'
+                        key={i}
+                        className='mx-8 self-center md:mx-6'
+                    >
+                        <img src={n} alt={logoName} />
+                    </a>
+                )
             }
-            return (
-                <a 
-                    href={URL()}
-                    rel='noopener noreferrer'
-                    target='_blank'
-                    key={i}
-                    className='mx-8 self-center md:mx-6'
-                >
-                    <img src={n} alt={logoName} />
-                </a>
-            )
         })
     )
 }
