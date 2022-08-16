@@ -4,8 +4,7 @@ module.exports = {
         return queryInterface.sequelize.transaction(t => {
             return Promise.all([
                 queryInterface.addColumn('projects', 'image_url', {
-                    type: Sequelize.DataTypes.STRING,
-                    allowNull: false
+                    type: Sequelize.DataTypes.STRING
                 }, { transaction: t })
             ])
         })
