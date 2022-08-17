@@ -10,14 +10,14 @@ import HamburgerButton from './HamburgerButton'
 
 const renderNavItems = () => {
     return (
-        NAV_ITEMS.map((n, i) => {
+        NAV_ITEMS.map((item, idx) => {
             return (
                 <a 
                     className='text-2xl font-bold my-4 text-primary md:mx-4 md:text-base md:text-solid-black md:my-0' 
-                    href={n.toLowerCase().replace(' ', '-')} 
-                    key={i}
+                    href={item.link} 
+                    key={idx}
                 >
-                    {n}
+                    {item.name}
                 </a>
             )
         })
