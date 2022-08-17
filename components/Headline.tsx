@@ -34,9 +34,27 @@ const variants = [
         }
     }, 
     {
+        'h2-semibold': {
+            'weight': 'font-semibold',
+            'size': 'text-2xl'
+        }
+    },
+    {
+        'h2-thin': {
+            'weight': 'font-thin',
+            'size': 'text-2xl'
+        }
+    },
+    {
         'alternative': {
             'weight': 'font-normal',
             'size': 'text-3xl'
+        }
+    },
+    {
+        'xs': {
+            'weight': 'font-normal',
+            'size': 'text-xs'
         }
     }
 ]
