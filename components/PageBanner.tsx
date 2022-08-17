@@ -20,7 +20,7 @@ const PageBanner = ({
             className='PageBanner flex items-end h-96 grid grid-rows'
             style={{backgroundImage: 'url(' + image + ')'}}
         >
-            <div className='title-container bg-primary-alt grid grid-cols px-12 py-8'>
+            <div className='title-container bg-primary-alt grid grid-cols px-8 md:px-24 xl:px-48 py-8'>
                 <div className=''>
                     <Headline color='solid-white' variant='xl' alignment={titleAlignment}>
                         { title }

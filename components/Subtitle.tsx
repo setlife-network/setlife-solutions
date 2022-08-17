@@ -47,7 +47,8 @@ const Subtitle = ({
 
 Subtitle.defaultProps = {
     alignment: 'text-left',
-    color: 'solid-black'
+    color: 'solid-black',
+    variant: 'm'
 }
 
 export default Subtitle
