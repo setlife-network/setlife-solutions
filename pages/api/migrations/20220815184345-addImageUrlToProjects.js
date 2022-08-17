@@ -3,7 +3,16 @@ module.exports = {
     async up (queryInterface, Sequelize) {
         return queryInterface.sequelize.transaction(t => {
             return Promise.all([
-                queryInterface.addColumn('projects', 'image_url', {
+                queryInterface.addColumn('projects', 'tile_image_url', {
+                    type: Sequelize.DataTypes.STRING
+                }, { transaction: t }),
+                queryInterface.addColumn('projects', 'device_image_url', {
+                    type: Sequelize.DataTypes.STRING
+                }, { transaction: t }),
+                queryInterface.addColumn('projects', 'logo_image_url', {
+                    type: Sequelize.DataTypes.STRING
+                }, { transaction: t }),
+                queryInterface.addColumn('projects', 'background_banner_image_url', {
                     type: Sequelize.DataTypes.STRING
                 }, { transaction: t })
             ])
@@ -13,7 +22,10 @@ module.exports = {
     async down (queryInterface, Sequelize) {
         return queryInterface.sequelize.transaction(t => {
             return Promise.all([
-                queryInterface.removeColumn('projects', 'image_url', { transaction: t })
+                queryInterface.removeColumn('projects', 'tile_image_url', { transaction: t }),
+                queryInterface.removeColumn('projects', 'device_image_url', { transaction: t }),
+                queryInterface.removeColumn('projects', 'logo_image_url', { transaction: t }),
+                queryInterface.removeColumn('projects', 'background_banner_image_url', { transaction: t }),
             ])
         })
     }
