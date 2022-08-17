@@ -14,15 +14,6 @@ import {
 } from '../../constants/strings'
 import { SOFTWARE_CONSULTING_BANNER_IMAGE_URL } from '../../constants'
 
-const PROJECTS = [
-    {
-        id: 1,
-        client_name: '',
-        name: '',
-        description: '',
-    }
-]
-
 interface project {
     id: number,
     client_name: string,
@@ -46,9 +37,6 @@ const ProjectsPage: NextPage = () => {
             </>
         )
     }
-
-    console.log('data')
-    console.log(data)
 
     const projects = [...data!.fetchProjects]
 
@@ -86,7 +74,6 @@ const ProjectsPage: NextPage = () => {
                         { renderProjects() }
                     </div>
                 </div>
-
             </Section>
         </div>
     )
