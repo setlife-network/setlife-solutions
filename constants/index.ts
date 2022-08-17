@@ -25,4 +25,9 @@ export const SETLIFE_NETWORK_URL: string = 'https://www.setlife.network/'
 
 // Arrays
 export const NAV_ITEMS: Array<string> = [ABOUT, PORTFOLIO, CONSULTATION, SERVICES, SERVICE_PACKAGES]
-export const FOOT_ITEMS: Array<string> = [GITHUB_LOGO, GITHUB_URL, LINKEDIN_LOGO, LINKEDIN_URL, TWITTER_LOGO, TWITTER_URL, YOUTUBE_LOGO, YOUTUBE_URL]
+export const FOOT_ITEMS: Array<any> = [
+    { name: 'GitHub', logo: GITHUB_LOGO, url: GITHUB_URL }, 
+    { name: 'Linkedin', logo: LINKEDIN_LOGO, url: LINKEDIN_URL }, 
+    { name: 'Twitter', logo: TWITTER_LOGO, url: TWITTER_URL }, 
+    { name: 'Youtube', logo: YOUTUBE_LOGO, url: YOUTUBE_URL }
+]
