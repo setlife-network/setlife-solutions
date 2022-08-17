@@ -34,7 +34,7 @@ const ProjectTile = ({
             <div>
                 <div 
                     className='background flex items-end h-60 grid grid-rows'
-                    style={{backgroundImage: `url(${image})`}}
+                    style={{ backgroundImage: `url(${image})` }}
                 >
                     <div className='title-container bg-primary-alt grid grid-cols px-6 py-4'>
                         <div className=' grid grid-rows'>
@@ -59,7 +59,7 @@ const ProjectTile = ({
                     </div>
                 </div>
             </div>
-            <div className='mt-4'>
+            <div className='mt-4 h-24 text-ellipsis overflow-hidden'>
                 { description }
             </div>
         </div>

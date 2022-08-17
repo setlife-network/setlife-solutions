@@ -60,6 +60,7 @@ const ProjectsPage: NextPage = () => {
                     clientName={p.client_name}
                     name={p.name}
                     description={p.description}
+                    // TODO: Change this for the project tile_image_url
                     image='https://user-images.githubusercontent.com/49292858/184520232-416851cc-9eb5-4f56-ba4b-450579da88c8.png'
                 />
             )
