@@ -70,6 +70,7 @@ const ProjectsPage: NextPage = () => {
     return (
         <div className='ProjectsPage'>
             <PageBanner
+                // TODO: Change this for service banner_image_url
                 image={SOFTWARE_CONSULTING_BANNER_IMAGE_URL}
                 title={PORTFOLIO}
                 titleAlignment='text-center'
