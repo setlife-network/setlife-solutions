@@ -34,7 +34,7 @@ const Home: NextPage = () => {
             <Section color='light-gray'>
                 <Services />
             </Section>
-            <Section color='primary' paddingBottom=''>
+            <Section color='primary' paddingBottom='' paddingTop=''>
                 <BitcoinOperation />
             </Section>
         </h1>
