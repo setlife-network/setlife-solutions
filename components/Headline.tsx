@@ -63,13 +63,15 @@ const Headline = ({
     alignment,
     children,
     color,
-    variant
+    variant,
+    variant_md
 }: TextProps) => {
 
     const styleProps: any = Object.values(variants.filter(v => Object.keys(v)[0] == variant)[0])[0]
+    const mdStyleProps: any = Object.values(variants.filter(v => Object.keys(v)[0] == variant_md)[0])[0]
 
     return (
-        <div className={`Headline ${styleProps.weight} ${styleProps.size} text-${color} ${alignment}`}>
+        <div className={`Headline ${styleProps.weight} ${styleProps.size} text-${color} ${alignment} md:${mdStyleProps.weight} md:${mdStyleProps.size}`}>
             { children }
         </div>
     )
@@ -78,7 +80,8 @@ const Headline = ({
 Headline.defaultProps = {
     alignment: 'text-left',
     color: 'solid-black',
-    variant: 'l'
+    variant: 'l',
+    variant_md: 'l'
 }
 
 export default Headline

@@ -11,13 +11,13 @@ import LearnMore from './LearnMore'
 
 const BitcoinOperation = ({}) => {
     return (
-        <div className='BitcoinOperation bg-bitcoin bg-no-repeat mr-8 bg-right-bottom md:mr-24 md:bg-right bg-44 md:bg-contain'>
+        <div className='BitcoinOperation bg-bitcoin bg-no-repeat bg-right-bottom md:bg-right bg-44 md:bg-contain'>
             <div className='grid grid-rows-2 gap-6 pt-12'>
                 <div className=''>
-                    <Headline variant='xxl' color='solid-white' alignment='text-left'>
+                    <Headline variant='l' variant_md='xxl' color='solid-white' alignment='text-left'>
                         { SETLIFE_OPERATES }
                     </Headline>
-                    <Headline variant='xxl' color='solid-white' alignment='text-left'>
+                    <Headline variant='l' variant_md='xxl' color='solid-white' alignment='text-left'>
                         { ON_A_BITCOIN_STANDARD }
                     </Headline>
                 </div>

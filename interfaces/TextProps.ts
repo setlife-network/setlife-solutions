@@ -3,4 +3,5 @@ export default interface TextProps {
     alignment?: string,
     color?: string,
     variant?: string,
+    variant_md?: string
 }
