@@ -6,7 +6,8 @@ const variants = [
     {
         'xxl': {
             'weight': 'font-bold',
-            'size': 'text-6xl'
+            'size': 'text-3xl',
+            'responsive': 'md:text-6xl'
         }
     },
     {
@@ -48,7 +49,8 @@ const variants = [
     {
         'alternative': {
             'weight': 'font-normal',
-            'size': 'text-3xl'
+            'size': 'text-base',
+            'responsive': 'md:text-3xl'
         }
     },
     {
@@ -63,15 +65,15 @@ const Headline = ({
     alignment,
     children,
     color,
-    variant,
-    variant_md
+    variant
 }: TextProps) => {
 
     const styleProps: any = Object.values(variants.filter(v => Object.keys(v)[0] == variant)[0])[0]
-    const mdStyleProps: any = Object.values(variants.filter(v => Object.keys(v)[0] == variant_md)[0])[0]
+
+    console.log(styleProps.responsive)
 
     return (
-        <div className={`Headline ${styleProps.weight} ${styleProps.size} text-${color} ${alignment} md:${mdStyleProps.weight} md:${mdStyleProps.size}`}>
+        <div className={`Headline ${styleProps.weight} ${styleProps.size} text-${color} ${alignment} ${styleProps.responsive}`}>
             { children }
         </div>
     )
@@ -80,8 +82,7 @@ const Headline = ({
 Headline.defaultProps = {
     alignment: 'text-left',
     color: 'solid-black',
-    variant: 'l',
-    variant_md: 'l'
+    variant: 'l'
 }
 
 export default Headline
