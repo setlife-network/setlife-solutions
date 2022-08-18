@@ -13,9 +13,11 @@ const List = ({
     const renderListItems = (items: ItemProps[]) => {
         return items.map(item => {
             return (
-                <div className='item grid grid-flow-col auto-cols-max'>
-                    <div className='dot rounded-full bg-primary h-4 w-4 m-auto' />
-                    <div className='ml-4'>
+                <div className='item flex'>
+                    <div className='w-8 my-auto'>
+                        <div className='dot rounded-full bg-primary h-4 w-4 my-auto' />
+                    </div>
+                    <div className='pl-4'>
                         <span className='text-base font-bold'>
                             {item.bold}
                         </span>

@@ -3,8 +3,10 @@ import { useQuery } from '@apollo/client'
 
 import Headline from '../../components/Headline'
 import PageBanner from '../../components/PageBanner'
-import ProjectTile from '../../components/ProjectTile'
 import Section from '../../components/Section'
+import ProjectTile from '../../components/ProjectTile'
+
+import ProjectProps from '../../interfaces/ProjectProps'
 
 import { GET_PROJECTS } from '../../operations/queries/ProjectQueries'
 
@@ -14,15 +16,8 @@ import {
 } from '../../constants/strings'
 import { SOFTWARE_CONSULTING_BANNER_IMAGE_URL } from '../../constants'
 
-interface project {
-    id: number,
-    client_name: string,
-    name: string,
-    description: string,
-}
-
 interface getProjects {
-    fetchProjects: project[]
+    fetchProjects: ProjectProps[]
 }
 
 const ProjectsPage: NextPage = () => {
