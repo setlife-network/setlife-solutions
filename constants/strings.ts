@@ -19,3 +19,4 @@ export const SETLIFE_SOLUTIONS_COPYRIGHT: string = 'Setlife solutions copyright 
 export const SETLIFE_NETWORK: string = 'SETLIFE.NETWORK'
 export const THIS_IS_THE_BEST_PLACE_TO_START: string = 'This is the best place to start if you just need some basic technical advisement on how to get your project going'
 export const WHAT_WE_DO = 'What we do'
+export const CAN_YOU_PROVIDE_THESE_SERVICES = 'Can you provide these services?'
