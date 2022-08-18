@@ -53,8 +53,6 @@ const Service: NextPage = () => {
         { 
             variables: { serviceId },
             onCompleted: payload => {
-                console.log('payload.fetchService')
-                console.log(payload.fetchService)
                 setService(payload.fetchService)
                 setServiceDetails(payload.fetchService.serviceDetails)
             }
@@ -70,8 +68,6 @@ const Service: NextPage = () => {
     }
 
     const renderProjects = (projects: ProjectProps[] = []) => {
-        console.log('projects')
-        console.log(projects)
         return projects.map(p => {
             return (
                 <ProjectTile
