@@ -20,6 +20,7 @@ import ServiceDetailProps from '../../interfaces/ServiceDetailProps'
 
 import { SOFTWARE_CONSULTING_BANNER_IMAGE_URL } from '../../constants'
 import {
+    CAN_YOU_PROVIDE_THESE_SERVICES,
     OUR_WORK,
     THIS_IS_THE_BEST_PLACE_TO_START,
     WHAT_WE_DO
@@ -52,8 +53,6 @@ const Service: NextPage = () => {
         { 
             variables: { serviceId },
             onCompleted: payload => {
-                console.log('payload.fetchService')
-                console.log(payload.fetchService)
                 setService(payload.fetchService)
                 setServiceDetails(payload.fetchService.serviceDetails)
             }
@@ -69,8 +68,6 @@ const Service: NextPage = () => {
     }
 
     const renderProjects = (projects: ProjectProps[] = []) => {
-        console.log('projects')
-        console.log(projects)
         return projects.map(p => {
             return (
                 <ProjectTile
@@ -109,7 +106,7 @@ const Service: NextPage = () => {
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
                         <Button link='/'>
-                            Can you provide these services?
+                            { CAN_YOU_PROVIDE_THESE_SERVICES }
                         </Button>   
                     </div>
                     <Subtitle>
