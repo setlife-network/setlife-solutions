@@ -70,8 +70,6 @@ const Headline = ({
 
     const styleProps: any = Object.values(variants.filter(v => Object.keys(v)[0] == variant)[0])[0]
 
-    console.log(styleProps.responsive)
-
     return (
         <div className={`Headline ${styleProps.weight} ${styleProps.size} text-${color} ${alignment} ${styleProps.responsive}`}>
             { children }
