@@ -5,19 +5,14 @@ import Section from './Section'
 import Headline from './Headline'
 import ServiceTile from './ServiceTile'
 
+import ServiceProps from '../interfaces/ServiceProps'
+
 import { GET_SERVICES } from '../operations/queries/ServicesQueries'
 
 import { SERVICES } from '../constants/strings'
 
-interface service {
-    id: number,
-    name: string,
-    description: string,
-    url: string
-}
-
 interface getServices {
-    fetchServices: service[]
+    fetchServices: ServiceProps[]
 }
 
 const Services = () => {
@@ -35,7 +30,7 @@ const Services = () => {
 
     const services = [...data!.fetchServices]
 
-    const renderServicesCols = (services: service[]) => {
+    const renderServicesCols = (services: ServiceProps[]) => {
         return services.map((service, idx) => {
             return (
                 <div className={services.length < 3 ? `sm:col-start-${idx + 2 * (idx + 1)} sm:col-span-2` : ''} key={service.id}>
@@ -45,7 +40,7 @@ const Services = () => {
         })
     }
 
-    const renderServicesRows = (services: service[]) => {
+    const renderServicesRows = (services: ServiceProps[]) => {
         return services.map((_, idx) => {
             if ((idx * 3) > services.length - 1) return
             return (
