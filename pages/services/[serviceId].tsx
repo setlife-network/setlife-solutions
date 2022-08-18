@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 
 import { GET_SERVICE } from '../../operations/queries/ServicesQueries'
 
+import Button from '../../components/Button'
 import List from '../../components/List'
 import PageBanner from '../../components/PageBanner'
 import Paragraph from '../../components/Paragraph'
@@ -92,7 +93,7 @@ const Service: NextPage = () => {
                 title={service ? service.name : ''}
             />
             <Section>
-                <div className='grid grid-rows-auto gap-8'>
+                <div className='grid grid-rows-auto gap-16'>
                     <div className=''>
                         <Paragraph>
                             { THIS_IS_THE_BEST_PLACE_TO_START }
@@ -106,11 +107,16 @@ const Service: NextPage = () => {
                     <div className=''>
                         <List items={serviceItems} />
                     </div>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
+                        <Button link='/'>
+                            Can you provide these services?
+                        </Button>   
+                    </div>
                     <Subtitle>
                         { `${OUR_WORK}:` }
                     </Subtitle>
                     <div 
-                        className='grid grid-flow-row auto-rows-max grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-x-16 lg:gap-y-12 xl:gap-x-24 gap-y-6 xl:gap-y-16 mt-12'
+                        className='grid grid-flow-row auto-rows-max grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-x-16 lg:gap-y-12 xl:gap-x-24 gap-y-6 xl:gap-y-16'
                     >
                         { renderProjects(service ? service.projects : []) }
                     </div>
