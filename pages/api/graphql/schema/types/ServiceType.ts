@@ -6,6 +6,8 @@ module.exports = gql`
     id: Int
     name: String
     description: String
+    background_banner_image_url: String
+    tile_image_url: String
     serviceDetails: [ServiceDetail]
     projects: [Project]
   }
