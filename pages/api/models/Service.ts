@@ -18,6 +18,12 @@ module.exports = (sequelize: any) => {
         description: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        background_banner_image_url: {
+            type: DataTypes.STRING
+        },
+        tile_image_url: {
+            type: DataTypes.STRING
         }
     },
     {
