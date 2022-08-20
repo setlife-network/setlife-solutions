@@ -21,6 +21,12 @@ const variants = [
             'size': 'text-xl'
         }
     },
+    {
+        'xs-light': {
+            'weight': 'font-light',
+            'size': 'text-xl'
+        }
+    },
 ]
 
 const Subtitle = ({
@@ -37,6 +43,12 @@ const Subtitle = ({
             { children }
         </div>
     )
+}
+
+Subtitle.defaultProps = {
+    alignment: 'text-left',
+    color: 'solid-black',
+    variant: 'm'
 }
 
 export default Subtitle
