@@ -1,49 +1,54 @@
 import type { NextPage } from 'next'
+import { useQuery } from '@apollo/client'
 
 import Button from '../../components/Button'
 import Paragraph from '../../components/Paragraph'
 import Section from '../../components/Section'
+import ServicePackageTile from '../../components/ServicePackageTile'
 import Subtitle from '../../components/Subtitle'
+
+import { GET_SERVICE_PACKAGES } from '../../operations/queries/ServicePackagesQueries'
+
+import ServicePackageProps from '../../interfaces/ServicePackageProps'
+
+import {
+    GO_TO_CONSULTATION_FORM,
+    SERVICE_PACKAGES
+} from '../../constants/strings'
+
+interface getServicePackages {
+  fetchServicePackages: ServicePackageProps[]
+}
 
 const ServicePackagesPage: NextPage = () => {
 
-    const renderServicePackages = (servicePackages: any[]) => {
-        return servicePackages.map(service => {
+    const { error, data, loading } = useQuery<getServicePackages>(
+        GET_SERVICE_PACKAGES
+    )
+
+    if (error || loading) {
+        return (
+            <>
+            </>
+        )
+    }
+
+    const servicePackages = [...data!.fetchServicePackages]
+
+    const renderServicePackages = (servicePackages: ServicePackageProps[]) => {
+        return servicePackages.map((service, idx) => {
             return (
-                <div className='service bg-solid-white p-8 rounded-lg'>
-                    <div className='grid grid-flow-row auto-rows-max gap-8'>
-                        <div className='rounded-full bg-primary h-24 w-24 m-auto' />
-                        <Subtitle variant='s' alignment='text-center'>
-                            Code Review & Technical Assessment
-                        </Subtitle>
-                        <Paragraph>
-                            SetLife will dedicate a software solutions engineer to review the codebase and architecture  of your existing system.  
-                        </Paragraph>
-                        <Paragraph>
-                            A Technical Assessment will be provided as documentation that explains which technologies are used in the system and how they are implemented. This document will also provide some measure of code quality and technical debt that will determine howdifficulty it would be to continue building  onto the existing system.
-                        </Paragraph>
-                        <Paragraph color='primary'>
-                            2 meetings
-                        </Paragraph>
-                        <Paragraph alignment='text-center' color='primary'>
-                            Estimated cost
-                        </Paragraph>
-                        <Paragraph alignment='text-center' color='primary' variant='m-bold'>
-                          $500 - $3,000
-                        </Paragraph>
-                    </div>
-                </div>
+                <ServicePackageTile servicePackage={service} idx={idx + 1} />
             )
         })
     }
-
 
     return (
         <div className='ServicePackages'>
             <Section>
                 <div className='grid grid-flow-row auto-rows-max gap-12'>
                     <Subtitle>
-                       Service Packages
+                        { SERVICE_PACKAGES }
                     </Subtitle>
                     <div className='grid grid-cols-1 md:grid-cols-2'>
                         <Paragraph>
@@ -52,14 +57,14 @@ const ServicePackagesPage: NextPage = () => {
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                         <Button variant='secondary' link='/'>
-                            Go to Schedule Consultation form
+                            { GO_TO_CONSULTATION_FORM }
                         </Button>
                     </div>
                 </div>
             </Section>
             <Section color='light-gray'>
-                <div className='grid grid-cols-3 gap-4'>
-                    { renderServicePackages([]) }
+                <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8'>
+                    { renderServicePackages(servicePackages) }
                 </div>
             </Section>
         </div>
