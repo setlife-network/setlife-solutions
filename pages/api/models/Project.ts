@@ -28,10 +28,22 @@ module.exports = (sequelize: any) => {
             allowNull: false
         },
         project_resource: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
         other_resource: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
+        },
+        tile_image_url: {
+            type: DataTypes.STRING
+        },
+        device_image_url: {
+            type: DataTypes.STRING
+        },
+        logo_image_url: {
+            type: DataTypes.STRING
+        },
+        background_banner_image_url: {
+            type: DataTypes.STRING
         }
     },
     {
