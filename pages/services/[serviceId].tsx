@@ -117,7 +117,6 @@ const Service: NextPage = () => {
                     >
                         { renderProjects(service ? service.projects : []) }
                     </div>
-                   
                 </div>
             </Section>
         </div>
