@@ -1,5 +1,3 @@
-import { gql } from 'apollo-server-micro'
-
 module.exports = {
 
     Test: {
@@ -35,3 +33,5 @@ module.exports = {
     }
   
 }
+
+export {}

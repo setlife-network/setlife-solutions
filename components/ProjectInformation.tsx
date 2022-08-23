@@ -55,7 +55,7 @@ const ProjectInformation = ({
         if (p.sub_type == 'dedicated_development' || p.sub_type == 'production_grade') return
         if (find(servicesProvided, ['type', p.sub_type])) {
             const service = find(servicesProvided, ['type', p.sub_type])
-            service.items.push({ bold: '', content: p.description })
+            service!.items.push({ bold: '', content: p.description })
             return
         }
         servicesProvided.push({
