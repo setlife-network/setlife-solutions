@@ -11,6 +11,7 @@ import {
     MINIMUM_COST,
     THIS_PACKAGE_CAN_BE_SCALED_UP
 } from '../constants/strings'
+import CheckTile from './CheckTile'
 
 interface ServicePackageTileProps {
     servicePackage: ServicePackageProps,
@@ -58,16 +59,7 @@ const ServicePackageTile = ({
                     { description }  
                 </Paragraph>
                 {additional_notice && (
-                    <div className='grid grid-cols-12'>
-                        <div className='col-span-2 my-auto mr-auto'>
-                            <div className='rounded-full bg-green-400 h-8 w-8' /> 
-                        </div>
-                        <div className='col-span-9'>
-                            <Paragraph>
-                                { additional_notice }
-                            </Paragraph>
-                        </div>
-                    </div>
+                    <CheckTile additional_notice={additional_notice} />
                 )}
                 <Paragraph color='primary'>
                     { meeting_frequency }
