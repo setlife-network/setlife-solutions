@@ -28,6 +28,13 @@ export const GET_PROJECT = gql`
       device_image_url
       logo_image_url
       background_banner_image_url
+      projectDetails {
+        id
+        project_id
+        description
+        type
+        sub_type
+      }
     }
   }
 `

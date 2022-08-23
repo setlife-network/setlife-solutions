@@ -5,7 +5,9 @@ import { useQuery } from '@apollo/client'
 
 import { GET_PROJECT } from '../../operations/queries/ProjectQueries'
 
+import ProjectInformation from '../../components/ProjectInformation'
 import ProjectDetailBanner from '../../components/ProjectDetailBanner'
+import Section from '../../components/Section'
 
 import ProjectProps from '../../interfaces/ProjectProps'
 
@@ -40,9 +42,11 @@ const ProjectDetailPage: NextPage = () => {
 
     const {
         background_banner_image_url = '',
+        description = '',
         device_image_url = '',
         logo_image_url = '',
         name = '',
+        projectDetails = [],
         project_resource = ''
     } = project || {}
 
@@ -56,6 +60,14 @@ const ProjectDetailPage: NextPage = () => {
                 projectName={name}
                 projectResource={project_resource}
             />
+            <Section>
+                <ProjectInformation 
+                    description={description}
+                    projectDetails={projectDetails}
+                    projectLink={project_resource}
+                    projectName={name}
+                />
+            </Section>
           
         </div>
     )

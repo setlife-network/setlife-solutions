@@ -1,3 +1,5 @@
+import ProjectDetailsProps from './ProjectDetailsProps'
+
 export default interface ProjectProps {
     id: number,
     name: string,
@@ -10,4 +12,5 @@ export default interface ProjectProps {
     device_image_url: string,
     logo_image_url: string,
     background_banner_image_url: string,
+    projectDetails?: ProjectDetailsProps[]
 }
