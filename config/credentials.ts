@@ -9,3 +9,5 @@ module.exports = {
         DB_PORT: process.env.POSTGRES_DB_PORT
     }
 };
+
+export {}
