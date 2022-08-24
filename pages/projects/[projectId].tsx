@@ -70,7 +70,9 @@ const ProjectDetailPage: NextPage = () => {
                 />
             </Section>
             <Section color='light-gray'>
-                <ProjectImpact />
+                <ProjectImpact 
+                    projectDetails={projectDetails}
+                />
             </Section>
           
         </div>
