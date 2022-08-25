@@ -10,6 +10,12 @@ const variants = [
         }
     },
     {
+        'm-bold': {
+            'weight': 'font-bold',
+            'size': 'text-base'
+        }
+    },
+    {
         'sm': {
             'weight': 'font-light',
             'size': 'text-sm'

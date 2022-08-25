@@ -1,7 +1,7 @@
 module.exports = {
   
-  async up (queryInterface, Sequelize) {
-      return queryInterface.createTable('project_details', {
+    async up (queryInterface, Sequelize) {
+        return queryInterface.createTable('project_details', {
             id: {
                 type: Sequelize.DataTypes.INTEGER,
                 primaryKey: true,
@@ -27,11 +27,11 @@ module.exports = {
             sub_type: {
                 type: Sequelize.DataTypes.STRING
             }
-      })
-  },
+        })
+    },
 
-  async down (queryInterface, Sequelize) {
-      return queryInterface.dropTable('project_details');
-  }
+    async down (queryInterface, Sequelize) {
+        return queryInterface.dropTable('project_details');
+    }
 
 }

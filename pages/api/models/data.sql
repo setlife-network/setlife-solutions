@@ -66,7 +66,16 @@ VALUES
     (2, 'Preliminary Development Approach', 'This document will provide a structure and foundation for the technical requirements of a project as well as some cost frameworking for how to proceed further with development. For most projects (especially larger ones), the Development Plan should be a living document owned by the client that contains enough of the business requirements and technical details to begin executing on a focused phase of design or engineering.', '$1,000 - $6,000', null, '3 meetings', 'SetLife will dedicate a software solutions engineer to produce a preliminary draft for a Development Plan.', null, '2022-07-28', '2022-07-28'),
     (3, 'Dedicated Solutions Engineering', 'This package has a minimum 3-month term to deliver at least 1 software release that can be deployed & tested against a set of business requirements. An agile development workflow may be established for continuous software release cycles (typically 4-6 weeks) subject to client satisfaction.', null, '$10,000 per month for 3 months', '1 weekly meeting', 'After a clear plan for development has been provided, a full-time effort will be made to begin executing on the proposed solution.', '1 full-time engineering lead or 1 part-time technial PM and 1 full-time engineer', '2022-07-28', '2022-07-28');
   
-
-
-
-
+-- Provided services
+INSERT INTO public.provided_services
+VALUES
+    (1, 1, '2022-07-28', '2022-07-28'),
+    (2, 1, '2022-07-28', '2022-07-28'),
+    (1, 2, '2022-07-28', '2022-07-28'),
+    (2, 2, '2022-07-28', '2022-07-28'),
+    (1, 3, '2022-07-28', '2022-07-28'),
+    (2, 3, '2022-07-28', '2022-07-28'),
+    (1, 4, '2022-07-28', '2022-07-28'),
+    (2, 4, '2022-07-28', '2022-07-28'),
+    (1, 5, '2022-07-28', '2022-07-28'),
+    (2, 5, '2022-07-28', '2022-07-28');

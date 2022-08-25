@@ -45,3 +45,5 @@ module.exports = (sequelize: any) => {
     return ServicePackage
 
 }
+
+export {}

@@ -8,6 +8,10 @@
   @include color-vars-default;
 };
 
+@import './PageBanner.scss';
+@import './ProjectDetailBanner.scss';
+@import './ProjectTile.scss';
+@import './ServicePackageTile.scss';
 @import './ServiceTile.scss';
 
 html,
