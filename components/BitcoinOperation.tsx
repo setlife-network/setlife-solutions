@@ -23,7 +23,7 @@ const BitcoinOperation = ({}) => {
                     </Headline>
                 </div>
                 <div className=''>
-                    <LearnMore text={CLICK_TO_LEARN_MORE} url={BITCOIN_BANNER_URL} />
+                    <LearnMore text={CLICK_TO_LEARN_MORE} url={BITCOIN_BANNER_URL} newTab />
                 </div>
             </div>
         </div>
