@@ -59,7 +59,16 @@ const ServicePackageTile = ({
                     { description }  
                 </Paragraph>
                 {additional_notice && (
-                    <CheckTile additional_notice={additional_notice} />
+                    <div className='grid grid-cols-12'>
+                        <div className='col-span-2 my-auto mr-auto'>
+                            <CheckTile />
+                        </div>
+                        <div className='col-span-9'>
+                            <Paragraph>
+                                { additional_notice }
+                            </Paragraph>
+                        </div>
+                    </div>
                 )}
                 <Paragraph color='primary'>
                     { meeting_frequency }
