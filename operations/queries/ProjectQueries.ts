@@ -10,6 +10,7 @@ export const GET_PROJECTS = gql`
         client_description
         project_resource
         other_resource
+        tile_image_url
     }
   }
 `
