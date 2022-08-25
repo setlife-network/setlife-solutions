@@ -26,3 +26,4 @@ export const THIS_PACKAGE_CAN_BE_SCALED_UP: string = 'This package can be scaled
 export const GO_TO_CONSULTATION_FORM: string = 'Go to Schedule Consultation form'
 export const SERVICES_PROVIDED = 'Services Provided'
 export const IMPACT = 'Impact'
+export const PRODUCTION_GRADE = 'Production-Grade'
