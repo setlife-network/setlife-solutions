@@ -74,7 +74,6 @@ const ProjectDetailPage: NextPage = () => {
                     projectDetails={projectDetails}
                 />
             </Section>
-          
         </div>
     )
 }

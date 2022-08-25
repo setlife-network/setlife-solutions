@@ -46,9 +46,9 @@ const ProjectImpact = ({
                 </Headline>
             </div>
             <div className='grid grid-rows-1 gap-8'>
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-x-44 gap-y-10'>
-                    {renderDedicatedDevTile()}
-                    {renderProductionGradeTile()}
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10'>
+                    { renderDedicatedDevTile() }
+                    { renderProductionGradeTile() }
                 </div>
             </div>
         </div>
