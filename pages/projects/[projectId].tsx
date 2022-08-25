@@ -11,6 +11,7 @@ import ProjectDetailBanner from '../../components/ProjectDetailBanner'
 import ProjectSimilarWork from '../../components/ProjectSimilarWork'
 import Section from '../../components/Section'
 import ProjectImpact from '../../components/ProjectImpact'
+import ProjectTitle from '../../components/ProjectTitle'
 
 import ProjectProps from '../../interfaces/ProjectProps'
 
@@ -80,6 +81,9 @@ const ProjectDetailPage: NextPage = () => {
     return (
 
         <div className='ProjectDetailPage'>
+            <Section paddingBottom='' paddingTop='pt-8'>
+                <ProjectTitle title={name} />
+            </Section>
             <ProjectDetailBanner
                 backgroundImageUrl={background_banner_image_url}
                 deviceImageUrl={device_image_url}
