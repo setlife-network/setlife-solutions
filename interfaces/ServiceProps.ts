@@ -6,6 +6,7 @@ export default interface ServiceProps {
     name: string,
     description: string,
     url: string,
+    background_banner_image_url: string,
     serviceDetails: ServiceDetailProps[],
     projects: ProjectProps[]
 }

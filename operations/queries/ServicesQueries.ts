@@ -16,6 +16,7 @@ export const GET_SERVICE = gql`
       id
       name
       description
+      background_banner_image_url
       serviceDetails {
         id
         service_id
@@ -29,6 +30,7 @@ export const GET_SERVICE = gql`
         client_description
         project_resource
         other_resource
+        tile_image_url
       }
     }
   }
