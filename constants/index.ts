@@ -16,6 +16,7 @@ export const GITHUB_LOGO: string = 'https://setlife-solutions.s3.amazonaws.com/i
 export const LINKEDIN_LOGO: string = 'https://setlife-solutions.s3.amazonaws.com/images/Linkedin.png'
 export const TWITTER_LOGO: string = 'https://setlife-solutions.s3.amazonaws.com/images/Twitter.png'
 export const YOUTUBE_LOGO: string = 'https://setlife-solutions.s3.amazonaws.com/images/Youtube.png'
+export const PROJECTS_BANNER_IMAGE_URL: string = 'https://setlife-solutions.s3.amazonaws.com/images/Projects_banner.png'
 export const LAPTOP_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/Laptop_icon.png'
 export const THUMBS_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/Thumbs_icon.png'
 
