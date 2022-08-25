@@ -27,3 +27,4 @@ export const GO_TO_CONSULTATION_FORM: string = 'Go to Schedule Consultation form
 export const SERVICES_PROVIDED = 'Services Provided'
 export const IMPACT = 'Impact'
 export const PRODUCTION_GRADE = 'Production-Grade'
+export const YOU_MAY_ALSO_LIKE = 'You may also like'
