@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface ButtonProps {
-    children: string,
+    children: any,
     link: string,
     variant?: string
 }
@@ -19,6 +19,11 @@ const variants = [
             'background': 'bg-solid-white',
             'border': 'border-2 border-primary',
             'color': 'text-primary'
+        }
+    }, {
+        'dark': {
+            'background': 'bg-solid-black',
+            'color': 'text-solid-white' 
         }
     }
 ]
