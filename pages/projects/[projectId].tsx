@@ -10,6 +10,7 @@ import ProjectInformation from '../../components/ProjectInformation'
 import ProjectDetailBanner from '../../components/ProjectDetailBanner'
 import ProjectSimilarWork from '../../components/ProjectSimilarWork'
 import Section from '../../components/Section'
+import ProjectImpact from '../../components/ProjectImpact'
 
 import ProjectProps from '../../interfaces/ProjectProps'
 
@@ -94,12 +95,16 @@ const ProjectDetailPage: NextPage = () => {
                     projectName={name}
                 />
             </Section>
+            <Section color='light-gray'>
+                <ProjectImpact 
+                    projectDetails={projectDetails}
+                />
+            </Section>
             <Section>
                 <ProjectSimilarWork
                     projects={relatedProjects || []}
                 />
             </Section>
-          
         </div>
     )
 }
