@@ -24,6 +24,7 @@ export const TWITTER_URL: string = 'https://twitter.com/SetLifeLearning'
 export const GITHUB_URL: string = 'https://github.com/setlife-network'
 export const LINKEDIN_URL: string = 'https://www.linkedin.com/company/setlife-network'
 export const SETLIFE_NETWORK_URL: string = 'https://www.setlife.network/'
+export const BITCOIN_BANNER_URL: string = 'https://amber.app/blog/bitcoin-makes-sense-for-small-business/'
 
 // Arrays
 export const NAV_ITEMS: Array<any> = [
