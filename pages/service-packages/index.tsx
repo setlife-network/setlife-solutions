@@ -38,7 +38,7 @@ const ServicePackagesPage: NextPage = () => {
     const renderServicePackages = (servicePackages: ServicePackageProps[]) => {
         return servicePackages.map((service, idx) => {
             return (
-                <ServicePackageTile servicePackage={service} idx={idx + 1} />
+                <ServicePackageTile servicePackage={service} idx={idx + 1} key={idx} />
             )
         })
     }
