@@ -3,7 +3,7 @@ import React from 'react'
 interface ButtonProps {
     children: any,
     link?: string | undefined,
-    variant?: string
+    variant?: string,
 }
 
 const variants = [
