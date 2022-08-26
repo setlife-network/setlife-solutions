@@ -7,14 +7,14 @@ import FormSection from '../../components/FormSection'
 import Headline from '../../components/Headline'
 import Section from '../../components/Section'
 
+import {
+    PLEASE_FILL_OUT_THE_FORM,
+    SUBMIT
+} from '../../constants/strings'
+
 const ConsultationPage: NextPage = () => {
 
     const [contactInformation, setContactInformation] = useState({})
-
-    useEffect(() => {
-        console.log('contactInformation')
-        console.log(contactInformation)
-    }, [contactInformation])
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
@@ -35,7 +35,7 @@ const ConsultationPage: NextPage = () => {
         <div className='ConsultationPage'>
             <Section>
                 <Headline variant='h1'>
-                    Please fill out the form below to schedule your consultation. 
+                    {PLEASE_FILL_OUT_THE_FORM}
                 </Headline>
             </Section>
             <FormSection title='Contact information'>
@@ -46,7 +46,7 @@ const ConsultationPage: NextPage = () => {
             <Section>
                 <div onClick={(e: any) => handleSubmit(e)}>
                     <Button variant='tertiary'>
-                        Submit
+                        {SUBMIT}
                     </Button>
                 </div>
             </Section>
