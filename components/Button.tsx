@@ -2,7 +2,7 @@ import React from 'react'
 
 interface ButtonProps {
     children: any,
-    link: string,
+    link?: string | undefined,
     variant?: string
 }
 
@@ -20,7 +20,15 @@ const variants = [
             'border': 'border-2 border-primary',
             'color': 'text-primary'
         }
-    }, {
+    }, 
+    {
+        'tertiary': {
+            'background': 'bg-primary',
+            'border': '',
+            'color': 'text-solid-white'
+        }
+    },
+    {
         'dark': {
             'background': 'bg-solid-black',
             'color': 'text-solid-white' 
@@ -49,7 +57,8 @@ const Button = ({
 }
 
 Button.defaultProps = {
-    variant: 'primary'
+    variant: 'primary',
+    link: null
 }
 
 export default Button
