@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react'
 
+import Headline from './Headline'
+
 import {
+    CLIENT_TYPE,
     EMAIL,
     NAME,
-    PHONE_NUMBER
+    PHONE_NUMBER,
+    INDIVIDUAL,
+    STARTUP_SMALL_BUSINESS,
+    CORPORATION,
+    NON_PROFIT_MUNICIPAL
 } from '../constants/strings'
 
 interface contactInformationProps {
@@ -17,14 +24,16 @@ const ContactInformation = ({
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
+    const [clientType, setClientType] = useState('')
 
     useEffect(() => {
         setContactInformation({
             name,
             email,
-            phoneNumber
+            phoneNumber, 
+            clientType
         })
-    }, [name, email, phoneNumber])
+    }, [name, email, phoneNumber, clientType])
 
     const renderInputs = () => {
         const basicInformationFields = [
@@ -45,7 +54,7 @@ const ContactInformation = ({
             return (
                 <label 
                     className='relative block p-3 border-2 border-primary rounded-full' 
-                    htmlFor='name' 
+                    htmlFor={input.name} 
                     key={input.name}
                 >
                     <input
@@ -63,10 +72,54 @@ const ContactInformation = ({
         })
     }
 
+    const renderClientTypes = () => {
+        const clientTypes = [
+            {
+                name: INDIVIDUAL,
+            },
+            {
+                name: STARTUP_SMALL_BUSINESS
+            },
+            {
+                name: CORPORATION
+            },
+            {
+                name: NON_PROFIT_MUNICIPAL
+            }
+        ]
+        return clientTypes.map(client => {
+            return (
+                <label 
+                    className='form-check-label inline-block text-solid-black' 
+                    htmlFor='flexRadioDefault1'
+                    key={client.name}
+                >
+                    <input 
+                        className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
+                        type='radio' 
+                        name='flexRadioDefault' 
+                        id={client.name} 
+                        onChange={() => setClientType(client.name)}
+                    />
+                    { client.name }
+                </label>
+            )
+        })
+    }
+
     return (
         <div className='ContactInformation'>
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-6/12'>
                 { renderInputs() }
+            </div>
+            <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-6/12 mt-8'>
+                <Headline 
+                    color='primary'
+                    variant='alternative'
+                >
+                    {CLIENT_TYPE}
+                </Headline>
+                { renderClientTypes() }
             </div>
         </div>
     )

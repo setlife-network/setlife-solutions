@@ -48,7 +48,7 @@ const variants = [
     {
         'alternative': {
             'weight': 'font-normal',
-            'size': 'text-3xl'
+            'size': 'text-xl'
         }
     },
     {

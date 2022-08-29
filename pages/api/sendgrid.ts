@@ -5,24 +5,28 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY || '');
 interface emailTemplateProps {
     name: string,
     email: string,
-    phoneNumber: string
+    phoneNumber: string,
+    clientType: string
 }
 
 const emailTemplate = ({
     name,
     email,
-    phoneNumber
+    phoneNumber,
+    clientType
 }: emailTemplateProps) => (`
     <table>
     <tr>
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
+        <th>Client Type</th>
     </tr>
     <tr>
         <td>${name}</td>
         <td>${email}</td>
         <td>${phoneNumber}</td>
+        <td>${clientType}</td>
     </tr>
     </table>
 `)

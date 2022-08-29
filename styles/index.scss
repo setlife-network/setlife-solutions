@@ -8,6 +8,7 @@
   @include color-vars-default;
 };
 
+@import './ContactInformation';
 @import './PageBanner.scss';
 @import './ProjectDetailBanner.scss';
 @import './ProjectTile.scss';
