@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 
+import BudgetTimelineForm from '../../components/BudgetTimelineForm'
 import Button from '../../components/Button'
 import ContactInformation from '../../components/ContactInformation'
 import FormSection from '../../components/FormSection'
 import Headline from '../../components/Headline'
+import ProjectGoalsForm from '../../components/ProjectGoalsForm'
 import Section from '../../components/Section'
 
 import {
@@ -15,11 +17,15 @@ import {
 const ConsultationPage: NextPage = () => {
 
     const [contactInformation, setContactInformation] = useState({})
+    const [serviceInformation, setServiceInformation] = useState({})
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
         const res = await fetch('/api/sendgrid', {
-            body: JSON.stringify({...contactInformation}),
+            body: JSON.stringify({
+                ...contactInformation,
+                ...serviceInformation
+            }),
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -41,6 +47,14 @@ const ConsultationPage: NextPage = () => {
             <FormSection title='Contact information'>
                 <ContactInformation 
                     setContactInformation={setContactInformation}
+                />
+            </FormSection>
+            <FormSection title='Budget & Timeline'>
+                <BudgetTimelineForm />
+            </FormSection>
+            <FormSection title='Project Goals'>
+                <ProjectGoalsForm 
+                    setServiceInformation={setServiceInformation}
                 />
             </FormSection>
             <Section>

@@ -1,22 +1,4 @@
 .ContactInformation {
-    .checked\:bg-primary:checked {
-        background-color: var(--primary);
-    }
-    [type='radio']:checked:focus {
-        background-color: var(--primary);
-    }
-    [type='radio']:checked:hover {
-        background-color: var(--primary);
-    }
-    [type='checkbox']:checked:focus {
-        background-color: var(--primary);
-    }
-    [type='radio']:checked:focus {
-        background-color: var(--primary);
-    }
-    [type='radio']:focus {
-        box-shadow: var(--primary);
-    }
 }
 
 @media screen and (min-width: $lg) {

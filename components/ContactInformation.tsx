@@ -13,13 +13,13 @@ import {
     NON_PROFIT_MUNICIPAL
 } from '../constants/strings'
 
-interface contactInformationProps {
+interface ContactInformationProps {
     setContactInformation: any
 }
 
 const ContactInformation = ({
     setContactInformation
-}: contactInformationProps) => {
+}: ContactInformationProps) => {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')

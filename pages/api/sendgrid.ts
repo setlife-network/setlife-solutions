@@ -6,15 +6,22 @@ interface emailTemplateProps {
     name: string,
     email: string,
     phoneNumber: string,
-    clientType: string
+    clientType: string,
+    serviceType: string,
+    projectGoal: string
 }
 
 const emailTemplate = ({
     name,
     email,
     phoneNumber,
-    clientType
+    clientType,
+    serviceType,
+    projectGoal
 }: emailTemplateProps) => (`
+    <p>
+        Project Information:
+    </p>
     <table>
     <tr>
         <th>Name</th>
@@ -27,6 +34,19 @@ const emailTemplate = ({
         <td>${email}</td>
         <td>${phoneNumber}</td>
         <td>${clientType}</td>
+    </tr>
+    </table>
+    <p>
+        Service Info:
+    </p>
+    <table>
+    <tr>
+        <th>Service</th>
+        <th>Project goal</th>
+    </tr>
+    <tr>
+        <td>${serviceType}</td>
+        <td>${projectGoal}</td>
     </tr>
     </table>
 `)
