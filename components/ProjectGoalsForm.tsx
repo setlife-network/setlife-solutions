@@ -2,6 +2,16 @@ import { useEffect, useState } from 'react'
 
 import Paragraph from './Paragraph'
 
+import {
+    SOFTWARE_CONSULTING,
+    PROJECT_MANAGEMENT,
+    PRODUCT_DESIGN,
+    SOFTWARE_IMPLEMENTATION,
+    APPLICATION_MAINTENANCE,
+    WHICH_SERVICE_BEST_FITS,
+    GIVE_US_BRIEF_DESCRIPTION
+} from '../constants/strings'
+
 interface ProjectGoalsFormProps {
     setServiceInformation: any
 }
@@ -21,19 +31,19 @@ const ProjectGoalsForm = ({
     const renderServiceTypes = () => {
         const serviceTypes = [
             {
-                name: 'Software Consulting',
+                name: SOFTWARE_CONSULTING,
             },
             {
-                name: 'Project Management'
+                name: PROJECT_MANAGEMENT
             },
             {
-                name: 'Product Design'
+                name: PRODUCT_DESIGN
             },
             {
-                name: 'Software Implementation'
+                name: SOFTWARE_IMPLEMENTATION
             },
             {
-                name: 'Application Maintenance'
+                name: APPLICATION_MAINTENANCE
             }
         ]
         return serviceTypes.map(service => {
@@ -60,11 +70,11 @@ const ProjectGoalsForm = ({
         <div className='ProjectGoalsForm'>
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-6/12'>
                 <Paragraph variant='m-bold'>
-                    Which service(s) best fit(s) your project goals? Please select all that apply.
+                    {WHICH_SERVICE_BEST_FITS}
                 </Paragraph>
                 { renderServiceTypes() }
                 <Paragraph variant='m-bold'>
-                    Give us brief description of your dream project, your business goals, and any other additional information you feel would be helpful
+                    {GIVE_US_BRIEF_DESCRIPTION}
                 </Paragraph>
                 <textarea
                     className='

@@ -11,7 +11,10 @@ import Section from '../../components/Section'
 
 import {
     PLEASE_FILL_OUT_THE_FORM,
-    SUBMIT
+    SUBMIT,
+    CONTACT_INFORMATION,
+    BUDGET_AND_TIMELINE,
+    PROJECT_GOALS
 } from '../../constants/strings'
 
 const ConsultationPage: NextPage = () => {
@@ -44,15 +47,15 @@ const ConsultationPage: NextPage = () => {
                     {PLEASE_FILL_OUT_THE_FORM}
                 </Headline>
             </Section>
-            <FormSection title='Contact information'>
+            <FormSection title={CONTACT_INFORMATION}>
                 <ContactInformation 
                     setContactInformation={setContactInformation}
                 />
             </FormSection>
-            <FormSection title='Budget & Timeline'>
+            <FormSection title={BUDGET_AND_TIMELINE}>
                 <BudgetTimelineForm />
             </FormSection>
-            <FormSection title='Project Goals'>
+            <FormSection title={PROJECT_GOALS}>
                 <ProjectGoalsForm 
                     setServiceInformation={setServiceInformation}
                 />
