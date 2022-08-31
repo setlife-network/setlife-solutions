@@ -1,9 +1,14 @@
 import type { NextPage } from 'next'
 
+import Section from '../../components/Section'
+import ServicesTiles from '../../components/Services'
+
 const Services: NextPage = () => {
     return (
-        <div>
-      Services
+        <div className='Services'>
+            <Section color='light-gray'>
+                <ServicesTiles />
+            </Section>
         </div>
     )
 }
