@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 import BudgetTimelineForm from '../../components/BudgetTimelineForm'
 import Button from '../../components/Button'
@@ -22,6 +23,8 @@ const ConsultationPage: NextPage = () => {
     const [contactInformation, setContactInformation] = useState({})
     const [serviceInformation, setServiceInformation] = useState({})
 
+    const router = useRouter()
+
     const handleSubmit = async (e: any) => {
         e.preventDefault()
         const res = await fetch('/api/sendgrid', {
@@ -34,6 +37,7 @@ const ConsultationPage: NextPage = () => {
             },
             method: 'POST'
         })
+        router.push('/consultation/thanks')
         const { error } = await res.json()
         if (error) {
             console.log(error)
