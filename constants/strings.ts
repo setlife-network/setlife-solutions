@@ -51,3 +51,5 @@ export const WHICH_SERVICE_BEST_FITS = 'Which service(s) best fit(s) your projec
 export const GIVE_US_BRIEF_DESCRIPTION = 'Give us brief description of your dream project, your business goals, and any other additional information you feel would be helpful'
 export const THANK_YOU = 'Thank You'
 export const OUR_TEAM_WILL_CIONTACT_YOU = 'Our team will contact you shortly to set up your consultation'
+export const GO_BACK_TO = 'Go back to'
+export const HOME = 'Home'
