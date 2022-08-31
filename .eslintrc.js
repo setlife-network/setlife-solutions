@@ -110,6 +110,7 @@ module.exports = {
         'react/jsx-indent': ['off'],
         'react/jsx-indent-props': ['off'],
         'react/jsx-one-expression-per-line': ['off'],
+        'react/jsx-curly-newline': ['off'],
         'react/no-array-index-key': ['off'],
         'react/react-in-jsx-scope': ['off'],
         'semi': ['off'],
