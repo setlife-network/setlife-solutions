@@ -75,8 +75,7 @@ const Service: NextPage = () => {
                     clientName={p.client_name}
                     name={p.name}
                     description={p.description}
-                    // TODO: Change this for the project tile_image_url
-                    image='https://user-images.githubusercontent.com/49292858/184520232-416851cc-9eb5-4f56-ba4b-450579da88c8.png'
+                    image={p.tile_image_url}
                 />
             )
         })
@@ -85,8 +84,7 @@ const Service: NextPage = () => {
     return (
         <div className='Service'>
             <PageBanner
-                // TODO: Change this for service banner_image_url
-                image={SOFTWARE_CONSULTING_BANNER_IMAGE_URL}
+                image={service ? service.background_banner_image_url : SOFTWARE_CONSULTING_BANNER_IMAGE_URL}
                 title={service ? service.name : ''}
             />
             <Section>

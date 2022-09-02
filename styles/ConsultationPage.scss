@@ -1,0 +1,29 @@
+.ConsultationPage {
+    .checked\:bg-primary:checked {
+        background-color: var(--primary);
+    }
+    [type='radio']:checked:focus {
+        background-color: var(--primary);
+    }
+    [type='radio']:checked:hover {
+        background-color: var(--primary);
+    }
+    [type='checkbox']:checked:focus {
+        background-color: var(--primary);
+    }
+    [type='radio']:checked:focus {
+        background-color: var(--primary);
+    }
+    [type='radio']:focus {
+        box-shadow: var(--primary);
+    }
+    textarea:focus {
+        border-color: var(--primary);
+        box-shadow: none;
+    }
+}
+
+@media screen and (min-width: $lg) {
+    .ConsultationPage {
+    }
+}

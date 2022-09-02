@@ -6,8 +6,6 @@ import {
     SERVICES,
 } from './strings'
 
-export const API_v1_URL: string = 'http://localhost:3200/api/v1'
-
 // Images
 export const HERO_IMAGE_URL = 'https://user-images.githubusercontent.com/49292858/183115188-87aa75f2-7123-472a-b20d-16766828f96c.png'
 export const LOGO_URL: string = 'https://setlife-solutions.s3.amazonaws.com/images/Logo.png'
@@ -16,6 +14,10 @@ export const GITHUB_LOGO: string = 'https://setlife-solutions.s3.amazonaws.com/i
 export const LINKEDIN_LOGO: string = 'https://setlife-solutions.s3.amazonaws.com/images/Linkedin.png'
 export const TWITTER_LOGO: string = 'https://setlife-solutions.s3.amazonaws.com/images/Twitter.png'
 export const YOUTUBE_LOGO: string = 'https://setlife-solutions.s3.amazonaws.com/images/Youtube.png'
+export const PROJECTS_BANNER_IMAGE_URL: string = 'https://setlife-solutions.s3.amazonaws.com/images/Projects_banner.png'
+export const LAPTOP_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/Laptop_icon.png'
+export const THUMBS_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/Thumbs_icon.png'
+export const CONSULTATION_FORM_THANKS_IMAGE_URL: string = 'https://setlife-solutions.s3.amazonaws.com/images/thanks-consultation-form.png'
 
 // URL
 export const YOUTUBE_URL: string = 'https://www.youtube.com/channel/UCjyzH2XN7qB3WuWTPFbJXCQ'

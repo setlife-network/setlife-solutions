@@ -12,6 +12,7 @@
     "@apollo/client": "^3.6.9",
     "@graphql-tools/merge": "^8.3.0",
     "@graphql-tools/schema": "^8.5.0",
+    "@sendgrid/mail": "^7.7.0",
     "apollo-server": "^3.9.0",
     "apollo-server-micro": "^3.9.0",
     "dotenv": "^16.0.1",
@@ -27,6 +28,7 @@
     "sequelize": "^6.21.3"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.2",
     "@types/lodash": "^4.14.184",
     "@types/micro-cors": "^0.1.2",
     "@types/node": "^18.0.3",
