@@ -8,7 +8,9 @@ interface emailTemplateProps {
     phoneNumber: string,
     clientType: string,
     serviceType: string,
-    projectGoal: string
+    projectGoal: string,
+    minBudget: number,
+    maxBudget: number
 }
 
 const emailTemplate = ({
@@ -17,7 +19,9 @@ const emailTemplate = ({
     phoneNumber,
     clientType,
     serviceType,
-    projectGoal
+    projectGoal,
+    minBudget,
+    maxBudget
 }: emailTemplateProps) => (`
     <p>
         Project Information:
@@ -39,6 +43,14 @@ const emailTemplate = ({
     <p>
         Service Info:
     </p>
+    <tr>
+        <th>Min Budget</th>
+        <th>Max Budget</th>
+    </tr>
+    <tr>
+        <td>${minBudget}</td>
+        <td>${maxBudget}</td>
+    </tr>
     <table>
     <tr>
         <th>Service</th>
