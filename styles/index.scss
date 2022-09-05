@@ -20,6 +20,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  // font-family: 'Eina' , sans-serif;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -36,3 +37,10 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Eina";
+  src: url('./fonts/Eina-01-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}

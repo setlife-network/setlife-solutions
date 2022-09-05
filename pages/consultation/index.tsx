@@ -20,6 +20,7 @@ import {
 
 const ConsultationPage: NextPage = () => {
 
+    const [budgetTimeline, setBudgetTimeline] = useState({})
     const [contactInformation, setContactInformation] = useState({})
     const [serviceInformation, setServiceInformation] = useState({})
 
@@ -29,6 +30,7 @@ const ConsultationPage: NextPage = () => {
         e.preventDefault()
         const res = await fetch('/api/sendgrid', {
             body: JSON.stringify({
+                ...budgetTimeline,
                 ...contactInformation,
                 ...serviceInformation
             }),
@@ -57,7 +59,9 @@ const ConsultationPage: NextPage = () => {
                 />
             </FormSection>
             <FormSection title={BUDGET_AND_TIMELINE}>
-                <BudgetTimelineForm />
+                <BudgetTimelineForm
+                    setBudgetTimeline={setBudgetTimeline}
+                />
             </FormSection>
             <FormSection title={PROJECT_GOALS}>
                 <ProjectGoalsForm 
