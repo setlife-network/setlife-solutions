@@ -39,10 +39,11 @@ const ConsultationPage: NextPage = () => {
             },
             method: 'POST'
         })
-        router.push('/consultation/thanks')
         const { error } = await res.json()
         if (error) {
             console.log(error)
+        } else {
+            router.push('/consultation/thanks')
         }
     };
 
