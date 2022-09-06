@@ -1,13 +1,15 @@
 import React from 'react'
 
 import Headline from './Headline'
+import LearnMore from './LearnMore'
+
+import { BITCOIN_BANNER_URL } from '../constants'
 
 import {
     SETLIFE_OPERATES,
     ON_A_BITCOIN_STANDARD,
     CLICK_TO_LEARN_MORE
 } from '../constants/strings'
-import LearnMore from './LearnMore'
 
 const BitcoinOperation = ({}) => {
     return (
@@ -22,7 +24,7 @@ const BitcoinOperation = ({}) => {
                     </Headline>
                 </div>
                 <div className=''>
-                    <LearnMore text={CLICK_TO_LEARN_MORE} url='/' />
+                    <LearnMore text={CLICK_TO_LEARN_MORE} url={BITCOIN_BANNER_URL} newTab />
                 </div>
             </div>
         </div>
