@@ -32,14 +32,14 @@ export const NAV_ITEMS: Array<any> = [
         name: ABOUT,
         link: '/'
     }, {
-        name: PORTFOLIO,
-        link: '/projects'
+        name: SERVICES,
+        link: '/services'
     }, {
         name: CONSULTATION,
         link: '/consultation'
     }, {
-        name: SERVICES,
-        link: '/services'
+        name: PORTFOLIO,
+        link: '/projects'
     }, {
         name: SERVICE_PACKAGES,
         link: '/service-packages'
