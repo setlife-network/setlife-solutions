@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useQuery } from '@apollo/client'
-import { remove, findIndex, shuffle } from 'lodash'
+import { shuffle } from 'lodash'
 
 import { GET_PROJECT, GET_PROJECTS } from '../../operations/queries/ProjectQueries'
 
@@ -12,6 +12,7 @@ import ProjectSimilarWork from '../../components/ProjectSimilarWork'
 import Section from '../../components/Section'
 import ProjectImpact from '../../components/ProjectImpact'
 import ProjectTitle from '../../components/ProjectTitle'
+import Pulse from '../../components/Pulse'
 
 import ProjectProps from '../../interfaces/ProjectProps'
 
@@ -63,8 +64,11 @@ const ProjectDetailPage: NextPage = () => {
     if (error || loading) {
         console.log('An error ocurred: ' + error)
         return (
-            <>
-            </>
+            <Section>
+                <div className='grid grid-rows place-content-center'>
+                    <Pulse />
+                </div>
+            </Section>
         )
     }
 

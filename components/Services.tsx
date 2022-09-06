@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from '@apollo/client'
 
-import Section from './Section'
+import Pulse from './Pulse'
 import Headline from './Headline'
 import ServiceTile from './ServiceTile'
 
@@ -23,8 +23,9 @@ const Services = () => {
 
     if (error || loading) {
         return (
-            <>
-            </>
+            <div className='grid grid-rows place-content-center'>
+                <Pulse />
+            </div>
         )
     }
 
