@@ -12,6 +12,7 @@ import Paragraph from '../../components/Paragraph'
 import ProjectTile from '../../components/ProjectTile'
 import Section from '../../components/Section'
 import Subtitle from '../../components/Subtitle'
+import Pulse from '../../components/Pulse'
 
 import ItemProps from '../../interfaces/ItemProps'
 import ProjectProps from '../../interfaces/ProjectProps'
@@ -62,8 +63,11 @@ const Service: NextPage = () => {
     if (error || loading) {
         console.log('An error ocurred: ' + error)
         return (
-            <>
-            </>
+            <Section>
+                <div className='grid grid-rows place-content-center'>
+                    <Pulse />
+                </div>
+            </Section>
         )
     }
 

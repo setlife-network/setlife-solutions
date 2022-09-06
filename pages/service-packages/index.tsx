@@ -6,6 +6,7 @@ import Paragraph from '../../components/Paragraph'
 import Section from '../../components/Section'
 import ServicePackageTile from '../../components/ServicePackageTile'
 import Subtitle from '../../components/Subtitle'
+import Pulse from '../../components/Pulse'
 
 import { GET_SERVICE_PACKAGES } from '../../operations/queries/ServicePackagesQueries'
 
@@ -28,8 +29,11 @@ const ServicePackagesPage: NextPage = () => {
 
     if (error || loading) {
         return (
-            <>
-            </>
+            <Section>
+                <div className='grid grid-rows place-content-center'>
+                    <Pulse />
+                </div>
+            </Section>
         )
     }
 
