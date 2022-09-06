@@ -1,0 +1,27 @@
+.FormSection {
+
+    display: flex;
+    flex-direction: column;
+
+    .accordion {
+        align-items: center;
+        border: none;
+        outline: none;
+        transition: background-color 0.6s ease;
+    }
+
+    .content {
+        background-color: white;
+        overflow: auto;
+        transition: max-height 0.6s ease;
+    }
+
+    .icon {
+        margin-left: auto;
+        transition: transform 0.6s ease;
+    }
+
+    .rotate {
+        transform: rotate(90deg);
+    }
+}
