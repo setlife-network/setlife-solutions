@@ -19,20 +19,20 @@ const ProjectImpact = ({
 }: ProjectImpactProps) => {
 
     const renderProductionGradeTile = () => {
-        return projectDetails.map((projectDetail, idx) => {
+        return projectDetails.map(projectDetail => {
             if (projectDetail.type == 'impact' && projectDetail.sub_type == 'production_grade') {
                 return (
-                    <ProductionGradeTile description={projectDetail.description} key={idx} />
+                    <ProductionGradeTile description={projectDetail.description} key={projectDetail.id} />
                 )
             }
         })
     }
 
     const renderDedicatedDevTile = () => {
-        return projectDetails.map((projectDetail, idx) => {
+        return projectDetails.map(projectDetail => {
             if (projectDetail.type == 'impact' && projectDetail.sub_type == 'dedicated_development') {
                 return (
-                    <DedicatedDevTile description={projectDetail.description} key={idx} />
+                    <DedicatedDevTile description={projectDetail.description} key={projectDetail.id} />
                 )
             }
         })
