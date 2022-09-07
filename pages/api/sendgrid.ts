@@ -25,10 +25,20 @@ const emailTemplate = ({
     maxBudget,
     timeline
 }: emailTemplateProps) => (`
-    <p>
-        Project Information:
-    </p>
-    <table>
+<html>
+<head>
+    <style>
+        table, th, td {
+        border: 1px solid;
+        }
+    </style>
+    </head>
+<body>
+
+<h1>Service Request</h1>
+
+<h2>Client Info:</h2>
+<table>
     <tr>
         <th>Name</th>
         <th>Email</th>
@@ -41,30 +51,41 @@ const emailTemplate = ({
         <td>${phoneNumber}</td>
         <td>${clientType}</td>
     </tr>
-    </table>
-    <p>
-        Service Info:
-    </p>
+</table>
+
+<h2>Budget & Timeline:</h2>
+<table>
     <tr>
         <th>Min Budget</th>
         <th>Max Budget</th>
         <th>Timeline</th>
     </tr>
     <tr>
-        <td>${minBudget}</td>
-        <td>${maxBudget}</td>
-        <td>${timeline.join(', ')}</td>
+        <td>$ ${minBudget}</td>
+        <td>$ ${maxBudget}</td>
+        <td>
+            <p> ${timeline.join('</p><p>')} </p>
+        </td>
     </tr>
-    <table>
+</table>
+
+<h2>Project Info:</h2>
+<table>
     <tr>
         <th>Service</th>
         <th>Project goal</th>
     </tr>
     <tr>
-        <td>${services.join(', ')}</td>
+        <td>
+            <p> ${services.join('</p><p>')} </p>
+        </td>
         <td>${projectGoal}</td>
     </tr>
-    </table>
+</table>
+
+
+</body>
+</html>
 `)
 
 async function sendEmail(req: any, res: any) {
@@ -80,7 +101,6 @@ async function sendEmail(req: any, res: any) {
     } catch (error: any) {
         return res.status(error.statusCode || 500).json({ error: error.message });
     }
-  
     return res.status(200).json({ error: '' });
 }
   
