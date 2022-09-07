@@ -4,6 +4,7 @@ interface ButtonProps {
     children: any,
     link?: string | undefined,
     variant?: string,
+    disabled?: boolean
 }
 
 const variants = [
@@ -39,15 +40,17 @@ const variants = [
 const Button = ({
     children,
     link,
-    variant
+    variant,
+    disabled
 }: ButtonProps) => {
 
     const styleProps: any = Object.values(variants.filter(v => Object.keys(v)[0] == variant)[0])[0]
 
     return (
         <button 
-            className={`Button rounded-full ${styleProps.background} ${styleProps.border} ${styleProps.color} px-8 py-4`}
+            className={`Button rounded-full ${disabled ? 'bg-gray-400' : styleProps.background} ${styleProps.border} ${styleProps.color} px-8 py-4`}
             type='button'
+            disabled={disabled}
         >
             <a href={link}>
                 { children }
@@ -58,7 +61,8 @@ const Button = ({
 
 Button.defaultProps = {
     variant: 'primary',
-    link: null
+    link: null,
+    disabled: false
 }
 
 export default Button
