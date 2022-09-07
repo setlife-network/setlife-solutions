@@ -20,9 +20,12 @@ import {
 
 const ConsultationPage: NextPage = () => {
 
+    const DEFAULT_MIN_BUDGET = 10000
+    const DEFAULT_MAX_BUDGET = 50000
+
     const [budget, setBudget] = useState({
-        minBudget: 10000,
-        maxBudget: 50000
+        minBudget: DEFAULT_MIN_BUDGET,
+        maxBudget: DEFAULT_MAX_BUDGET
     })
     const [timeline, setTimeline] = useState({})
     const [contactInformation, setContactInformation] = useState({})
@@ -69,6 +72,7 @@ const ConsultationPage: NextPage = () => {
                 <BudgetTimelineForm
                     setBudget={setBudget}
                     setTimeline={setTimeline}
+                    defaultBudget={[DEFAULT_MIN_BUDGET, DEFAULT_MAX_BUDGET]}
                 />
             </FormSection>
             <FormSection title={PROJECT_GOALS}>

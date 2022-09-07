@@ -61,8 +61,8 @@ const emailTemplate = ({
         <th>Timeline</th>
     </tr>
     <tr>
-        <td>${minBudget}</td>
-        <td>${maxBudget}</td>
+        <td>$ ${minBudget}</td>
+        <td>$ ${maxBudget}</td>
         <td>
             <p> ${timeline.join('</p><p>')} </p>
         </td>
