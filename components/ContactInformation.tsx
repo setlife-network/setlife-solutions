@@ -43,11 +43,18 @@ const ContactInformation = ({
             phoneNumber, 
             clientType
         })
-        setContactInformationError(!nameError && !emailError && !phoneNumberError && !clientTypeError
-            ? false
-            : true    
-        )
     }, [name, email, phoneNumber, clientType])
+
+    useEffect(() => {
+        setContactInformationError(
+            !nameError && 
+            !emailError && 
+            !phoneNumberError && 
+            !clientTypeError
+                ? false
+                : true    
+        )
+    }, [nameError, emailError, phoneNumberError, clientTypeError])
 
     const renderInputs = () => {
         const basicInformationFields = [
