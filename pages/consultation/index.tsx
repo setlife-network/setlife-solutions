@@ -30,9 +30,10 @@ const ConsultationPage: NextPage = () => {
     const router = useRouter()
 
     useEffect(() => {
-        if (!contactInformationError && !serviceInformationError) {
-            setDisabledButton(false)
-        }
+        setDisabledButton(!contactInformationError && !serviceInformationError
+            ? false
+            : true
+        )
     }, [contactInformationError, serviceInformationError])
 
     const handleSubmit = async (e: any) => {
