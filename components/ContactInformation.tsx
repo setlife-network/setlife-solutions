@@ -37,15 +37,16 @@ const ContactInformation = ({
     const [clientTypeError, setClientTypeError] = useState(true)
 
     useEffect(() => {
-        if (!nameError && !emailError && !phoneNumberError && !clientTypeError) {
-            setContactInformation({
-                name,
-                email,
-                phoneNumber, 
-                clientType
-            })
-            setContactInformationError(false)
-        }
+        setContactInformation({
+            name,
+            email,
+            phoneNumber, 
+            clientType
+        })
+        setContactInformationError(!nameError && !emailError && !phoneNumberError && !clientTypeError
+            ? false
+            : true    
+        )
     }, [name, email, phoneNumber, clientType])
 
     const renderInputs = () => {
