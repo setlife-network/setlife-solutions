@@ -1,34 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useRouter } from 'next/router';
+
 import ArrowLeftIcon from './ArrowLeftIcon';
 import Headline from './Headline';
 
 import { 
-    GO_BACK_TO,
-    PORTFOLIO,
-    HOME
+    GO_BACK,
 } from '../constants/strings';
 
-const GoBack = ({
-    router
-}: any) => {
-    
-    const [lastUrl, setLastUrl] = useState(router.includes('project') ? '/projects' : '/')
-    const [lastUrlName, setLastUrlName] = useState(router.includes('project') ? PORTFOLIO : HOME)
+const GoBack = ({}) => {
 
+    const router = useRouter()
+    
     return (
-        <div className='GoBack'>
-            <a href={lastUrl}>
-                <div className='grid grid-flow-col auto-cols-max'>
-                    <div className=''>
-                        <ArrowLeftIcon />
-                    </div>
-                    <div className='ml-5 pb-1'>
-                        <Headline variant='alternative'>
-                            {` ${GO_BACK_TO} ${lastUrlName} `}
-                        </Headline>
-                    </div>
+        <div className='GoBack' onClick={() => router.back()}>
+            <div className='grid grid-flow-col auto-cols-max'>
+                <div className=''>
+                    <ArrowLeftIcon />
                 </div>
-            </a>
+                <div className='ml-5 pb-1'>
+                    <Headline variant='alternative'>
+                        {` ${GO_BACK} `}
+                    </Headline>
+                </div>
+            </div>
         </div>
     )
 }
