@@ -68,7 +68,7 @@ const ProjectGoalsForm = ({
 
     return (
         <div className='ProjectGoalsForm'>
-            <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-6/12'>
+            <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
                 <Paragraph variant='m-bold'>
                     {WHICH_SERVICE_BEST_FITS}
                 </Paragraph>

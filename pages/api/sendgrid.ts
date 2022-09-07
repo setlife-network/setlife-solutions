@@ -10,7 +10,8 @@ interface emailTemplateProps {
     serviceType: string,
     projectGoal: string,
     minBudget: number,
-    maxBudget: number
+    maxBudget: number,
+    timeline: string[]
 }
 
 const emailTemplate = ({
@@ -21,7 +22,8 @@ const emailTemplate = ({
     serviceType,
     projectGoal,
     minBudget,
-    maxBudget
+    maxBudget,
+    timeline
 }: emailTemplateProps) => (`
     <p>
         Project Information:
@@ -46,10 +48,12 @@ const emailTemplate = ({
     <tr>
         <th>Min Budget</th>
         <th>Max Budget</th>
+        <th>Timeline</th>
     </tr>
     <tr>
         <td>${minBudget}</td>
         <td>${maxBudget}</td>
+        <td>${timeline.join(', ')}</td>
     </tr>
     <table>
     <tr>
@@ -64,6 +68,8 @@ const emailTemplate = ({
 `)
 
 async function sendEmail(req: any, res: any) {
+    console.log('req.body')
+    console.log(req.body)
     try {
         await sendgrid.send({
             to: 'contributors@setlife.network',
