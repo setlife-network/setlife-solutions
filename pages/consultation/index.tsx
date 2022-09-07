@@ -20,9 +20,11 @@ import {
 
 const ConsultationPage: NextPage = () => {
 
-    const [budgetTimeline, setBudgetTimeline] = useState({})
+    const [budget, setBudget] = useState({})
+    const [timeline, setTimeline] = useState({})
     const [contactInformation, setContactInformation] = useState({})
     const [serviceInformation, setServiceInformation] = useState({})
+    const [services, setServices] = useState({})
 
     const router = useRouter()
 
@@ -30,7 +32,9 @@ const ConsultationPage: NextPage = () => {
         e.preventDefault()
         const res = await fetch('/api/sendgrid', {
             body: JSON.stringify({
-                ...budgetTimeline,
+                services,
+                timeline,
+                ...budget,
                 ...contactInformation,
                 ...serviceInformation
             }),
@@ -60,12 +64,14 @@ const ConsultationPage: NextPage = () => {
             </FormSection>
             <FormSection title={BUDGET_AND_TIMELINE}>
                 <BudgetTimelineForm
-                    setBudgetTimeline={setBudgetTimeline}
+                    setBudget={setBudget}
+                    setTimeline={setTimeline}
                 />
             </FormSection>
             <FormSection title={PROJECT_GOALS}>
                 <ProjectGoalsForm 
                     setServiceInformation={setServiceInformation}
+                    setServices={setServices}
                 />
             </FormSection>
             <Section>
