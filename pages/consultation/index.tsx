@@ -20,7 +20,10 @@ import {
 
 const ConsultationPage: NextPage = () => {
 
-    const [budget, setBudget] = useState({})
+    const [budget, setBudget] = useState({
+        minBudget: 10000,
+        maxBudget: 50000
+    })
     const [timeline, setTimeline] = useState({})
     const [contactInformation, setContactInformation] = useState({})
     const [serviceInformation, setServiceInformation] = useState({})
