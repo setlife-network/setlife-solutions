@@ -30,8 +30,8 @@ const BudgetTimelineForm = ({
     setTimeline
 }: BudgetTimelineFormProps) => {
 
-    const [minBudgetValue, setMinBudgetValue] = useState(1000)
-    const [maxBudgetValue, setMaxBudgetValue] = useState(3000)
+    const [minBudgetValue, setMinBudgetValue] = useState(10000)
+    const [maxBudgetValue, setMaxBudgetValue] = useState(50000)
     const [timelineValues, setTimelineValues] = useState<string[]>([])
 
     useEffect(() => {
@@ -138,9 +138,9 @@ const BudgetTimelineForm = ({
                     <Slider
                         range
                         allowCross={false}
-                        min={0}
-                        max={5000}
-                        defaultValue={[1000, 3000]}
+                        min={1000}
+                        max={100000}
+                        defaultValue={[10000, 50000]}
                         onChange={onSliderChange}
                         railStyle={{
                             height: 2
