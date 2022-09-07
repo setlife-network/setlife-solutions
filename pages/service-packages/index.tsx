@@ -14,7 +14,8 @@ import ServicePackageProps from '../../interfaces/ServicePackageProps'
 
 import {
     GO_TO_CONSULTATION_FORM,
-    SERVICE_PACKAGES
+    SERVICE_PACKAGES,
+    CONSULTATION
 } from '../../constants/strings'
 
 interface getServicePackages {
@@ -60,7 +61,7 @@ const ServicePackagesPage: NextPage = () => {
                         </Paragraph>
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-                        <Button variant='secondary' link='/'>
+                        <Button variant='secondary' link={CONSULTATION.toLowerCase()}>
                             { GO_TO_CONSULTATION_FORM }
                         </Button>
                     </div>
