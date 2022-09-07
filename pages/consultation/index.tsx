@@ -23,27 +23,38 @@ const ConsultationPage: NextPage = () => {
     const [budgetTimeline, setBudgetTimeline] = useState({})
     const [contactInformation, setContactInformation] = useState({})
     const [serviceInformation, setServiceInformation] = useState({})
+    const [contactInformationError, setContactInformationError] = useState(true)
+    const [serviceInformationError, setServiceInformationError] = useState(true)
+    const [disabledButton, setDisabledButton] = useState(true)
 
     const router = useRouter()
 
+    useEffect(() => {
+        if (!contactInformationError && !serviceInformationError) {
+            setDisabledButton(false)
+        }
+    }, [contactInformationError, serviceInformationError])
+
     const handleSubmit = async (e: any) => {
-        e.preventDefault()
-        const res = await fetch('/api/sendgrid', {
-            body: JSON.stringify({
-                ...budgetTimeline,
-                ...contactInformation,
-                ...serviceInformation
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST'
-        })
-        const { error } = await res.json()
-        if (error) {
+        try {
+            e.preventDefault()
+            const res = await fetch('/api/sendgrid', {
+                body: JSON.stringify({
+                    ...budgetTimeline,
+                    ...contactInformation,
+                    ...serviceInformation
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST'
+            })
+            const { error } = await res.json()
+            if (!error) {
+                router.push('/consultation/thanks')
+            }
+        } catch (error) {
             console.log(error)
-        } else {
-            router.push('/consultation/thanks')
         }
     };
 
@@ -57,6 +68,7 @@ const ConsultationPage: NextPage = () => {
             <FormSection title={CONTACT_INFORMATION}>
                 <ContactInformation 
                     setContactInformation={setContactInformation}
+                    setContactInformationError={setContactInformationError}
                 />
             </FormSection>
             <FormSection title={BUDGET_AND_TIMELINE}>
@@ -67,11 +79,12 @@ const ConsultationPage: NextPage = () => {
             <FormSection title={PROJECT_GOALS}>
                 <ProjectGoalsForm 
                     setServiceInformation={setServiceInformation}
+                    setServiceInformationError={setServiceInformationError}
                 />
             </FormSection>
             <Section>
                 <div onClick={(e: any) => handleSubmit(e)}>
-                    <Button variant='tertiary'>
+                    <Button variant='tertiary' disabled={disabledButton}>
                         {SUBMIT}
                     </Button>
                 </div>
