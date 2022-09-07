@@ -5,12 +5,18 @@ import Headline from './Headline'
 
 const LearnMore = ({
     text,
-    url
+    url,
+    newTab
 }: LearnMoreProps) => {
 
     return (
         <div className=''>
-            <a href={url} className=''>
+            <a 
+                href={url} 
+                className=''
+                rel={newTab ? 'noopener noreferrer' : ''}
+                target={newTab ? '_blank' : ''}
+            >
                 <div className='grid grid-flow-col auto-cols-max'>
                     <div>
                         <Headline variant='alternative'>
@@ -26,6 +32,10 @@ const LearnMore = ({
             </a>
         </div>
     )
+}
+
+LearnMore.defaultProps = {
+    newTab: false
 }
 
 export default LearnMore
