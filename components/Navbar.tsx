@@ -10,12 +10,11 @@ import HamburgerButton from './HamburgerButton'
 
 const renderNavItems = () => {
     return (
-        NAV_ITEMS.map((item, idx) => {
+        NAV_ITEMS.map((item) => {
             return (
                 <a 
                     className='text-2xl font-bold my-4 text-primary md:mx-4 md:text-base md:text-solid-black md:my-0' 
                     href={item.link} 
-                    key={idx}
                 >
                     {item.name}
                 </a>

@@ -16,13 +16,12 @@ const Footer = ({}) => {
 
     const renderFootItems = () => {
         return (
-            FOOT_ITEMS.map((item, idx) => {
+            FOOT_ITEMS.map(item => {
                 return (
                     <a 
                         href={item.url}
                         rel='noopener noreferrer'
                         target='_blank'
-                        key={idx}
                         className='mx-8 self-center md:mx-6'
                     >
                         <img src={item.logo} alt={item.name} />
