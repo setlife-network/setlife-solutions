@@ -54,3 +54,4 @@ export const OUR_TEAM_WILL_CIONTACT_YOU = 'Our team will contact you shortly to 
 export const MIN = 'Min'
 export const MAX = 'Max'
 export const INVALID = 'Invalid'
+export const PLEASE_SELECT_CLIENT_TYPE = 'Please select a client type'
