@@ -8,7 +8,7 @@
     [type='radio']:checked:hover {
         background-color: var(--primary);
     }
-    [type='checkbox']:checked:focus {
+    [type='radio']:checked:focus {
         background-color: var(--primary);
     }
     [type='radio']:checked:focus {
@@ -17,6 +17,23 @@
     [type='radio']:focus {
         box-shadow: var(--primary);
     }
+    
+    [type='checkbox']:checked:focus {
+        background-color: var(--primary);
+    }
+    [type='checkbox']:checked:hover {
+        background-color: var(--primary);
+    }
+    [type='checkbox']:checked:focus {
+        background-color: var(--primary);
+    }
+    [type='checkbox']:checked:focus {
+        background-color: var(--primary);
+    }
+    [type='checkbox']:focus {
+        box-shadow: var(--primary);
+    }
+
     textarea:focus {
         border-color: var(--primary);
         box-shadow: none;
