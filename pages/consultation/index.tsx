@@ -24,6 +24,7 @@ const ConsultationPage: NextPage = () => {
     const [timeline, setTimeline] = useState({})
     const [contactInformation, setContactInformation] = useState({})
     const [serviceInformation, setServiceInformation] = useState({})
+    const [services, setServices] = useState({})
 
     const router = useRouter()
 
@@ -31,6 +32,7 @@ const ConsultationPage: NextPage = () => {
         e.preventDefault()
         const res = await fetch('/api/sendgrid', {
             body: JSON.stringify({
+                services,
                 timeline,
                 ...budget,
                 ...contactInformation,
@@ -69,6 +71,7 @@ const ConsultationPage: NextPage = () => {
             <FormSection title={PROJECT_GOALS}>
                 <ProjectGoalsForm 
                     setServiceInformation={setServiceInformation}
+                    setServices={setServices}
                 />
             </FormSection>
             <Section>
