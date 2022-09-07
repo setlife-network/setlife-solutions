@@ -14,19 +14,35 @@ import {
 
 interface ProjectGoalsFormProps {
     setServiceInformation: any
+    setServices: any
 }
 
 const ProjectGoalsForm = ({
-    setServiceInformation
+    setServiceInformation,
+    setServices
 }: ProjectGoalsFormProps) => {
 
-    const [serviceType, setServiceType] = useState('')
+    const [serviceTypes, setServiceTypes] = useState<string[]>([])
     const [projectGoal, setProjectGoal] = useState('')
 
     useEffect(() => {
-        setServiceInformation({ serviceType, projectGoal })
-        
-    }, [serviceType, projectGoal])
+        setServiceInformation({ projectGoal })
+    }, [projectGoal])
+
+    useEffect(() => {
+        setServices(serviceTypes)
+    }, [serviceTypes])
+
+    const addServiceType = (value: any, service: string) => {
+        if (!value.checked) {
+            setServiceTypes(
+                serviceTypes.filter((value: string) => value != service)
+            )
+            return
+        }
+        if (serviceTypes.includes(service)) return
+        setServiceTypes([...serviceTypes, service])
+    }
 
     const renderServiceTypes = () => {
         const serviceTypes = [
@@ -55,10 +71,10 @@ const ProjectGoalsForm = ({
                 >
                     <input 
                         className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
-                        type='radio' 
+                        type='checkbox' 
                         name='serviceRadio' 
                         id={service.name} 
-                        onChange={() => setServiceType(service.name)}
+                        onChange={(value) => addServiceType(value.target, service.name)}
                     />
                     { service.name }
                 </label>
@@ -68,7 +84,7 @@ const ProjectGoalsForm = ({
 
     return (
         <div className='ProjectGoalsForm'>
-            <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-6/12'>
+            <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
                 <Paragraph variant='m-bold'>
                     {WHICH_SERVICE_BEST_FITS}
                 </Paragraph>

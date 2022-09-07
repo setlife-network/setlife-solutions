@@ -7,10 +7,11 @@ interface emailTemplateProps {
     email: string,
     phoneNumber: string,
     clientType: string,
-    serviceType: string,
+    services: string[],
     projectGoal: string,
     minBudget: number,
-    maxBudget: number
+    maxBudget: number,
+    timeline: string[]
 }
 
 const emailTemplate = ({
@@ -18,10 +19,11 @@ const emailTemplate = ({
     email,
     phoneNumber,
     clientType,
-    serviceType,
+    services,
     projectGoal,
     minBudget,
-    maxBudget
+    maxBudget,
+    timeline
 }: emailTemplateProps) => (`
     <p>
         Project Information:
@@ -46,10 +48,12 @@ const emailTemplate = ({
     <tr>
         <th>Min Budget</th>
         <th>Max Budget</th>
+        <th>Timeline</th>
     </tr>
     <tr>
         <td>${minBudget}</td>
         <td>${maxBudget}</td>
+        <td>${timeline.join(', ')}</td>
     </tr>
     <table>
     <tr>
@@ -57,7 +61,7 @@ const emailTemplate = ({
         <th>Project goal</th>
     </tr>
     <tr>
-        <td>${serviceType}</td>
+        <td>${services.join(', ')}</td>
         <td>${projectGoal}</td>
     </tr>
     </table>
