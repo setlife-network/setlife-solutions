@@ -9,26 +9,40 @@ import {
     SOFTWARE_IMPLEMENTATION,
     APPLICATION_MAINTENANCE,
     WHICH_SERVICE_BEST_FITS,
-    GIVE_US_BRIEF_DESCRIPTION
+    GIVE_US_BRIEF_DESCRIPTION,
+    PLEASE_SELECT_AT_LEAST_ONE_SERVICE,
+    PLEASE_GIVE_A_DESCRIPTION
 } from '../constants/strings'
 
 interface ProjectGoalsFormProps {
-    setServiceInformation: any
+    setServiceInformation: any,
+    setServiceInformationError: any
 }
 
 const ProjectGoalsForm = ({
-    setServiceInformation
+    setServiceInformation,
+    setServiceInformationError
 }: ProjectGoalsFormProps) => {
 
     const [serviceType, setServiceType] = useState('')
     const [projectGoal, setProjectGoal] = useState('')
+    const [serviceTypeError, setServiceTypeError] = useState(true)
+    const [projectGoalError, setProjectGoalError] = useState(true)
 
     useEffect(() => {
         setServiceInformation({ serviceType, projectGoal })
-        
+        setServiceInformationError(!serviceTypeError && !projectGoalError
+            ? false
+            : true    
+        )
     }, [serviceType, projectGoal])
 
     const renderServiceTypes = () => {
+        const handleServiceSelect = (serviceName: any) => {
+            setServiceType(serviceName)
+            setServiceTypeError(false)
+        }
+
         const serviceTypes = [
             {
                 name: SOFTWARE_CONSULTING,
@@ -58,12 +72,20 @@ const ProjectGoalsForm = ({
                         type='radio' 
                         name='serviceRadio' 
                         id={service.name} 
-                        onChange={() => setServiceType(service.name)}
+                        onChange={() => handleServiceSelect(service.name)}
                     />
                     { service.name }
                 </label>
             )
         })
+    }
+
+    const handleProjectGoalChange = (description: any) => {
+        setProjectGoal(description)
+        setProjectGoalError(description
+            ? false
+            : true
+        )
     }
 
     return (
@@ -73,25 +95,29 @@ const ProjectGoalsForm = ({
                     {WHICH_SERVICE_BEST_FITS}
                 </Paragraph>
                 { renderServiceTypes() }
+                { serviceTypeError && <span className='px-5 text-red-600'>{ PLEASE_SELECT_AT_LEAST_ONE_SERVICE }</span> }
                 <Paragraph variant='m-bold'>
                     {GIVE_US_BRIEF_DESCRIPTION}
                 </Paragraph>
                 <textarea
-                    className='
+                    className={`
                         form-control
                         block
                         w-full
                         px-3
                         py-1.5
-                        bg-white bg-clip-padding
-                        border border-2 border-primary
+                        bg-white 
+                        bg-clip-padding
+                        border border-2 
+                        ${projectGoalError ? 'border-red-600' : 'border-primary'}
                         rounded-lg
                         m-0
-                    '
+                    `}
                     id='formControlTextarea'
                     rows={10}
-                    onChange={(e) => setProjectGoal(e.target.value)}
+                    onChange={(e) => handleProjectGoalChange(e.target.value)}
                 />
+                { projectGoalError && <span className='px-5 text-red-600'>{ PLEASE_GIVE_A_DESCRIPTION }</span> }
             </div>
         </div>
     )
