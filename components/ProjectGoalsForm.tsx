@@ -33,18 +33,26 @@ const ProjectGoalsForm = ({
 
     useEffect(() => {
         setServiceInformation({ projectGoal })
+        setProjectGoalError(projectGoal
+            ? false
+            : true
+        )
     }, [projectGoal])
     
+    useEffect(() => {
+        setServices(serviceTypes)
+        setServiceTypeError(serviceTypes.length
+            ? false
+            : true    
+        )
+    }, [serviceTypes])
+
     useEffect(() => {
         setServiceInformationError(!serviceTypeError && !projectGoalError
             ? false
             : true    
         )
     }, [serviceTypeError, projectGoalError])
-
-    useEffect(() => {
-        setServices(serviceTypes)
-    }, [serviceTypes])
 
     const addServiceType = (value: any, service: string) => {
         if (!value.checked) {
@@ -95,14 +103,6 @@ const ProjectGoalsForm = ({
         })
     }
 
-    const handleProjectGoalChange = (description: any) => {
-        setProjectGoal(description)
-        setProjectGoalError(description
-            ? false
-            : true
-        )
-    }
-
     return (
         <div className='ProjectGoalsForm'>
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
@@ -130,7 +130,7 @@ const ProjectGoalsForm = ({
                     `}
                     id='formControlTextarea'
                     rows={10}
-                    onChange={(e) => handleProjectGoalChange(e.target.value)}
+                    onChange={(e) => setProjectGoal(e.target.value)}
                 />
                 { projectGoalError && <span className='px-5 text-red-600'>{ PLEASE_GIVE_A_DESCRIPTION }</span> }
             </div>
