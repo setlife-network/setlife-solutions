@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import Headline from './Headline'
 
-import { validEmail, validNumber } from '../constants/regex'
+import { validEmail, validNumber } from '../utilities/validations/regex'
 
 import {
     CLIENT_TYPE,
@@ -13,15 +13,18 @@ import {
     STARTUP_SMALL_BUSINESS,
     CORPORATION,
     NON_PROFIT_MUNICIPAL,
-    INVALID
+    INVALID,
+    PLEASE_SELECT_CLIENT_TYPE
 } from '../constants/strings'
 
 interface ContactInformationProps {
-    setContactInformation: any
+    setContactInformation: any,
+    setContactInformationError: any
 }
 
 const ContactInformation = ({
-    setContactInformation
+    setContactInformation,
+    setContactInformationError
 }: ContactInformationProps) => {
 
     const [name, setName] = useState('')
@@ -31,15 +34,18 @@ const ContactInformation = ({
     const [nameError, setNameError] = useState(false)
     const [emailError, setEmailError] = useState(false)
     const [phoneNumberError, setPhoneNumberError] = useState(false)
-    const [clientTypeError, setClientTypeError] = useState(false)
+    const [clientTypeError, setClientTypeError] = useState(true)
 
     useEffect(() => {
-        setContactInformation({
-            name,
-            email,
-            phoneNumber, 
-            clientType
-        })
+        if (!nameError && !emailError && !phoneNumberError && !clientTypeError) {
+            setContactInformation({
+                name,
+                email,
+                phoneNumber, 
+                clientType
+            })
+            setContactInformationError(false)
+        }
     }, [name, email, phoneNumber, clientType])
 
     const renderInputs = () => {
@@ -113,6 +119,10 @@ const ContactInformation = ({
     }
 
     const renderClientTypes = () => {
+        const handleClientTypeChange = (name: any) => {
+            setClientType(name)
+            setClientTypeError(false)
+        }
         const clientTypes = [
             {
                 name: INDIVIDUAL,
@@ -140,7 +150,7 @@ const ContactInformation = ({
                             type='radio' 
                             name='flexRadioDefault' 
                             id={client.name} 
-                            onChange={() => setClientType(client.name)}
+                            onChange={() => handleClientTypeChange(client.name)}
                         />
                         { client.name }
                     </label>
@@ -162,6 +172,7 @@ const ContactInformation = ({
                     {CLIENT_TYPE}
                 </Headline>
                 { renderClientTypes() }
+                { clientTypeError && <span className='px-5 text-red-600'>{ PLEASE_SELECT_CLIENT_TYPE }</span> }
             </div>
         </div>
     )
