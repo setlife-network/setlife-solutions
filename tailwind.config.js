@@ -18,6 +18,9 @@ module.exports = {
                 'solid-black': '#000000',
                 'solid-white': '#FFFFFF',
                 'light-gray': '#F2F2F2'
+            },
+            minHeight: {
+                'custom': '49.56rem'
             }
         },
     },
