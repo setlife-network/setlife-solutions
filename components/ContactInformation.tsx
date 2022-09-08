@@ -47,12 +47,10 @@ const ContactInformation = ({
 
     useEffect(() => {
         setContactInformationError(
-            !nameError && 
-            !emailError && 
-            !phoneNumberError && 
-            !clientTypeError
-                ? false
-                : true    
+            nameError || 
+            emailError || 
+            phoneNumberError || 
+            clientTypeError
         )
     }, [nameError, emailError, phoneNumberError, clientTypeError])
 
@@ -64,10 +62,7 @@ const ContactInformation = ({
                 error: nameError,
                 onChange: (nameInput: any) => {
                     setName(nameInput)
-                    setNameError(nameInput
-                        ? false
-                        : true
-                    )
+                    setNameError(!nameInput)
                 }
             },
             {
@@ -76,10 +71,7 @@ const ContactInformation = ({
                 error: emailError,
                 onChange: (emailInput: any) => {
                     setEmail(emailInput)
-                    setEmailError(validEmail.exec(emailInput)
-                        ? false
-                        : true
-                    )
+                    setEmailError(!validEmail.exec(emailInput))
                 }
             },
             {
@@ -91,10 +83,7 @@ const ContactInformation = ({
                         ? phoneNumberInput
                         : ''
                     )
-                    setPhoneNumberError(phoneNumberInput
-                        ? false
-                        : true    
-                    )
+                    setPhoneNumberError(!phoneNumberInput)
                 } 
             }
         ]
@@ -180,7 +169,11 @@ const ContactInformation = ({
                     {CLIENT_TYPE}
                 </Headline>
                 { renderClientTypes() }
-                { clientTypeError && <span className='px-5 text-red-600'>{ PLEASE_SELECT_CLIENT_TYPE }</span> }
+                { clientTypeError && (
+                    <span className='px-5 text-red-600'>
+                        { PLEASE_SELECT_CLIENT_TYPE }
+                    </span>
+                )}
             </div>
         </div>
     )

@@ -48,7 +48,7 @@ const Button = ({
 
     return (
         <button 
-            className={`Button rounded-full ${disabled ? 'bg-gray-400' : styleProps.background} ${styleProps.border} ${styleProps.color} px-8 py-4`}
+            className={`Button rounded-full ${disabled ? 'bg-light-gray' : styleProps.background} ${styleProps.border} ${styleProps.color} px-8 py-4`}
             type='button'
             disabled={disabled}
         >

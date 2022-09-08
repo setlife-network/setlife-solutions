@@ -40,11 +40,9 @@ const ConsultationPage: NextPage = () => {
 
     useEffect(() => {
         setDisabledButton(
-            !contactInformationError && 
-            !serviceInformationError &&
-            !budgedTimeLineError
-                ? false
-                : true
+            contactInformationError || 
+            serviceInformationError ||
+            budgedTimeLineError
         )
     }, [contactInformationError, serviceInformationError, budgedTimeLineError])
 

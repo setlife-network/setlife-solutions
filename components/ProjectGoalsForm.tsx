@@ -33,25 +33,16 @@ const ProjectGoalsForm = ({
 
     useEffect(() => {
         setServiceInformation({ projectGoal })
-        setProjectGoalError(projectGoal
-            ? false
-            : true
-        )
+        setProjectGoalError(!projectGoal)
     }, [projectGoal])
     
     useEffect(() => {
         setServices(serviceTypes)
-        setServiceTypeError(serviceTypes.length
-            ? false
-            : true    
-        )
+        setServiceTypeError(!serviceTypes.length)
     }, [serviceTypes])
 
     useEffect(() => {
-        setServiceInformationError(!serviceTypeError && !projectGoalError
-            ? false
-            : true    
-        )
+        setServiceInformationError(serviceTypeError || projectGoalError)
     }, [serviceTypeError, projectGoalError])
 
     const addServiceType = (value: any, service: string) => {
@@ -132,7 +123,11 @@ const ProjectGoalsForm = ({
                     rows={10}
                     onChange={(e) => setProjectGoal(e.target.value)}
                 />
-                { projectGoalError && <span className='px-5 text-red-600'>{ PLEASE_GIVE_A_DESCRIPTION }</span> }
+                {projectGoalError && (
+                    <span className='px-5 text-red-600'>
+                        { PLEASE_GIVE_A_DESCRIPTION }
+                    </span>
+                )}
             </div>
         </div>
     )

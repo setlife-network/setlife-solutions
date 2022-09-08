@@ -42,10 +42,7 @@ const BudgetTimelineForm = ({
 
     useEffect(() => {
         setTimeline(timelineValues)
-        setTimeLineValuesError(timelineValues.length
-            ? false
-            : true
-        )
+        setTimeLineValuesError(!timelineValues.length)
     }, [timelineValues])
 
     useEffect(() => {
@@ -178,7 +175,11 @@ const BudgetTimelineForm = ({
                     </Paragraph>
                 </div>
                 { renderTimelineTypes() }
-                { timelineValuesError && <span className='px-5 text-red-600'>{ PLEASE_SELECT_AT_LEAST_ONE_OPTION }</span> }
+                { timelineValuesError && (
+                    <span className='px-5 text-red-600'>
+                        { PLEASE_SELECT_AT_LEAST_ONE_OPTION }
+                    </span>
+                )}
             </div>
         </div>
     )
