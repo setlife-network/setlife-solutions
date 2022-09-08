@@ -27,16 +27,20 @@ const ConsultationPage: NextPage = () => {
     const [services, setServices] = useState({})
     const [contactInformationError, setContactInformationError] = useState(true)
     const [serviceInformationError, setServiceInformationError] = useState(true)
+    const [budgedTimeLineError, setBudgedTimeLineError] = useState(true)
     const [disabledButton, setDisabledButton] = useState(true)
 
     const router = useRouter()
 
     useEffect(() => {
-        setDisabledButton(!contactInformationError && !serviceInformationError
-            ? false
-            : true
+        setDisabledButton(
+            !contactInformationError && 
+            !serviceInformationError &&
+            !budgedTimeLineError
+                ? false
+                : true
         )
-    }, [contactInformationError, serviceInformationError])
+    }, [contactInformationError, serviceInformationError, budgedTimeLineError])
 
     const handleSubmit = async (e: any) => {
         try {
@@ -80,6 +84,7 @@ const ConsultationPage: NextPage = () => {
                 <BudgetTimelineForm
                     setBudget={setBudget}
                     setTimeline={setTimeline}
+                    setBudgedTimeLineError={setBudgedTimeLineError}
                 />
             </FormSection>
             <FormSection title={PROJECT_GOALS}>
