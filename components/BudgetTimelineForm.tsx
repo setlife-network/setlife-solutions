@@ -24,17 +24,19 @@ import {
 interface BudgetTimelineFormProps {
     setBudget: any,
     setTimeline: any,
+    defaultBudget: number[],
     setBudgedTimeLineError: any
 }
 
 const BudgetTimelineForm = ({
     setBudget,
     setTimeline,
+    defaultBudget,
     setBudgedTimeLineError
 }: BudgetTimelineFormProps) => {
 
-    const [minBudgetValue, setMinBudgetValue] = useState(10000)
-    const [maxBudgetValue, setMaxBudgetValue] = useState(50000)
+    const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
+    const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
     const [timelineValues, setTimelineValues] = useState<string[]>([])
     const [timelineValuesError, setTimeLineValuesError] = useState(true)
 
@@ -152,7 +154,7 @@ const BudgetTimelineForm = ({
                         allowCross={false}
                         min={1000}
                         max={100000}
-                        defaultValue={[10000, 50000]}
+                        defaultValue={[defaultBudget[0], defaultBudget[1]]}
                         onChange={onSliderChange}
                         railStyle={{
                             height: 2
