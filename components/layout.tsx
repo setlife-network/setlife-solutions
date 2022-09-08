@@ -5,7 +5,7 @@ export default function Layout({ children }: any) {
     return (
         <>
             <Navbar />
-            <main>
+            <main className='min-h-custom'>
                 { children }
             </main>
             <Footer />
