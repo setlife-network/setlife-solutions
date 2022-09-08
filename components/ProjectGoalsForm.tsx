@@ -101,7 +101,11 @@ const ProjectGoalsForm = ({
                     {WHICH_SERVICE_BEST_FITS}
                 </Paragraph>
                 { renderServiceTypes() }
-                { serviceTypeError && <span className='px-5 text-red-600'>{ PLEASE_SELECT_AT_LEAST_ONE_SERVICE }</span> }
+                { serviceTypeError && (
+                    <span className='px-5 text-red-600'>
+                        { PLEASE_SELECT_AT_LEAST_ONE_SERVICE }
+                    </span> 
+                )}
                 <Paragraph variant='m-bold'>
                     {GIVE_US_BRIEF_DESCRIPTION}
                 </Paragraph>

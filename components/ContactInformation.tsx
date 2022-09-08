@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import Headline from './Headline'
 
-import { validEmail, validNumber } from '../utilities/validations/regex'
+import { validEmail, validNumber } from '../utilities/validations'
 
 import {
     CLIENT_TYPE,
@@ -108,7 +108,11 @@ const ContactInformation = ({
                             { input.name }
                         </span>
                     </label>
-                    { input.error && <span className='px-5 text-red-600'>{ INVALID } { input.name }</span> }
+                    { input.error && (
+                        <span className='px-5 text-red-600'>
+                            { INVALID } { input.name }
+                        </span> 
+                    )}
                 </div>
                 
             )
