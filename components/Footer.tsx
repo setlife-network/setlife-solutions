@@ -32,8 +32,8 @@ const Footer = ({}) => {
     }
 
     return (
-        <footer className='bg-solid-black px-8 md:px-24 xl:px-48 py-4 h-100 items-center md:flex'>
-            <div className='hidden md:ml-5 md:w-1/12 md:flex'>
+        <footer className='Footer bg-solid-black px-8 md:px-24 xl:px-48 py-4 items-center md:flex'>
+            <div className='hidden md:ml-5 md:flex w-auto'>
                 <Headline variant='h2-semibold' color='solid-white'>
                     { SETLIFE }
                 </Headline>
@@ -52,7 +52,7 @@ const Footer = ({}) => {
                     </Headline>
                 </a>
             </div>
-            <div className='hidden md:w-8/12 md:ml-12 md:mt-2 md:flex'>
+            <div className='hidden md:w-8/12 md:ml-4 md:mt-2 md:flex '>
                 <Headline variant='xs' color='solid-white'>
                     { SETLIFE_SOLUTIONS_COPYRIGHT }
                 </Headline>
