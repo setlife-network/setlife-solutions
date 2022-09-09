@@ -146,18 +146,21 @@ const ContactInformation = ({
         ]
         return clientTypes.map(client => {
             return (
-                <div>
+                <div 
+                    className='w-fit'
+                    onClick={() => handleClientTypeChange(client.name)}
+                >
                     <label 
                         className='form-check-label inline-block text-solid-black' 
-                        htmlFor='flexRadioDefault1'
+                        htmlFor='clientType'
                         key={client.name}
                     >
                         <input 
                             className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
                             type='radio' 
-                            name='flexRadioDefault' 
+                            name='clientType' 
                             id={client.name} 
-                            onChange={() => handleClientTypeChange(client.name)}
+                            checked={clientType == client.name}
                         />
                         { client.name }
                     </label>

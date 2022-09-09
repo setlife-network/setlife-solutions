@@ -10,7 +10,7 @@ const ProjectTitle = ({
 }: ProjectTitleProps) => {
     return (
         <div className='ProjectTitle'>
-            <Headline variant='alternative' color='primary'>
+            <Headline variant='l' color='primary'>
                 { title }
             </Headline>
         </div>
