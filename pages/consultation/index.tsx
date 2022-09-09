@@ -47,29 +47,27 @@ const ConsultationPage: NextPage = () => {
     }, [contactInformationError, serviceInformationError, budgedTimeLineError])
 
     const handleSubmit = async (e: any) => {
-        if (!disabledButton) {
-            try {
-                e.preventDefault()
-                const res = await fetch('/api/sendgrid', {
-                    body: JSON.stringify({
-                        services,
-                        timeline,
-                        ...budget,
-                        ...contactInformation,
-                        ...serviceInformation
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    method: 'POST'
-                })
-                const { error } = await res.json()
-                if (!error) {
-                    router.push('/consultation/thanks')
-                }
-            } catch (error) {
-                console.log(error)
-            }
+        if (disabledButton) return
+        try {
+            e.preventDefault()
+            const res = await fetch('/api/sendgrid', {
+                body: JSON.stringify({
+                    services,
+                    timeline,
+                    ...budget,
+                    ...contactInformation,
+                    ...serviceInformation
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST'
+            })
+            const { error } = await res.json()
+            if (error) throw error
+            router.push('/consultation/thanks')
+        } catch (error) {
+            console.log(error)
         }
     };
 

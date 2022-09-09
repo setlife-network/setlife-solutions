@@ -114,7 +114,7 @@ const ContactInformation = ({
                             { input.name }
                         </span>
                     </label>
-                    { input.error && (
+                    {input.error && (
                         <span className='px-5 text-red-600'>
                             { INVALID } { input.name }
                         </span> 
@@ -179,7 +179,7 @@ const ContactInformation = ({
                     {CLIENT_TYPE}
                 </Headline>
                 { renderClientTypes() }
-                { clientTypeError && (
+                {clientTypeError && (
                     <span className='px-5 text-red-600'>
                         { PLEASE_SELECT_CLIENT_TYPE }
                     </span>
