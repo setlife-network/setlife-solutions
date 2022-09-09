@@ -31,27 +31,42 @@ const ConsultationPage: NextPage = () => {
     const [contactInformation, setContactInformation] = useState({})
     const [serviceInformation, setServiceInformation] = useState({})
     const [services, setServices] = useState({})
+    const [contactInformationError, setContactInformationError] = useState(true)
+    const [serviceInformationError, setServiceInformationError] = useState(true)
+    const [budgedTimeLineError, setBudgedTimeLineError] = useState(true)
+    const [disabledButton, setDisabledButton] = useState(true)
 
     const router = useRouter()
 
+    useEffect(() => {
+        setDisabledButton(
+            contactInformationError || 
+            serviceInformationError ||
+            budgedTimeLineError
+        )
+    }, [contactInformationError, serviceInformationError, budgedTimeLineError])
+
     const handleSubmit = async (e: any) => {
-        e.preventDefault()
-        const res = await fetch('/api/sendgrid', {
-            body: JSON.stringify({
-                services,
-                timeline,
-                ...budget,
-                ...contactInformation,
-                ...serviceInformation
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST'
-        })
-        router.push('/consultation/thanks')
-        const { error } = await res.json()
-        if (error) {
+        if (disabledButton) return
+        try {
+            e.preventDefault()
+            const res = await fetch('/api/sendgrid', {
+                body: JSON.stringify({
+                    services,
+                    timeline,
+                    ...budget,
+                    ...contactInformation,
+                    ...serviceInformation
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST'
+            })
+            const { error } = await res.json()
+            if (error) throw error
+            router.push('/consultation/thanks')
+        } catch (error) {
             console.log(error)
         }
     };
@@ -66,6 +81,7 @@ const ConsultationPage: NextPage = () => {
             <FormSection title={CONTACT_INFORMATION}>
                 <ContactInformation 
                     setContactInformation={setContactInformation}
+                    setContactInformationError={setContactInformationError}
                 />
             </FormSection>
             <FormSection title={BUDGET_AND_TIMELINE}>
@@ -73,17 +89,19 @@ const ConsultationPage: NextPage = () => {
                     setBudget={setBudget}
                     setTimeline={setTimeline}
                     defaultBudget={[DEFAULT_MIN_BUDGET, DEFAULT_MAX_BUDGET]}
+                    setBudgedTimeLineError={setBudgedTimeLineError}
                 />
             </FormSection>
             <FormSection title={PROJECT_GOALS}>
                 <ProjectGoalsForm 
                     setServiceInformation={setServiceInformation}
                     setServices={setServices}
+                    setServiceInformationError={setServiceInformationError}
                 />
             </FormSection>
             <Section>
                 <div onClick={(e: any) => handleSubmit(e)}>
-                    <Button variant='tertiary'>
+                    <Button variant='tertiary' disabled={disabledButton}>
                         {SUBMIT}
                     </Button>
                 </div>

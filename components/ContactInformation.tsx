@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 
 import Headline from './Headline'
 
+import { validEmail, validNumber } from '../utilities/validations'
+
 import {
     CLIENT_TYPE,
     EMAIL,
@@ -10,21 +12,29 @@ import {
     INDIVIDUAL,
     STARTUP_SMALL_BUSINESS,
     CORPORATION,
-    NON_PROFIT_MUNICIPAL
+    NON_PROFIT_MUNICIPAL,
+    INVALID,
+    PLEASE_SELECT_CLIENT_TYPE
 } from '../constants/strings'
 
 interface ContactInformationProps {
-    setContactInformation: any
+    setContactInformation: any,
+    setContactInformationError: any
 }
 
 const ContactInformation = ({
-    setContactInformation
+    setContactInformation,
+    setContactInformationError
 }: ContactInformationProps) => {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [clientType, setClientType] = useState('')
+    const [nameError, setNameError] = useState(false)
+    const [emailError, setEmailError] = useState(false)
+    const [phoneNumberError, setPhoneNumberError] = useState(false)
+    const [clientTypeError, setClientTypeError] = useState(true)
 
     useEffect(() => {
         setContactInformation({
@@ -33,46 +43,93 @@ const ContactInformation = ({
             phoneNumber, 
             clientType
         })
+
+        if (email && 
+            phoneNumber && 
+            name && 
+            clientType
+        ) {
+            setContactInformationError(
+                nameError || 
+                emailError || 
+                phoneNumberError || 
+                clientTypeError
+            )
+        } else {
+            setContactInformationError(true)
+        }
     }, [name, email, phoneNumber, clientType])
 
     const renderInputs = () => {
         const basicInformationFields = [
             {
                 name: NAME,
-                onChange: setName
+                value: name,
+                error: nameError,
+                onChange: (nameInput: any) => {
+                    setName(nameInput)
+                    setNameError(!nameInput)
+                }
             },
             {
                 name: EMAIL,
-                onChange: setEmail
+                value: email,
+                error: emailError,
+                onChange: (emailInput: any) => {
+                    setEmail(emailInput)
+                    setEmailError(!validEmail.exec(emailInput))
+                }
             },
             {
                 name: PHONE_NUMBER,
-                onChange: setPhoneNumber
+                value: phoneNumber,
+                error: phoneNumberError,
+                onChange: (phoneNumberInput: any) => {
+                    setPhoneNumber(validNumber.exec(phoneNumberInput)
+                        ? phoneNumberInput
+                        : ''
+                    )
+                    setPhoneNumberError(!phoneNumberInput)
+                } 
             }
         ]
         return basicInformationFields.map(input => {
             return (
-                <label 
-                    className='relative block p-3 border-2 border-primary rounded-full' 
-                    htmlFor={input.name} 
-                    key={input.name}
-                >
-                    <input
-                        className='w-full px-4 pt-3.5 pb-0 text-sm placeholder-transparent border-none focus:ring-0 peer'
-                        id={input.name}
-                        type='text'
-                        placeholder={input.name}
-                        onChange={(e) => input.onChange(e.target.value)}
-                    />
-                    <span className='absolute text-xs px-4 font-medium text-gray-500 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm'>
-                        { input.name }
-                    </span>
-                </label>
+                <div>
+                    <label 
+                        className={`relative block p-3 border-2 rounded-full ${input.error ? 'border-red-600' : 'border-primary'}`}
+                        htmlFor={input.name} 
+                        key={input.name}
+                    >
+                        <input
+                            className='w-full px-4 pt-3.5 pb-0 text-sm placeholder-transparent border-none focus:ring-0 peer'
+                            id={input.name}
+                            type='text'
+                            placeholder={input.name}
+                            required
+                            value={input.value}
+                            onChange={(e) => input.onChange(e.target.value)}
+                        />
+                        <span className='absolute text-xs px-4 font-medium text-gray-500 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm'>
+                            { input.name }
+                        </span>
+                    </label>
+                    {input.error && (
+                        <span className='px-5 text-red-600'>
+                            { INVALID } { input.name }
+                        </span> 
+                    )}
+                </div>
+                
             )
         })
     }
 
     const renderClientTypes = () => {
+        const handleClientTypeChange = (name: any) => {
+            setClientType(name)
+            setClientTypeError(false)
+        }
         const clientTypes = [
             {
                 name: INDIVIDUAL,
@@ -91,7 +148,7 @@ const ContactInformation = ({
             return (
                 <div 
                     className='w-fit'
-                    onClick={() => setClientType(client.name)}
+                    onClick={() => handleClientTypeChange(client.name)}
                 >
                     <label 
                         className='form-check-label inline-block text-solid-black' 
@@ -125,6 +182,11 @@ const ContactInformation = ({
                     {CLIENT_TYPE}
                 </Headline>
                 { renderClientTypes() }
+                {clientTypeError && (
+                    <span className='px-5 text-red-600'>
+                        { PLEASE_SELECT_CLIENT_TYPE }
+                    </span>
+                )}
             </div>
         </div>
     )

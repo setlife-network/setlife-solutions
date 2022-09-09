@@ -17,28 +17,37 @@ import {
     HAVE_SOME_CAPITAL,
     PROJECT_IS_ALREADY_UP,
     STARTING_MY_PROJECT_FROM_SCRATCH,
-    STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE
+    STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE,
+    PLEASE_SELECT_AT_LEAST_ONE_OPTION
 } from '../constants/strings'
 
 interface BudgetTimelineFormProps {
     setBudget: any,
     setTimeline: any,
-    defaultBudget: number[]
+    defaultBudget: number[],
+    setBudgedTimeLineError: any
 }
 
 const BudgetTimelineForm = ({
     setBudget,
     setTimeline,
-    defaultBudget
+    defaultBudget,
+    setBudgedTimeLineError
 }: BudgetTimelineFormProps) => {
 
     const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
     const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
     const [timelineValues, setTimelineValues] = useState<string[]>([])
+    const [timelineValuesError, setTimeLineValuesError] = useState(true)
 
     useEffect(() => {
         setTimeline(timelineValues)
+        setTimeLineValuesError(!timelineValues.length)
     }, [timelineValues])
+
+    useEffect(() => {
+        setBudgedTimeLineError(timelineValuesError)
+    }, [timelineValuesError])
 
     const onSliderChange = (value: any) => {
         setMinBudgetValue(value[0])
@@ -166,6 +175,11 @@ const BudgetTimelineForm = ({
                     </Paragraph>
                 </div>
                 { renderTimelineTypes() }
+                { timelineValuesError && (
+                    <span className='px-5 text-red-600'>
+                        { PLEASE_SELECT_AT_LEAST_ONE_OPTION }
+                    </span>
+                )}
             </div>
         </div>
     )
