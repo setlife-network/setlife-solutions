@@ -33,7 +33,7 @@ const Hero = ({}) => {
                         { RATHER_THAN_DELIVERING_A_BLACKBOX }
                     </Paragraph>
                 </div>
-                <div>
+                <div className='text-center md:text-left'>
                     <Button variant='tertiary' link={CONSULTATION.toLowerCase()}>
                         {SCHEDULE_CONSULTATION.toUpperCase()}
                     </Button>
