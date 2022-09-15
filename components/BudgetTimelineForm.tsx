@@ -100,7 +100,7 @@ const BudgetTimelineForm = ({
         ]
         return timelineTypes.map(timeline => {
             return (
-                <div onClick={() => addTimelineValue(timeline.name)}>
+                <div className='w-fit' onClick={() => addTimelineValue(timeline.name)}>
                     <label 
                         className='form-check-label inline-block text-solid-black' 
                         htmlFor='timelineRadio'
