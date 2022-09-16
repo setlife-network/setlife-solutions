@@ -91,8 +91,8 @@ const emailTemplate = ({
 async function sendEmail(req: any, res: any) {
     try {
         await sendgrid.send({
-            to: 'contributors@setlife.network',
-            from: 'contributors@setlife.network',
+            to: `${process.env.CONSULTATION_FORM_EMAIL}`,
+            from: `${process.env.CONSULTATION_FORM_EMAIL}`,
             subject: `New form received`,
             html: `
                 ${emailTemplate({...req.body})}

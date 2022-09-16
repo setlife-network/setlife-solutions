@@ -45,19 +45,18 @@ const ProjectGoalsForm = ({
         setServiceInformationError(serviceTypeError || projectGoalError)
     }, [serviceTypeError, projectGoalError])
 
-    const addServiceType = (value: any, service: string) => {
-        if (!value.checked) {
+    const addServiceType = (service: string) => {
+        if (serviceTypes.includes(service)) {
             setServiceTypes(
                 serviceTypes.filter((value: string) => value != service)
             )
             return
         }
-        if (serviceTypes.includes(service)) return
         setServiceTypes([...serviceTypes, service])
     }
 
     const renderServiceTypes = () => {
-        const serviceTypes = [
+        const services = [
             {
                 name: SOFTWARE_CONSULTING,
             },
@@ -74,22 +73,24 @@ const ProjectGoalsForm = ({
                 name: APPLICATION_MAINTENANCE
             }
         ]
-        return serviceTypes.map(service => {
+        return services.map(service => {
             return (
-                <label 
-                    className='form-check-label inline-block text-solid-black' 
-                    htmlFor='flexRadioDefault1'
-                    key={service.name}
-                >
-                    <input 
-                        className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
-                        type='checkbox' 
-                        name='serviceRadio' 
-                        id={service.name} 
-                        onChange={(value) => addServiceType(value.target, service.name)}
-                    />
-                    { service.name }
-                </label>
+                <div className='w-fit' onClick={() => addServiceType(service.name)}>
+                    <label 
+                        className='form-check-label inline-block text-solid-black' 
+                        htmlFor='flexRadioDefault1'
+                        key={service.name}
+                    >
+                        <input 
+                            className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
+                            type='checkbox' 
+                            name='serviceRadio' 
+                            id={service.name} 
+                            checked={serviceTypes.includes(service.name)}
+                        />
+                        { service.name }
+                    </label>
+                </div>
             )
         })
     }
