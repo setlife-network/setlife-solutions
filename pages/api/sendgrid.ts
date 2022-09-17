@@ -89,14 +89,10 @@ const emailTemplate = ({
 `)
 
 async function sendEmail(req: any, res: any) {
-    console.log('process.env.CONSULTATION_FORM_EMAIL')
-    console.log(process.env.CONSULTATION_FORM_EMAIL)
-    console.log('process.env.SENDGRID_API_KEY')
-    console.log(process.env.SENDGRID_API_KEY)
     try {
         await sendgrid.send({
-            to: process.env.CONSULTATION_FORM_EMAIL || '',
-            from: process.env.CONSULTATION_FORM_EMAIL || '',
+            to: `${process.env.CONSULTATION_FORM_EMAIL}`,
+            from: `${process.env.CONSULTATION_FORM_EMAIL}`,
             subject: `New form received`,
             html: `
                 ${emailTemplate({...req.body})}
