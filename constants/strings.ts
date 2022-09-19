@@ -68,3 +68,4 @@ export const PLEASE_SELECT_AT_LEAST_ONE_SERVICE = 'Please select at least one se
 export const PLEASE_GIVE_A_DESCRIPTION = 'Please give a brief description'
 export const PLEASE_SELECT_AT_LEAST_ONE_OPTION = 'Please select at least one option'
 export const SCHEDULE_CONSULTATION = 'Schedule consultation'
+export const VIEW_PRICING = 'View Pricing'
