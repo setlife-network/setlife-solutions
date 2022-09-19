@@ -21,7 +21,7 @@ import ServiceDetailProps from '../../interfaces/ServiceDetailProps'
 
 import { SOFTWARE_CONSULTING_BANNER_IMAGE_URL } from '../../constants'
 import {
-    CAN_YOU_PROVIDE_THESE_SERVICES,
+    VIEW_PRICING,
     OUR_WORK,
     THIS_IS_THE_BEST_PLACE_TO_START,
     WHAT_WE_DO
@@ -106,9 +106,9 @@ const Service: NextPage = () => {
                     <div className=''>
                         <List items={serviceItems} />
                     </div>
-                    <div className='hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
-                        <Button link='/'>
-                            { CAN_YOU_PROVIDE_THESE_SERVICES }
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
+                        <Button link='/service-packages'>
+                            { VIEW_PRICING }
                         </Button>   
                     </div>
                     <Subtitle>
