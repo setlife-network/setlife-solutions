@@ -24,7 +24,8 @@ import {
     VIEW_PRICING,
     OUR_WORK,
     THIS_IS_THE_BEST_PLACE_TO_START,
-    WHAT_WE_DO
+    WHAT_WE_DO,
+    CAN_YOU_PROVIDE_THESE_SERVICES
 } from '../../constants/strings'
 
 interface getService {
@@ -105,6 +106,11 @@ const Service: NextPage = () => {
                     </div>
                     <div className=''>
                         <List items={serviceItems} />
+                    </div>
+                    <div className='hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
+                        <Button link='/'>
+                            { CAN_YOU_PROVIDE_THESE_SERVICES }
+                        </Button>   
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
                         <Button link='/service-packages'>
