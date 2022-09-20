@@ -174,7 +174,8 @@ const ContributorInquiryForm = ({}) => {
                         placeholder={ADD_MORE_DETAILS + ' ' + OPTIONAL}
                     />
                 </div>
-                <div className='justify-self-center md:justify-self-end'>
+                <div className='grid grid-cols-1 md:grid-cols-2'>
+                    <div className='hidden md:block' />
                     <Button variant='tertiary' disabled={disabled}>
                         {SUBMIT}
                     </Button>
