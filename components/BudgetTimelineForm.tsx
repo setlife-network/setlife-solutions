@@ -127,7 +127,7 @@ const BudgetTimelineForm = ({
                 <Paragraph>
                     <>
                         {PROJECT_WITH_PROPOSED_BUDGETS}
-                        <a className='text-primary' href='/service-packages'>
+                        <a className='text-primary hover:underline hover:underline-offset-1' href='/service-packages'>
                             {SERVICE_PACKAGES}
                         </a>
                         {TO_GET_A_SENSE}
