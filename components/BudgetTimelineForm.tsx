@@ -18,7 +18,9 @@ import {
     PROJECT_IS_ALREADY_UP,
     STARTING_MY_PROJECT_FROM_SCRATCH,
     STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE,
-    PLEASE_SELECT_AT_LEAST_ONE_OPTION
+    PLEASE_SELECT_AT_LEAST_ONE_OPTION,
+    SERVICE_PACKAGES,
+    TO_GET_A_SENSE
 } from '../constants/strings'
 
 interface BudgetTimelineFormProps {
@@ -123,7 +125,13 @@ const BudgetTimelineForm = ({
         <div className='BudgetTimelineForm'>
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
                 <Paragraph>
-                    {PROJECT_WITH_PROPOSED_BUDGETS}
+                    <>
+                        {PROJECT_WITH_PROPOSED_BUDGETS}
+                        <a className='text-primary hover:underline hover:underline-offset-1' href='/service-packages'>
+                            {SERVICE_PACKAGES}
+                        </a>
+                        {TO_GET_A_SENSE}
+                    </>
                 </Paragraph>
                 <Paragraph variant='m-bold'>
                     {LET_US_KNOW_YOU_PROJECT_TIMELINE}

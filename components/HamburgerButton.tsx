@@ -7,7 +7,7 @@ const HamburgerButton = (props: any) => {
 
     return (
         <div 
-            className={`z-50 flex relative w-7 h-4 mt-2 flex-col justify-between items-center md:hidden ${open ? 'mt-3' : 'mt-1'}`}
+            className={`z-50 flex w-7 h-4 mt-2 flex-col justify-between items-center md:hidden ${open ? 'mt-3 fixed' : 'mt-1 relative'}`}
             onClick={() => {
                 setOpen(!open)
             }}

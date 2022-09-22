@@ -33,7 +33,6 @@ const ContactInformation = ({
     const [clientType, setClientType] = useState('')
     const [nameError, setNameError] = useState(false)
     const [emailError, setEmailError] = useState(false)
-    const [phoneNumberError, setPhoneNumberError] = useState(false)
     const [clientTypeError, setClientTypeError] = useState(true)
 
     useEffect(() => {
@@ -44,15 +43,14 @@ const ContactInformation = ({
             clientType
         })
 
-        if (email && 
-            phoneNumber && 
+        if (
+            email && 
             name && 
             clientType
         ) {
             setContactInformationError(
                 nameError || 
-                emailError || 
-                phoneNumberError || 
+                emailError ||
                 clientTypeError
             )
         } else {
@@ -83,13 +81,11 @@ const ContactInformation = ({
             {
                 name: PHONE_NUMBER,
                 value: phoneNumber,
-                error: phoneNumberError,
                 onChange: (phoneNumberInput: any) => {
                     setPhoneNumber(validNumber.exec(phoneNumberInput)
                         ? phoneNumberInput
                         : ''
                     )
-                    setPhoneNumberError(!phoneNumberInput)
                 } 
             }
         ]
