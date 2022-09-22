@@ -181,7 +181,7 @@ const ContributorInquiryForm = ({}) => {
                     </Button>
                 </div>
             </div>
-            <div className='ml-5 hidden md:block'>
+            <div className='hidden self-center justify-self-center md:block'>
                 <img src={CONTRIBUTOR_INQUIRY_IMAGE} alt='Inquiry' />
             </div>
         </div>
