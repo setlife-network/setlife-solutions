@@ -64,6 +64,5 @@ export const STARTING_MY_PROJECT_FROM_SCRATCH = 'Starting my project from scratc
 export const STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE = 'Started development but need more assistance'
 export const INVALID = 'Invalid'
 export const PLEASE_SELECT_CLIENT_TYPE = 'Please select a client type'
-export const PLEASE_SELECT_AT_LEAST_ONE_SERVICE = 'Please select at least one service'
 export const PLEASE_GIVE_A_DESCRIPTION = 'Please give a brief description'
-export const PLEASE_SELECT_AT_LEAST_ONE_OPTION = 'Please select at least one option'
+export const FIELDS_WITH_ARE_REQUIRED = 'Fields with * are required'
