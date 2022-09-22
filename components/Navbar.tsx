@@ -27,7 +27,7 @@ function MobileNav({open, setOpen}: any) {
     return (
         <div 
             className={`
-                absolute top-0 bg-solid-white left-0 h-screen w-screen transform ${open ? '-translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out filter drop-shadow-md
+                fixed top-0 bg-solid-white z-50 left-0 h-screen w-screen transform ${open ? '-translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out filter drop-shadow-md
             `}
         >
             <div className="flex items-center justify-center filter drop-shadow-md bg-solid-black h-20">
