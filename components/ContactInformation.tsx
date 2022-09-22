@@ -34,7 +34,7 @@ const ContactInformation = ({
     const [nameError, setNameError] = useState(false)
     const [emailError, setEmailError] = useState(false)
     const [phoneNumberError, setPhoneNumberError] = useState(false)
-    const [clientTypeError, setClientTypeError] = useState(true)
+    const [clientTypeError, setClientTypeError] = useState(false)
 
     useEffect(() => {
         setContactInformation({
@@ -179,7 +179,7 @@ const ContactInformation = ({
                     color='primary'
                     variant='alternative'
                 >
-                    {CLIENT_TYPE}
+                    {CLIENT_TYPE + '*'}
                 </Headline>
                 { renderClientTypes() }
                 {clientTypeError && (
