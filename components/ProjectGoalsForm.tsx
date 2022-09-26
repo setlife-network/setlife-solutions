@@ -40,7 +40,7 @@ const ProjectGoalsForm = ({
     }, [serviceTypes])
 
     useEffect(() => {
-        if (!serviceTypeError && !projectGoalError) {
+        if (!serviceTypeError && !projectGoalError && projectGoal) {
             setServiceInformationError(false)
         } else {
             setServiceInformationError(true)
