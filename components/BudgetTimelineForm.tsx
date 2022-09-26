@@ -17,7 +17,9 @@ import {
     HAVE_SOME_CAPITAL,
     PROJECT_IS_ALREADY_UP,
     STARTING_MY_PROJECT_FROM_SCRATCH,
-    STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE
+    STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE,
+    SERVICE_PACKAGES,
+    TO_GET_A_SENSE
 } from '../constants/strings'
 
 interface BudgetTimelineFormProps {
@@ -56,14 +58,13 @@ const BudgetTimelineForm = ({
         })
     }
 
-    const addTimelineValue = (value: any, timeline: string) => {
-        if (!value.checked) {
+    const addTimelineValue = (timeline: string) => {
+        if (timelineValues.includes(timeline)) {
             setTimelineValues(
                 timelineValues.filter(value => value != timeline)
             )
             return
         }
-        if (timelineValues.includes(timeline)) return
         setTimelineValues([...timelineValues, timeline])
     }
 
@@ -99,19 +100,21 @@ const BudgetTimelineForm = ({
         ]
         return timelineTypes.map(timeline => {
             return (
-                <label 
-                    className='form-check-label inline-block text-solid-black' 
-                    htmlFor='flexRadioDefault1'
-                    key={timeline.name}
-                    onChange={(value) => addTimelineValue(value.target, timeline.name)}
-                >
-                    <input 
-                        className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
-                        type='checkbox'
-                        id={timeline.name} 
-                    />
-                    { timeline.name }
-                </label>
+                <div className='w-fit' onClick={() => addTimelineValue(timeline.name)}>
+                    <label 
+                        className='form-check-label inline-block text-solid-black' 
+                        htmlFor='timelineRadio'
+                        key={timeline.name}
+                    >
+                        <input 
+                            className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
+                            type='checkbox'
+                            id={timeline.name}
+                            checked={timelineValues.includes(timeline.name)}
+                        />
+                        { timeline.name }
+                    </label>
+                </div>
             )
         })
     }
@@ -120,7 +123,13 @@ const BudgetTimelineForm = ({
         <div className='BudgetTimelineForm'>
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
                 <Paragraph>
-                    {PROJECT_WITH_PROPOSED_BUDGETS}
+                    <>
+                        {PROJECT_WITH_PROPOSED_BUDGETS}
+                        <a className='text-primary hover:underline hover:underline-offset-1' href='/service-packages'>
+                            {SERVICE_PACKAGES}
+                        </a>
+                        {TO_GET_A_SENSE}
+                    </>
                 </Paragraph>
                 <Paragraph variant='m-bold'>
                     {LET_US_KNOW_YOU_PROJECT_TIMELINE}

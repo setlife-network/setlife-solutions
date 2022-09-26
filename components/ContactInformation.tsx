@@ -44,15 +44,14 @@ const ContactInformation = ({
             clientType
         })
 
-        if (email && 
-            phoneNumber && 
+        if (
+            email && 
             name && 
             clientType
         ) {
             setContactInformationError(
                 nameError || 
-                emailError || 
-                phoneNumberError || 
+                emailError ||
                 clientTypeError
             )
         } else {
@@ -83,13 +82,11 @@ const ContactInformation = ({
             {
                 name: PHONE_NUMBER,
                 value: phoneNumber,
-                error: phoneNumberError,
                 onChange: (phoneNumberInput: any) => {
                     setPhoneNumber(validNumber.exec(phoneNumberInput)
                         ? phoneNumberInput
                         : ''
                     )
-                    setPhoneNumberError(!phoneNumberInput)
                 } 
             }
         ]

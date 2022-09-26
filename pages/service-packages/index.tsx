@@ -13,7 +13,7 @@ import { GET_SERVICE_PACKAGES } from '../../operations/queries/ServicePackagesQu
 import ServicePackageProps from '../../interfaces/ServicePackageProps'
 
 import {
-    GO_TO_CONSULTATION_FORM,
+    SCHEDULE_CONSULTATION,
     SERVICE_PACKAGES,
     CONSULTATION
 } from '../../constants/strings'
@@ -62,7 +62,7 @@ const ServicePackagesPage: NextPage = () => {
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                         <Button variant='secondary' link={CONSULTATION.toLowerCase()}>
-                            { GO_TO_CONSULTATION_FORM }
+                            { SCHEDULE_CONSULTATION }
                         </Button>
                     </div>
                 </div>
