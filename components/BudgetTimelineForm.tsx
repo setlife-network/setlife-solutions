@@ -8,7 +8,8 @@ import {
     MIN,
     MAX,
     PROJECT_WITH_PROPOSED_BUDGETS,
-    LET_US_KNOW_YOU_PROJECT_TIMELINE,
+    SELECT_AN_ESTIMATED_BUDGET_RANGE_FOR_YOUR_PROJECT,
+    DESCRIBE_ANY_TIMELINE_AND_BUDGET_CONSTRAINTS_FOR_YOUR_PROJECT,
     NEED_URGENT_DELIVERY,
     PREFER_MILESTONE_BASED_DELIVERY,
     SEEKING_LONG_TERM_STABLE_DEVELOPMENT,
@@ -24,30 +25,17 @@ import {
 
 interface BudgetTimelineFormProps {
     setBudget: any,
-    setTimeline: any,
     defaultBudget: number[],
-    setBudgedTimeLineError: any
 }
 
 const BudgetTimelineForm = ({
     setBudget,
-    setTimeline,
     defaultBudget,
-    setBudgedTimeLineError
 }: BudgetTimelineFormProps) => {
 
     const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
     const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
     const [timelineValues, setTimelineValues] = useState<string[]>([])
-
-    useEffect(() => {
-        setTimeline(timelineValues)
-        if (timelineValues.length) {
-            setBudgedTimeLineError(false)
-        } else {
-            setBudgedTimeLineError(true)
-        }
-    }, [timelineValues])
 
     const onSliderChange = (value: any) => {
         setMinBudgetValue(value[0])
@@ -132,7 +120,7 @@ const BudgetTimelineForm = ({
                     </>
                 </Paragraph>
                 <Paragraph variant='m-bold'>
-                    {LET_US_KNOW_YOU_PROJECT_TIMELINE}
+                    {SELECT_AN_ESTIMATED_BUDGET_RANGE_FOR_YOUR_PROJECT}
                 </Paragraph>
                 <div className='grid grid-cols-2 justify-items-center'>
                     <div>
@@ -178,7 +166,7 @@ const BudgetTimelineForm = ({
                 </div>
                 <div className='mt-8'>
                     <Paragraph variant='m-bold'>
-                        {LET_US_KNOW_YOU_PROJECT_TIMELINE + '*'}
+                        {DESCRIBE_ANY_TIMELINE_AND_BUDGET_CONSTRAINTS_FOR_YOUR_PROJECT}
                     </Paragraph>
                 </div>
                 { renderTimelineTypes() }
