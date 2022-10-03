@@ -96,7 +96,7 @@ const Service: NextPage = () => {
                 <div className='grid grid-rows-auto gap-16'>
                     <div className=''>
                         <Paragraph>
-                            { THIS_IS_THE_BEST_PLACE_TO_START }
+                            { service?.description || '' }
                         </Paragraph>
                     </div>
                     <div className='grid grid-flow-col auto-cols-max'>
