@@ -33,7 +33,7 @@ const ContactInformation = ({
     const [clientType, setClientType] = useState('')
     const [nameError, setNameError] = useState(false)
     const [emailError, setEmailError] = useState(false)
-    const [clientTypeError, setClientTypeError] = useState(true)
+    const [clientTypeError, setClientTypeError] = useState(false)
 
     useEffect(() => {
         setContactInformation({
@@ -108,6 +108,7 @@ const ContactInformation = ({
                         />
                         <span className='absolute text-xs px-4 font-medium text-gray-500 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm'>
                             { input.name }
+                            <span className={`${input.name == PHONE_NUMBER ? 'hidden' : 'inline'}`}>*</span>
                         </span>
                     </label>
                     {input.error && (
@@ -175,7 +176,7 @@ const ContactInformation = ({
                     color='primary'
                     variant='alternative'
                 >
-                    {CLIENT_TYPE}
+                    {CLIENT_TYPE + '*'}
                 </Headline>
                 { renderClientTypes() }
                 {clientTypeError && (

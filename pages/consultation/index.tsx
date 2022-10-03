@@ -15,8 +15,10 @@ import {
     SUBMIT,
     CONTACT_INFORMATION,
     BUDGET_AND_TIMELINE,
-    PROJECT_GOALS
+    PROJECT_GOALS,
+    FIELDS_WITH_ARE_REQUIRED
 } from '../../constants/strings'
+import Subtitle from '../../components/Subtitle'
 
 const ConsultationPage: NextPage = () => {
 
@@ -100,7 +102,14 @@ const ConsultationPage: NextPage = () => {
                 />
             </FormSection>
             <Section>
-                <div onClick={(e: any) => handleSubmit(e)}>
+                <div className={`grid grid-cols-1 md:grid-cols-3 ${disabledButton ? 'block' : 'hidden'}`}>
+                    <div className='hidden md:block' />
+                    <Subtitle variant='xs-light' alignment='text-center md:text-right'>
+                        {FIELDS_WITH_ARE_REQUIRED}
+                    </Subtitle>
+                </div>
+                <div className='grid grid-cols-1 mt-5 md:grid-cols-3' onClick={(e: any) => handleSubmit(e)}>
+                    <div className='hidden md:block' />
                     <Button variant='tertiary' disabled={disabledButton}>
                         {SUBMIT}
                     </Button>

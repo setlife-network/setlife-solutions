@@ -10,7 +10,6 @@ import {
     APPLICATION_MAINTENANCE,
     WHICH_SERVICE_BEST_FITS,
     GIVE_US_BRIEF_DESCRIPTION,
-    PLEASE_SELECT_AT_LEAST_ONE_SERVICE,
     PLEASE_GIVE_A_DESCRIPTION
 } from '../constants/strings'
 
@@ -28,12 +27,11 @@ const ProjectGoalsForm = ({
 
     const [serviceTypes, setServiceTypes] = useState<string[]>([])
     const [projectGoal, setProjectGoal] = useState('')
-    const [serviceTypeError, setServiceTypeError] = useState(true)
-    const [projectGoalError, setProjectGoalError] = useState(true)
+    const [serviceTypeError, setServiceTypeError] = useState(false)
+    const [projectGoalError, setProjectGoalError] = useState(false)
 
     useEffect(() => {
         setServiceInformation({ projectGoal })
-        setProjectGoalError(!projectGoal)
     }, [projectGoal])
     
     useEffect(() => {
@@ -42,7 +40,11 @@ const ProjectGoalsForm = ({
     }, [serviceTypes])
 
     useEffect(() => {
-        setServiceInformationError(serviceTypeError || projectGoalError)
+        if (!serviceTypeError && !projectGoalError && projectGoal) {
+            setServiceInformationError(false)
+        } else {
+            setServiceInformationError(true)
+        }
     }, [serviceTypeError, projectGoalError])
 
     const addServiceType = (service: string) => {
@@ -53,6 +55,14 @@ const ProjectGoalsForm = ({
             return
         }
         setServiceTypes([...serviceTypes, service])
+    }
+
+    const onChangeProjectGoal = (value: string) => {
+        setProjectGoal(value)
+        setProjectGoalError(value
+            ? false
+            : true
+        )
     }
 
     const renderServiceTypes = () => {
@@ -99,16 +109,11 @@ const ProjectGoalsForm = ({
         <div className='ProjectGoalsForm'>
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
                 <Paragraph variant='m-bold'>
-                    {WHICH_SERVICE_BEST_FITS}
+                    {WHICH_SERVICE_BEST_FITS + '*'}
                 </Paragraph>
                 { renderServiceTypes() }
-                { serviceTypeError && (
-                    <span className='px-5 text-red-600'>
-                        { PLEASE_SELECT_AT_LEAST_ONE_SERVICE }
-                    </span> 
-                )}
                 <Paragraph variant='m-bold'>
-                    {GIVE_US_BRIEF_DESCRIPTION}
+                    {GIVE_US_BRIEF_DESCRIPTION + '*'}
                 </Paragraph>
                 <textarea
                     className={`
@@ -126,7 +131,7 @@ const ProjectGoalsForm = ({
                     `}
                     id='formControlTextarea'
                     rows={10}
-                    onChange={(e) => setProjectGoal(e.target.value)}
+                    onChange={(e) => onChangeProjectGoal(e.target.value)}
                 />
                 {projectGoalError && (
                     <span className='px-5 text-red-600'>
