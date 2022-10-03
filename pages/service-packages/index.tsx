@@ -13,6 +13,7 @@ import { GET_SERVICE_PACKAGES } from '../../operations/queries/ServicePackagesQu
 import ServicePackageProps from '../../interfaces/ServicePackageProps'
 
 import {
+    THE_SAMPLE_SERVICE_PACKAGES_LISTED_BELOW,
     SCHEDULE_CONSULTATION,
     SERVICE_PACKAGES,
     CONSULTATION
@@ -57,7 +58,7 @@ const ServicePackagesPage: NextPage = () => {
                     </Subtitle>
                     <div className='grid grid-cols-1 md:grid-cols-2'>
                         <Paragraph>
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                            { THE_SAMPLE_SERVICE_PACKAGES_LISTED_BELOW }
                         </Paragraph>
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
