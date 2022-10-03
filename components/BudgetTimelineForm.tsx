@@ -18,7 +18,6 @@ import {
     PROJECT_IS_ALREADY_UP,
     STARTING_MY_PROJECT_FROM_SCRATCH,
     STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE,
-    PLEASE_SELECT_AT_LEAST_ONE_OPTION,
     SERVICE_PACKAGES,
     TO_GET_A_SENSE
 } from '../constants/strings'
@@ -40,16 +39,15 @@ const BudgetTimelineForm = ({
     const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
     const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
     const [timelineValues, setTimelineValues] = useState<string[]>([])
-    const [timelineValuesError, setTimeLineValuesError] = useState(true)
 
     useEffect(() => {
         setTimeline(timelineValues)
-        setTimeLineValuesError(!timelineValues.length)
+        if (timelineValues.length) {
+            setBudgedTimeLineError(false)
+        } else {
+            setBudgedTimeLineError(true)
+        }
     }, [timelineValues])
-
-    useEffect(() => {
-        setBudgedTimeLineError(timelineValuesError)
-    }, [timelineValuesError])
 
     const onSliderChange = (value: any) => {
         setMinBudgetValue(value[0])
@@ -180,15 +178,10 @@ const BudgetTimelineForm = ({
                 </div>
                 <div className='mt-8'>
                     <Paragraph variant='m-bold'>
-                        Let us know your project timeline in terms of years and months
+                        {LET_US_KNOW_YOU_PROJECT_TIMELINE + '*'}
                     </Paragraph>
                 </div>
                 { renderTimelineTypes() }
-                { timelineValuesError && (
-                    <span className='px-5 text-red-600'>
-                        { PLEASE_SELECT_AT_LEAST_ONE_OPTION }
-                    </span>
-                )}
             </div>
         </div>
     )
