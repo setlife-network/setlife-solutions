@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 import Paragraph from './Paragraph'
 import Subtitle from './Subtitle'
@@ -16,8 +17,15 @@ const ServiceTile = ({
     description,
     url
 }: ServiceTileProps) => {
+    const router = useRouter()
+
     return (
-        <div className='ServiceTile grid grid-cols-1 gap-4 rounded-2xl px-6 py-6 bg-solid-white'>
+        <div
+            className='ServiceTile grid grid-cols-1 gap-4 rounded-2xl px-6 py-6 bg-solid-white'
+            onClick={() => {
+                router.push(url)
+            }}
+        >
             <div className=''>
                 <div className='rounded-full bg-primary h-24 w-24 m-auto' />
             </div>
