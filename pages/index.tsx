@@ -9,7 +9,7 @@ const Home: NextPage = () => {
 
     return (
         <div>
-            <Section>
+            <Section paddingTop='pt-8'>
                 <Hero />
             </Section>
             <Section color='light-gray'>
