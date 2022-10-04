@@ -10,7 +10,8 @@ import {
     APPLICATION_MAINTENANCE,
     WHICH_SERVICE_BEST_FITS,
     GIVE_US_BRIEF_DESCRIPTION,
-    PLEASE_GIVE_A_DESCRIPTION
+    PLEASE_GIVE_A_DESCRIPTION,
+    UNDECIDED,
 } from '../constants/strings'
 
 interface ProjectGoalsFormProps {
@@ -81,7 +82,10 @@ const ProjectGoalsForm = ({
             },
             {
                 name: APPLICATION_MAINTENANCE
-            }
+            },
+            {
+                name: UNDECIDED
+            },
         ]
         return services.map(service => {
             return (
