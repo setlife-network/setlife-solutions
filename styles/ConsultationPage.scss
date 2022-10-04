@@ -38,6 +38,15 @@
         border-color: var(--primary);
         box-shadow: none;
     }
+
+    .form-check-label {
+        cursor: pointer;
+        &:hover {
+            .form-check-input[type=radio], .form-check-input[type=checkbox] {
+                background-color: var(--primary);
+            }
+        }
+    }
 }
 
 @media screen and (min-width: $lg) {
