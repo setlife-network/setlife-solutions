@@ -23,76 +23,78 @@ const emailTemplate = ({
     projectGoal,
     minBudget,
     maxBudget,
-    timeline
-}: emailTemplateProps) => (`
-<html>
-<head>
-    <style>
-        table, th, td {
-        border: 1px solid;
-        }
-    </style>
-    </head>
-<body>
+    timeline = []
+}: emailTemplateProps) => {
+    return (`
+        <html>
+        <head>
+            <style>
+                table, th, td {
+                border: 1px solid;
+                }
+            </style>
+            </head>
+        <body>
 
-<h1>Service Request</h1>
+        <h1>Service Request</h1>
 
-<h2>Client Info:</h2>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Client Type</th>
-    </tr>
-    <tr>
-        <td>${name}</td>
-        <td>${email}</td>
-        <td>${phoneNumber}</td>
-        <td>${clientType}</td>
-    </tr>
-</table>
+        <h2>Client Info:</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Client Type</th>
+            </tr>
+            <tr>
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${phoneNumber}</td>
+                <td>${clientType}</td>
+            </tr>
+        </table>
 
-<h2>Budget & Timeline:</h2>
-<table>
-    <tr>
-        <th>Min Budget</th>
-        <th>Max Budget</th>
-        <th>Timeline</th>
-    </tr>
-    <tr>
-        <td>$ ${minBudget}</td>
-        <td>$ ${maxBudget}</td>
-        <td>
-            <p> ${timeline.join('</p><p>')} </p>
-        </td>
-    </tr>
-</table>
+        <h2>Budget & Timeline:</h2>
+        <table>
+            <tr>
+                <th>Min Budget</th>
+                <th>Max Budget</th>
+                <th>Timeline</th>
+            </tr>
+            <tr>
+                <td>$ ${minBudget}</td>
+                <td>$ ${maxBudget}</td>
+                <td>
+                    <p> ${timeline && timeline.join('</p><p>')} </p>
+                </td>
+            </tr>
+        </table>
 
-<h2>Project Info:</h2>
-<table>
-    <tr>
-        <th>Service</th>
-        <th>Project goal</th>
-    </tr>
-    <tr>
-        <td>
-            <p> ${services.join('</p><p>')} </p>
-        </td>
-        <td>${projectGoal}</td>
-    </tr>
-</table>
+        <h2>Project Info:</h2>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Project goal</th>
+            </tr>
+            <tr>
+                <td>
+                    <p> ${services.join('</p><p>')} </p>
+                </td>
+                <td>${projectGoal}</td>
+            </tr>
+        </table>
 
 
-</body>
-</html>
-`)
+        </body>
+        </html>
+    `)
+}
 
 async function sendEmail(req: any, res: any) {
     try {
         await sendgrid.send({
-            to: 'contributors@setlife.network',
-            from: 'contributors@setlife.network',
+            to: `${process.env.CONSULTATION_FORM_EMAIL}`,
+            from: `${process.env.CONSULTATION_FORM_EMAIL}`,
             subject: `New form received`,
             html: `
                 ${emailTemplate({...req.body})}

@@ -6,6 +6,7 @@ export const GET_SERVICES = gql`
         id
         name
         description
+        tile_image_url
     }
   }
 `

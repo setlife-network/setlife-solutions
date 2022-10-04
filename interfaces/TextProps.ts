@@ -1,5 +1,5 @@
 export default interface TextProps {
-    children: string,
+    children: any,
     alignment?: string,
     color?: string,
     variant?: string,

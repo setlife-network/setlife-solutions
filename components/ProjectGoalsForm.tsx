@@ -10,8 +10,8 @@ import {
     APPLICATION_MAINTENANCE,
     WHICH_SERVICE_BEST_FITS,
     GIVE_US_BRIEF_DESCRIPTION,
-    PLEASE_SELECT_AT_LEAST_ONE_SERVICE,
-    PLEASE_GIVE_A_DESCRIPTION
+    PLEASE_GIVE_A_DESCRIPTION,
+    UNDECIDED,
 } from '../constants/strings'
 
 interface ProjectGoalsFormProps {
@@ -28,12 +28,11 @@ const ProjectGoalsForm = ({
 
     const [serviceTypes, setServiceTypes] = useState<string[]>([])
     const [projectGoal, setProjectGoal] = useState('')
-    const [serviceTypeError, setServiceTypeError] = useState(true)
-    const [projectGoalError, setProjectGoalError] = useState(true)
+    const [serviceTypeError, setServiceTypeError] = useState(false)
+    const [projectGoalError, setProjectGoalError] = useState(false)
 
     useEffect(() => {
         setServiceInformation({ projectGoal })
-        setProjectGoalError(!projectGoal)
     }, [projectGoal])
     
     useEffect(() => {
@@ -42,22 +41,33 @@ const ProjectGoalsForm = ({
     }, [serviceTypes])
 
     useEffect(() => {
-        setServiceInformationError(serviceTypeError || projectGoalError)
-    }, [serviceTypeError, projectGoalError])
+        if (!serviceTypeError && !projectGoalError && projectGoal) {
+            setServiceInformationError(false)
+        } else {
+            setServiceInformationError(true)
+        }
+    }, [serviceTypeError, projectGoalError, projectGoal])
 
-    const addServiceType = (value: any, service: string) => {
-        if (!value.checked) {
+    const addServiceType = (service: string) => {
+        if (serviceTypes.includes(service)) {
             setServiceTypes(
                 serviceTypes.filter((value: string) => value != service)
             )
             return
         }
-        if (serviceTypes.includes(service)) return
         setServiceTypes([...serviceTypes, service])
     }
 
+    const onChangeProjectGoal = (value: string) => {
+        setProjectGoal(value)
+        setProjectGoalError(value
+            ? false
+            : true
+        )
+    }
+
     const renderServiceTypes = () => {
-        const serviceTypes = [
+        const services = [
             {
                 name: SOFTWARE_CONSULTING,
             },
@@ -72,24 +82,29 @@ const ProjectGoalsForm = ({
             },
             {
                 name: APPLICATION_MAINTENANCE
-            }
+            },
+            {
+                name: UNDECIDED
+            },
         ]
-        return serviceTypes.map(service => {
+        return services.map(service => {
             return (
-                <label 
-                    className='form-check-label inline-block text-solid-black' 
-                    htmlFor='flexRadioDefault1'
-                    key={service.name}
-                >
-                    <input 
-                        className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
-                        type='checkbox' 
-                        name='serviceRadio' 
-                        id={service.name} 
-                        onChange={(value) => addServiceType(value.target, service.name)}
-                    />
-                    { service.name }
-                </label>
+                <div className='w-fit' onClick={() => addServiceType(service.name)}>
+                    <label 
+                        className='form-check-label inline-block text-solid-black' 
+                        htmlFor='flexRadioDefault1'
+                        key={service.name}
+                    >
+                        <input 
+                            className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
+                            type='checkbox' 
+                            name='serviceRadio' 
+                            id={service.name} 
+                            checked={serviceTypes.includes(service.name)}
+                        />
+                        { service.name }
+                    </label>
+                </div>
             )
         })
     }
@@ -98,16 +113,11 @@ const ProjectGoalsForm = ({
         <div className='ProjectGoalsForm'>
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
                 <Paragraph variant='m-bold'>
-                    {WHICH_SERVICE_BEST_FITS}
+                    {WHICH_SERVICE_BEST_FITS + '*'}
                 </Paragraph>
                 { renderServiceTypes() }
-                { serviceTypeError && (
-                    <span className='px-5 text-red-600'>
-                        { PLEASE_SELECT_AT_LEAST_ONE_SERVICE }
-                    </span> 
-                )}
                 <Paragraph variant='m-bold'>
-                    {GIVE_US_BRIEF_DESCRIPTION}
+                    {GIVE_US_BRIEF_DESCRIPTION + '*'}
                 </Paragraph>
                 <textarea
                     className={`
@@ -125,7 +135,7 @@ const ProjectGoalsForm = ({
                     `}
                     id='formControlTextarea'
                     rows={10}
-                    onChange={(e) => setProjectGoal(e.target.value)}
+                    onChange={(e) => onChangeProjectGoal(e.target.value)}
                 />
                 {projectGoalError && (
                     <span className='px-5 text-red-600'>
