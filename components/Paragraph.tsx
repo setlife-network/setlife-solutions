@@ -40,7 +40,7 @@ const Paragraph = ({
 }
 
 Paragraph.defaultProps = {
-    alignment: 'left',
+    alignment: 'text-left',
     color: 'solid-black',
     variant: 'm'
 }

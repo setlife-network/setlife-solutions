@@ -94,6 +94,7 @@ module.exports = {
         'prefer-destructuring': 'off',
         'quotes': ['error', 'single', { 'allowTemplateLiterals': true }],
         'quote-props': 'off',
+        'react/jsx-curly-newline': ['off'],
         'react/function-component-definition': [
             2,
             {

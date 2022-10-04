@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
 import Navbar from './Navbar'
@@ -7,8 +7,10 @@ import Section from './Section'
 import GoBack from './GoBack'
 
 export default function Layout({ children }: any) {
-
+    
     const router = useRouter()
+    
+    const [openMobileNavbar, setOpenMobileNavbar] = useState(false)
 
     const renderGoBack = () => {
         if (!(router.pathname == '/' || router.pathname == '/projects')) {
@@ -21,15 +23,18 @@ export default function Layout({ children }: any) {
     }
     
     return (
-        <>
-            <Navbar />
-            <div className='md:hidden'>
-                { renderGoBack() }
-            </div>
-            <main>
+        <div className={`Layout ${openMobileNavbar ? 'overflow-hidden h-screen' : ''}`}>
+            <Navbar 
+                openMobileNavbar={openMobileNavbar}
+                setOpenMobileNavbar={setOpenMobileNavbar} 
+            />
+            <main className='content min-h-custom'>
+                <div className='md:hidden'>
+                    { renderGoBack() }
+                </div>
                 { children }
             </main>
             <Footer />
-        </>
+        </div>
     )
 }

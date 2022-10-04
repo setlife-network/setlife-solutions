@@ -21,10 +21,11 @@ import ServiceDetailProps from '../../interfaces/ServiceDetailProps'
 
 import { SOFTWARE_CONSULTING_BANNER_IMAGE_URL } from '../../constants'
 import {
-    CAN_YOU_PROVIDE_THESE_SERVICES,
+    VIEW_PRICING,
     OUR_WORK,
     THIS_IS_THE_BEST_PLACE_TO_START,
-    WHAT_WE_DO
+    WHAT_WE_DO,
+    CAN_YOU_PROVIDE_THESE_SERVICES
 } from '../../constants/strings'
 
 interface getService {
@@ -95,7 +96,7 @@ const Service: NextPage = () => {
                 <div className='grid grid-rows-auto gap-16'>
                     <div className=''>
                         <Paragraph>
-                            { THIS_IS_THE_BEST_PLACE_TO_START }
+                            { service?.description || '' }
                         </Paragraph>
                     </div>
                     <div className='grid grid-flow-col auto-cols-max'>
@@ -106,9 +107,14 @@ const Service: NextPage = () => {
                     <div className=''>
                         <List items={serviceItems} />
                     </div>
-                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
+                    <div className='hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
                         <Button link='/'>
                             { CAN_YOU_PROVIDE_THESE_SERVICES }
+                        </Button>   
+                    </div>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
+                        <Button link='/service-packages'>
+                            { VIEW_PRICING }
                         </Button>   
                     </div>
                     <Subtitle>

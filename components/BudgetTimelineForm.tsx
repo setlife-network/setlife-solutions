@@ -8,7 +8,8 @@ import {
     MIN,
     MAX,
     PROJECT_WITH_PROPOSED_BUDGETS,
-    LET_US_KNOW_YOU_PROJECT_TIMELINE,
+    SELECT_AN_ESTIMATED_BUDGET_RANGE_FOR_YOUR_PROJECT,
+    DESCRIBE_ANY_TIMELINE_AND_BUDGET_CONSTRAINTS_FOR_YOUR_PROJECT,
     NEED_URGENT_DELIVERY,
     PREFER_MILESTONE_BASED_DELIVERY,
     SEEKING_LONG_TERM_STABLE_DEVELOPMENT,
@@ -17,21 +18,25 @@ import {
     HAVE_SOME_CAPITAL,
     PROJECT_IS_ALREADY_UP,
     STARTING_MY_PROJECT_FROM_SCRATCH,
-    STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE
+    STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE,
+    SERVICE_PACKAGES,
+    TO_GET_A_SENSE
 } from '../constants/strings'
 
 interface BudgetTimelineFormProps {
     setBudget: any,
-    setTimeline: any
+    setTimeline: any,
+    defaultBudget: number[],
 }
 
 const BudgetTimelineForm = ({
     setBudget,
-    setTimeline
+    setTimeline,
+    defaultBudget,
 }: BudgetTimelineFormProps) => {
 
-    const [minBudgetValue, setMinBudgetValue] = useState(10000)
-    const [maxBudgetValue, setMaxBudgetValue] = useState(50000)
+    const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
+    const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
     const [timelineValues, setTimelineValues] = useState<string[]>([])
 
     useEffect(() => {
@@ -47,15 +52,18 @@ const BudgetTimelineForm = ({
         })
     }
 
-    const addTimelineValue = (value: any, timeline: string) => {
-        if (!value.checked) {
+    const addTimelineValue = (timeline: string) => {
+        console.log('timeline')
+        console.log(timeline)
+        if (timelineValues.includes(timeline)) {
             setTimelineValues(
                 timelineValues.filter(value => value != timeline)
             )
             return
         }
-        if (timelineValues.includes(timeline)) return
         setTimelineValues([...timelineValues, timeline])
+        console.log('timelineValues')
+        console.log(timelineValues)
     }
 
     const renderTimelineTypes = () => {
@@ -90,19 +98,21 @@ const BudgetTimelineForm = ({
         ]
         return timelineTypes.map(timeline => {
             return (
-                <label 
-                    className='form-check-label inline-block text-solid-black' 
-                    htmlFor='flexRadioDefault1'
-                    key={timeline.name}
-                    onChange={(value) => addTimelineValue(value.target, timeline.name)}
-                >
-                    <input 
-                        className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
-                        type='checkbox'
-                        id={timeline.name} 
-                    />
-                    { timeline.name }
-                </label>
+                <div className='w-fit' onClick={() => addTimelineValue(timeline.name)}>
+                    <label 
+                        className='form-check-label inline-block text-solid-black' 
+                        htmlFor='timelineRadio'
+                        key={timeline.name}
+                    >
+                        <input 
+                            className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
+                            type='checkbox'
+                            id={timeline.name}
+                            checked={timelineValues.includes(timeline.name)}
+                        />
+                        { timeline.name }
+                    </label>
+                </div>
             )
         })
     }
@@ -111,10 +121,16 @@ const BudgetTimelineForm = ({
         <div className='BudgetTimelineForm'>
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
                 <Paragraph>
-                    {PROJECT_WITH_PROPOSED_BUDGETS}
+                    <>
+                        {PROJECT_WITH_PROPOSED_BUDGETS}
+                        <a className='text-primary hover:underline hover:underline-offset-1' href='/service-packages'>
+                            {SERVICE_PACKAGES}
+                        </a>
+                        {TO_GET_A_SENSE}
+                    </>
                 </Paragraph>
                 <Paragraph variant='m-bold'>
-                    {LET_US_KNOW_YOU_PROJECT_TIMELINE}
+                    {SELECT_AN_ESTIMATED_BUDGET_RANGE_FOR_YOUR_PROJECT}
                 </Paragraph>
                 <div className='grid grid-cols-2 justify-items-center'>
                     <div>
@@ -140,7 +156,7 @@ const BudgetTimelineForm = ({
                         allowCross={false}
                         min={1000}
                         max={100000}
-                        defaultValue={[10000, 50000]}
+                        defaultValue={[defaultBudget[0], defaultBudget[1]]}
                         onChange={onSliderChange}
                         railStyle={{
                             height: 2
@@ -160,7 +176,7 @@ const BudgetTimelineForm = ({
                 </div>
                 <div className='mt-8'>
                     <Paragraph variant='m-bold'>
-                        Let us know your project timeline in terms of years and months
+                        {DESCRIBE_ANY_TIMELINE_AND_BUDGET_CONSTRAINTS_FOR_YOUR_PROJECT}
                     </Paragraph>
                 </div>
                 { renderTimelineTypes() }
