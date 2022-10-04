@@ -57,6 +57,7 @@ export const HAVE_SOME_CAPITAL = 'Have some capital, but need to secure more fun
 export const PROJECT_IS_ALREADY_UP = 'Project is already up and running in production'
 export const STARTING_MY_PROJECT_FROM_SCRATCH = 'Starting my project from scratch'
 export const STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE = 'Started development but need more assistance'
+export const GO_BACK = 'Go back'
 export const INVALID = 'Invalid'
 export const PLEASE_GIVE_A_DESCRIPTION = 'Please give a brief description'
 export const FIELDS_WITH_ARE_REQUIRED = 'Fields with * are required'
