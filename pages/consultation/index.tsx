@@ -15,8 +15,10 @@ import {
     SUBMIT,
     CONTACT_INFORMATION,
     BUDGET_AND_TIMELINE,
-    PROJECT_GOALS
+    PROJECT_GOALS,
+    FIELDS_WITH_ARE_REQUIRED
 } from '../../constants/strings'
+import Subtitle from '../../components/Subtitle'
 
 const ConsultationPage: NextPage = () => {
 
@@ -33,7 +35,6 @@ const ConsultationPage: NextPage = () => {
     const [services, setServices] = useState({})
     const [contactInformationError, setContactInformationError] = useState(true)
     const [serviceInformationError, setServiceInformationError] = useState(true)
-    const [budgedTimeLineError, setBudgedTimeLineError] = useState(true)
     const [disabledButton, setDisabledButton] = useState(true)
 
     const router = useRouter()
@@ -41,10 +42,9 @@ const ConsultationPage: NextPage = () => {
     useEffect(() => {
         setDisabledButton(
             contactInformationError || 
-            serviceInformationError ||
-            budgedTimeLineError
+            serviceInformationError
         )
-    }, [contactInformationError, serviceInformationError, budgedTimeLineError])
+    }, [contactInformationError, serviceInformationError])
 
     const handleSubmit = async (e: any) => {
         if (disabledButton) return
@@ -89,7 +89,6 @@ const ConsultationPage: NextPage = () => {
                     setBudget={setBudget}
                     setTimeline={setTimeline}
                     defaultBudget={[DEFAULT_MIN_BUDGET, DEFAULT_MAX_BUDGET]}
-                    setBudgedTimeLineError={setBudgedTimeLineError}
                 />
             </FormSection>
             <FormSection title={PROJECT_GOALS}>
@@ -100,7 +99,14 @@ const ConsultationPage: NextPage = () => {
                 />
             </FormSection>
             <Section>
-                <div onClick={(e: any) => handleSubmit(e)}>
+                <div className={`grid grid-cols-1 md:grid-cols-3 ${disabledButton ? 'block' : 'hidden'}`}>
+                    <div className='hidden md:block' />
+                    <Subtitle variant='xs-light' alignment='text-center md:text-right'>
+                        {FIELDS_WITH_ARE_REQUIRED}
+                    </Subtitle>
+                </div>
+                <div className='grid grid-cols-1 mt-5 md:grid-cols-3' onClick={(e: any) => handleSubmit(e)}>
+                    <div className='hidden md:block' />
                     <Button variant='tertiary' disabled={disabledButton}>
                         {SUBMIT}
                     </Button>

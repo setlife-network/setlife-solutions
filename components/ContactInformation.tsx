@@ -5,16 +5,18 @@ import Headline from './Headline'
 import { validEmail, validNumber } from '../utilities/validations'
 
 import {
-    CLIENT_TYPE,
+    THIS_PROJECT_IS_FOR,
+    OTHER,
     EMAIL,
     NAME,
     PHONE_NUMBER,
-    INDIVIDUAL,
-    STARTUP_SMALL_BUSINESS,
+    MYSELF,
+    MY_OWN_STARTUP_SMALL_BUSINESS,
     CORPORATION,
-    NON_PROFIT_MUNICIPAL,
+    NON_PROFIT_ORGANIZATION,
+    PUBLIC_GOVERNMENT_AGENCY,
     INVALID,
-    PLEASE_SELECT_CLIENT_TYPE
+    PLEASE_SELECT_AT_LEAST_ONE_OPTION
 } from '../constants/strings'
 
 interface ContactInformationProps {
@@ -33,8 +35,7 @@ const ContactInformation = ({
     const [clientType, setClientType] = useState('')
     const [nameError, setNameError] = useState(false)
     const [emailError, setEmailError] = useState(false)
-    const [phoneNumberError, setPhoneNumberError] = useState(false)
-    const [clientTypeError, setClientTypeError] = useState(true)
+    const [clientTypeError, setClientTypeError] = useState(false)
 
     useEffect(() => {
         setContactInformation({
@@ -44,15 +45,14 @@ const ContactInformation = ({
             clientType
         })
 
-        if (email && 
-            phoneNumber && 
+        if (
+            email && 
             name && 
             clientType
         ) {
             setContactInformationError(
                 nameError || 
-                emailError || 
-                phoneNumberError || 
+                emailError ||
                 clientTypeError
             )
         } else {
@@ -83,13 +83,11 @@ const ContactInformation = ({
             {
                 name: PHONE_NUMBER,
                 value: phoneNumber,
-                error: phoneNumberError,
                 onChange: (phoneNumberInput: any) => {
                     setPhoneNumber(validNumber.exec(phoneNumberInput)
                         ? phoneNumberInput
                         : ''
                     )
-                    setPhoneNumberError(!phoneNumberInput)
                 } 
             }
         ]
@@ -112,6 +110,7 @@ const ContactInformation = ({
                         />
                         <span className='absolute text-xs px-4 font-medium text-gray-500 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm'>
                             { input.name }
+                            <span className={`${input.name == PHONE_NUMBER ? 'hidden' : 'inline'}`}>*</span>
                         </span>
                     </label>
                     {input.error && (
@@ -132,17 +131,23 @@ const ContactInformation = ({
         }
         const clientTypes = [
             {
-                name: INDIVIDUAL,
+                name: MYSELF,
             },
             {
-                name: STARTUP_SMALL_BUSINESS
+                name: MY_OWN_STARTUP_SMALL_BUSINESS,
             },
             {
-                name: CORPORATION
+                name: CORPORATION,
             },
             {
-                name: NON_PROFIT_MUNICIPAL
-            }
+                name: NON_PROFIT_ORGANIZATION,
+            },
+            {
+                name: PUBLIC_GOVERNMENT_AGENCY,
+            },
+            {
+                name: OTHER,
+            },
         ]
         return clientTypes.map(client => {
             return (
@@ -179,12 +184,12 @@ const ContactInformation = ({
                     color='primary'
                     variant='alternative'
                 >
-                    {CLIENT_TYPE}
+                    {THIS_PROJECT_IS_FOR + '*'}
                 </Headline>
                 { renderClientTypes() }
                 {clientTypeError && (
                     <span className='px-5 text-red-600'>
-                        { PLEASE_SELECT_CLIENT_TYPE }
+                        { PLEASE_SELECT_AT_LEAST_ONE_OPTION }
                     </span>
                 )}
             </div>

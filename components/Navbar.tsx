@@ -23,11 +23,11 @@ const renderNavItems = () => {
     )
 }
 
-function MobileNav({open, setOpen}: any) {
+function MobileNav({ open, setOpen }: any) {
     return (
         <div 
             className={`
-                absolute top-0 bg-solid-white left-0 h-screen w-screen transform ${open ? '-translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out filter drop-shadow-md
+                Navbar fixed top-0 bg-solid-white z-50 left-0 h-screen w-screen transform ${open ? '-translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out filter drop-shadow-md
             `}
         >
             <div className="flex items-center justify-center filter drop-shadow-md bg-solid-black h-20">
@@ -45,13 +45,19 @@ function MobileNav({open, setOpen}: any) {
     )
 }
 
-export default function Navbar() {
+export default function Navbar({ 
+    openMobileNavbar, 
+    setOpenMobileNavbar 
+}: any) {
 
     const [open, setOpen] = useState(false)
     
     return (
         <nav className='flex filter bg-solid-black px-4 py-4 h-20 items-center md:bg-solid-white'>
-            <MobileNav open={open} setOpen={setOpen} />
+            <MobileNav 
+                open={openMobileNavbar} 
+                setOpen={setOpenMobileNavbar} 
+            />
             <div className='w-3/12 flex md:hidden items-center'>
                 <a href='/'>
                     <img 
@@ -66,8 +72,8 @@ export default function Navbar() {
             </div>
             <div className="w-3/12 flex justify-end items-center md:w-6/12">
                 <HamburgerButton 
-                    open={open}
-                    setOpen={setOpen}
+                    open={openMobileNavbar}
+                    setOpen={setOpenMobileNavbar}
                 />
                 <div className="hidden md:flex">
                     { renderNavItems() }

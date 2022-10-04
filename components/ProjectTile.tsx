@@ -22,7 +22,7 @@ const ProjectTile = ({
     image,
 }: ProjectProps) => {
     return (
-        <div className='ProjectTile grid grid-rows'>
+        <div className='ProjectTile grid grid-rows overflow-x-hidden'>
             <div>
                 <Subtitle 
                     color='primary'
@@ -37,8 +37,8 @@ const ProjectTile = ({
                     style={{ backgroundImage: `url(${image})` }}
                 >
                     <div className='title-container bg-primary-alt grid grid-cols px-6 py-4'>
-                        <div className=' grid grid-rows'>
-                            <Headline color='solid-white' variant='l' alignment='text-left'>
+                        <div className='grid grid-rows'>
+                            <Headline color='solid-white' variant='h1' alignment='text-left'>
                                 { name }
                             </Headline>
                             <a href={`/projects/${id}`} className='mt-4'>

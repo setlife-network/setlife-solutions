@@ -19,7 +19,7 @@ module.exports = {
 
     Query: {
         fetchServices: (service : any, args: any, { Service }: any) => (
-            Service.findAll()
+            Service.findAll({ order: [['id', 'ASC']] })
         ),
         fetchService: (service: any, args: any, { Service }: any) => (
             Service.findByPk(args.id)
