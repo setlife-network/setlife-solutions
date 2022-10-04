@@ -45,7 +45,7 @@ const ProjectGoalsForm = ({
         } else {
             setServiceInformationError(true)
         }
-    }, [serviceTypeError, projectGoalError])
+    }, [serviceTypeError, projectGoalError, projectGoal])
 
     const addServiceType = (service: string) => {
         if (serviceTypes.includes(service)) {
