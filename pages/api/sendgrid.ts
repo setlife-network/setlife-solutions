@@ -23,12 +23,8 @@ const emailTemplate = ({
     projectGoal,
     minBudget,
     maxBudget,
-    timeline
+    timeline = []
 }: emailTemplateProps) => {
-    if (timeline.join == undefined) {
-        timeline = []
-    }
-
     return (`
         <html>
         <head>
