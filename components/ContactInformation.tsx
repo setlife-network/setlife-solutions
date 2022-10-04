@@ -5,16 +5,18 @@ import Headline from './Headline'
 import { validEmail, validNumber } from '../utilities/validations'
 
 import {
-    CLIENT_TYPE,
+    THIS_PROJECT_IS_FOR,
+    OTHER,
     EMAIL,
     NAME,
     PHONE_NUMBER,
-    INDIVIDUAL,
-    STARTUP_SMALL_BUSINESS,
+    MYSELF,
+    MY_OWN_STARTUP_SMALL_BUSINESS,
     CORPORATION,
-    NON_PROFIT_MUNICIPAL,
+    NON_PROFIT_ORGANIZATION,
+    PUBLIC_GOVERNMENT_AGENCY,
     INVALID,
-    PLEASE_SELECT_CLIENT_TYPE
+    PLEASE_SELECT_AT_LEAST_ONE_OPTION
 } from '../constants/strings'
 
 interface ContactInformationProps {
@@ -129,17 +131,23 @@ const ContactInformation = ({
         }
         const clientTypes = [
             {
-                name: INDIVIDUAL,
+                name: MYSELF,
             },
             {
-                name: STARTUP_SMALL_BUSINESS
+                name: MY_OWN_STARTUP_SMALL_BUSINESS,
             },
             {
-                name: CORPORATION
+                name: CORPORATION,
             },
             {
-                name: NON_PROFIT_MUNICIPAL
-            }
+                name: NON_PROFIT_ORGANIZATION,
+            },
+            {
+                name: PUBLIC_GOVERNMENT_AGENCY,
+            },
+            {
+                name: OTHER,
+            },
         ]
         return clientTypes.map(client => {
             return (
@@ -176,12 +184,12 @@ const ContactInformation = ({
                     color='primary'
                     variant='alternative'
                 >
-                    {CLIENT_TYPE + '*'}
+                    {THIS_PROJECT_IS_FOR + '*'}
                 </Headline>
                 { renderClientTypes() }
                 {clientTypeError && (
                     <span className='px-5 text-red-600'>
-                        { PLEASE_SELECT_CLIENT_TYPE }
+                        { PLEASE_SELECT_AT_LEAST_ONE_OPTION }
                     </span>
                 )}
             </div>
