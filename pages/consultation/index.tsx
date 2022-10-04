@@ -87,6 +87,7 @@ const ConsultationPage: NextPage = () => {
             <FormSection title={BUDGET_AND_TIMELINE}>
                 <BudgetTimelineForm
                     setBudget={setBudget}
+                    setTimeline={setTimeline}
                     defaultBudget={[DEFAULT_MIN_BUDGET, DEFAULT_MAX_BUDGET]}
                 />
             </FormSection>

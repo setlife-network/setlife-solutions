@@ -25,17 +25,23 @@ import {
 
 interface BudgetTimelineFormProps {
     setBudget: any,
+    setTimeline: any,
     defaultBudget: number[],
 }
 
 const BudgetTimelineForm = ({
     setBudget,
+    setTimeline,
     defaultBudget,
 }: BudgetTimelineFormProps) => {
 
     const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
     const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
     const [timelineValues, setTimelineValues] = useState<string[]>([])
+
+    useEffect(() => {
+        setTimeline(timelineValues)
+    }, [timelineValues])
 
     const onSliderChange = (value: any) => {
         setMinBudgetValue(value[0])
@@ -47,6 +53,8 @@ const BudgetTimelineForm = ({
     }
 
     const addTimelineValue = (timeline: string) => {
+        console.log('timeline')
+        console.log(timeline)
         if (timelineValues.includes(timeline)) {
             setTimelineValues(
                 timelineValues.filter(value => value != timeline)
@@ -54,6 +62,8 @@ const BudgetTimelineForm = ({
             return
         }
         setTimelineValues([...timelineValues, timeline])
+        console.log('timelineValues')
+        console.log(timelineValues)
     }
 
     const renderTimelineTypes = () => {
