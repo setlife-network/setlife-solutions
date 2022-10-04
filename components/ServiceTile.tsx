@@ -4,18 +4,20 @@ import { useRouter } from 'next/router'
 import Paragraph from './Paragraph'
 import Subtitle from './Subtitle'
 
-import { SEE_MORE } from '../constants/strings' 
+import { LEARN_MORE } from '../constants/strings' 
 
 interface ServiceTileProps {
     name: string,
     description: string,
-    url: string
+    url: string,
+    imageUrl: string,
 }
 
 const ServiceTile = ({
     name,
     description,
-    url
+    url,
+    imageUrl,
 }: ServiceTileProps) => {
     const router = useRouter()
 
@@ -27,7 +29,16 @@ const ServiceTile = ({
             }}
         >
             <div className=''>
-                <div className='rounded-full bg-primary h-24 w-24 m-auto' />
+                {imageUrl
+                    ? (
+                        <div
+                            className='rounded-full bg-cover h-24 w-24 m-auto'
+                            style={{ backgroundImage: `url(${imageUrl})` }}
+                        />
+                    ) : (
+                        <div className='rounded-full bg-primary h-24 w-24 m-auto' />
+                    )
+                }
             </div>
             <div className=''>
                 <Subtitle variant='xs' alignment='text-center'>
@@ -42,7 +53,7 @@ const ServiceTile = ({
             <div className='text-right'>
                 <a href={url}>
                     <Paragraph variant='sm' alignment='text-right' color='primary'>
-                        { SEE_MORE }
+                        { LEARN_MORE }
                     </Paragraph>
                 </a>
             </div>
