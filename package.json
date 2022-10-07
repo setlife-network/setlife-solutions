@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "order-strings": "node -e \"require('./scripts/orderStrings').sortStrings()\""
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
