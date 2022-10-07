@@ -18,6 +18,13 @@ const ProjectDetailBanner = ({
     logoImageUrl,
     projectName
 }: ProjectDetailBannerProps) => {
+    // Get just the domain + tld from project link
+    const withoutHttps = projectResource.split('https://')[1]
+    let splitLink = withoutHttps.split('.')
+    const tld = splitLink.splice(-1)
+    const domain = splitLink.splice(-1)
+    const projectLinkText = `${domain}.${tld}`
+
     return (
         <div 
             className='ProjectDetailBanner h-100 py-8'
@@ -44,9 +51,12 @@ const ProjectDetailBanner = ({
                         />
                     </div>
                     <div className='flex justify-center'>
-                        <Button link={projectResource} variant='dark'>
+                        <Button
+                            variant='dark'
+                            onClick={() => window.open(projectResource, '_blank')}
+                        >
                             <div className='grid grid-flow-col auto-cols-max'>
-                                {`${projectName.toUpperCase()}.COM`}
+                                {`${projectLinkText}`}
                                 <ArrowIcon />
                             </div>
                         </Button>
