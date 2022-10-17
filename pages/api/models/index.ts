@@ -43,6 +43,7 @@ export const db = {
         Service: require('./Service')(sequelize),
         ServiceDetail: require('./ServiceDetail')(sequelize),
         ServicePackage: require('./ServicePackage')(sequelize),
+        Testimonials: require('./Testimonials')(sequelize),
     }
 };
 
