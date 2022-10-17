@@ -7,6 +7,7 @@ const ProjectType = require('./types/ProjectType')
 const ServiceDetailType = require('./types/ServiceDetailType')
 const ServicePackageType = require('./types/ServicePackageType')
 const ServiceType = require('./types/ServiceType')
+const TestimonialType = require('./types/TestimonialType')
 const TestType = require('./types/TestType')
 
 // Import resolvers
@@ -15,6 +16,7 @@ const ProjectResolver = require('./resolvers/ProjectResolver')
 const ServiceDetailResolver = require('./resolvers/ServiceDetailResolver')
 const ServicePackageResolver = require('./resolvers/ServicePackageResolver')
 const ServiceResolver = require('./resolvers/ServiceResolver')
+const TestimonialResolver = require('./resolvers/TestimonialResolver')
 const TestResolver = require('./resolvers/TestResolver')
 
 // Merge types
@@ -24,6 +26,7 @@ const typeDefs = mergeTypeDefs([
     ServiceDetailType,
     ServicePackageType,
     ServiceType,
+    TestimonialType,
     TestType
 ])
 
@@ -34,6 +37,7 @@ const resolvers = mergeResolvers([
     ServiceDetailResolver,
     ServicePackageResolver,
     ServiceResolver,
+    TestimonialResolver,
     TestResolver
 ])
 
