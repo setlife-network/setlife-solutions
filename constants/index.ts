@@ -18,6 +18,9 @@ export const PROJECTS_BANNER_IMAGE_URL: string = 'https://setlife-solutions.s3.a
 export const LAPTOP_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/Laptop_icon.png'
 export const THUMBS_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/Thumbs_icon.png'
 export const CONSULTATION_FORM_THANKS_IMAGE_URL: string = 'https://setlife-solutions.s3.amazonaws.com/images/thanks-consultation-form.png'
+export const PDF_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/PDF_icon.png'
+export const CANCEL_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/Cancel_Icon.png'
+export const CONTRIBUTOR_INQUIRY_IMAGE = 'https://setlife-solutions.s3.amazonaws.com/images/Contributor_inquiry.png'
 
 // URL
 export const YOUTUBE_URL: string = 'https://www.youtube.com/channel/UCjyzH2XN7qB3WuWTPFbJXCQ'
