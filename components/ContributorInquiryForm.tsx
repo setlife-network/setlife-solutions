@@ -34,9 +34,9 @@ const ContributorInquiryForm = ({}) => {
     useEffect(() => {
         if (email && linkToWork && CV) {
             setDisabled(false)
-        } else {
-            setDisabled(true)
+            return
         }
+        setDisabled(true)
     }, [email, linkToWork, CV])
 
     const renderInputs = () => {
@@ -80,9 +80,10 @@ const ContributorInquiryForm = ({}) => {
 
     const handleFile = (file: any) => {
         const fileUploaded = file.target.files[0]
-        setSubmitCVName(fileUploaded
-            ? fileUploaded.name
-            : ''
+        setSubmitCVName(
+            fileUploaded
+                ? fileUploaded.name
+                : ''
         )
         setCV(fileUploaded)
     }
@@ -102,7 +103,7 @@ const ContributorInquiryForm = ({}) => {
                 </div>
                 {renderInputs()}
                 <div>
-                    <div className='grid grid-cols-4'>
+                    <div className='grid grid-cols-4 gap-4'>
                         <div className='col-span-3'>
                             <span className={`block p-4 border-2 rounded-full border-primary ${submitCVName ? 'bg-primary' : 'bg-solid-white'}`}>
                                 <div className='grid grid-cols-7'>
@@ -131,8 +132,8 @@ const ContributorInquiryForm = ({}) => {
                                 </div>
                             </span>
                         </div>
-                        <div className='justify-self-end mt-1' onClick={() => { hiddenFileInput.current?.click() }}>
-                            <Button variant='tertiary'>
+                        <div className='justify-self-end mt-1 w-full' onClick={() => { hiddenFileInput.current?.click() }}>
+                            <Button variant='tertiary' className='w-full'>
                                 <input 
                                     className='hidden'
                                     type='file' 
@@ -140,7 +141,7 @@ const ContributorInquiryForm = ({}) => {
                                     ref={hiddenFileInput}
                                     onChange={(e) => { handleFile(e) }}
                                 />
-                                <img src={PDF_ICON} alt='PDF' />
+                                <img src={PDF_ICON} alt='PDF' className='mx-auto' />
                             </Button>
                         </div>
                     </div>
