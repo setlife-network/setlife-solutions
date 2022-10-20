@@ -53,7 +53,7 @@ const Button = ({
             className={`
                 Button
                 rounded-full
-                px-8 py-4
+                py-4
                 ${disabled ? 'bg-light-gray' : styleProps.background}
                 ${styleProps.border}
                 ${styleProps.color}

@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react'
 
-import Button from './Button';
-import Headline from './Headline';
-import Paragraph from './Paragraph';
+import { getS3 } from '../utilities/s3';
+
+import Button from './Button'
+import Headline from './Headline'
+import Paragraph from './Paragraph'
 
 import { 
     PDF_ICON,
@@ -24,7 +26,7 @@ const ContributorInquiryForm = ({}) => {
     const [email, setEmail] = useState('')
     const [linkToWork, setLinkToWork] = useState('')
     const [submitCVName, setSubmitCVName] = useState('')
-    const [CV, setCV] = useState(null)
+    const [CV, setCV] = useState<any>(null)
     const [moreDetails, setMoreDetails] = useState('')
     const [openMoreDetails, setOpenMoreDetails] = useState(false)
     const [disabled, setDisabled] = useState(true)
@@ -88,6 +90,48 @@ const ContributorInquiryForm = ({}) => {
         setCV(fileUploaded)
     }
 
+    const handleSubmit = async (e: any) => {
+        if (disabled) return
+        try {
+            const {
+                name
+            } = CV
+            const bucket = getS3()
+            const time = Date.now()
+            const s3ObjectKey = (`resumes/${time}__${name}`).normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            const params = {
+                Key: s3ObjectKey,
+                Bucket: 'setlife-solutions',
+                Body: CV,
+                ACL: 'public-read'
+            };
+
+            bucket.putObject(params)
+                .send((res, err) => {
+                    if (err) console.log(err)
+                    console.log(res)
+                })
+            const url = bucket.getSignedUrl('getObject', { Key: s3ObjectKey })
+            const res = await fetch('/api/contributor-inquiry-form', {
+                body: JSON.stringify({
+                    email,
+                    linkToWork,
+                    moreDetails,
+                    cvUrl: url.substring(0, url.indexOf('?'))
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST'
+            })
+            const { error } = await res.json()
+            if (error) throw error
+            return 
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className='ContributorInquiryForm grid grid-cols-1 md:grid-cols-2'>
             <div className='grid grid-rows-7 gap-8 px-2 lg:px-4'>
@@ -133,7 +177,7 @@ const ContributorInquiryForm = ({}) => {
                             </span>
                         </div>
                         <div className='justify-self-end mt-1 w-full' onClick={() => { hiddenFileInput.current?.click() }}>
-                            <Button variant='tertiary' className='w-full'>
+                            <Button variant='tertiary' className='w-full h-full'>
                                 <input 
                                     className='hidden'
                                     type='file' 
@@ -141,7 +185,7 @@ const ContributorInquiryForm = ({}) => {
                                     ref={hiddenFileInput}
                                     onChange={(e) => { handleFile(e) }}
                                 />
-                                <img src={PDF_ICON} alt='PDF' className='mx-auto' />
+                                <img src={PDF_ICON} alt='PDF' className='m-auto' />
                             </Button>
                         </div>
                     </div>
@@ -175,9 +219,12 @@ const ContributorInquiryForm = ({}) => {
                         placeholder={ADD_MORE_DETAILS + ' ' + OPTIONAL}
                     />
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2'>
+                <div className='grid grid-cols-1 md:grid-cols-2' onClick={(e: any) => handleSubmit(e)}>
                     <div className='hidden md:block' />
-                    <Button variant='tertiary' disabled={disabled}>
+                    <Button
+                        variant='tertiary'
+                        disabled={disabled}
+                    >
                         {SUBMIT}
                     </Button>
                 </div>

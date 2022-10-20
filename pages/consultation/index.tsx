@@ -69,7 +69,7 @@ const ConsultationPage: NextPage = () => {
         } catch (error) {
             console.log(error)
         }
-    };
+    }
 
     return (
         <div className='ConsultationPage'>
