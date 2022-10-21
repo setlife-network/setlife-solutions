@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "order-strings": "node -e \"require('./scripts/orderStrings').sortStrings()\""
+    "order-strings": "node -e \"require('./scripts/orderStrings').sortStrings()\"",
+    "tests:e2e:local": "SITE_URL=localhost:3000 testcafe chrome src/tests/e2e/",
+    "tests:e2e:local:args": "SITE_URL=localhost:3000 testcafe chrome",
+    "tests:e2e:staging": "SITE_URL=https://www.setlife.solutions testcafe chrome src/tests/e2e/",
+    "tests:e2e:staging:args": "SITE_URL=https://www.setlife.solutions testcafe chrome"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
