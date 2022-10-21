@@ -19,10 +19,6 @@ module.exports = (sequelize: any) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        phone_number: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         max_budget: {
             type: DataTypes.STRING,
             allowNull: false
@@ -45,16 +41,19 @@ module.exports = (sequelize: any) => {
         },
         constraints: {
             type: DataTypes.TEXT
-        }
+        },
+        phone_number: {
+            type: DataTypes.STRING
+        },
     },
     {
         sequelize,
-        modelName: 'projects',
+        modelName: 'consultations',
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     })
 
-    return Project
+    return Consultation
 
 }
 

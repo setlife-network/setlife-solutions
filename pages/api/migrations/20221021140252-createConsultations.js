@@ -16,10 +16,6 @@ module.exports = {
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false
             },
-            phone_number: {
-                type: Sequelize.DataTypes.STRING,
-                allowNull: false
-            },
             max_budget: {
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false
@@ -42,6 +38,9 @@ module.exports = {
             },
             constraints: {
                 type: Sequelize.DataTypes.TEXT
+            },
+            phone_number: {
+                type: Sequelize.DataTypes.STRING
             }
         })
     },

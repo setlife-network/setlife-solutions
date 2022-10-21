@@ -2,6 +2,7 @@ const { makeExecutableSchema } = require('@graphql-tools/schema');
 const { mergeTypeDefs, mergeResolvers } = require('@graphql-tools/merge')
 
 // Import types
+const ConsultationType = require('./types/ConsultationType')
 const ProjectDetailType = require('./types/ProjectDetailType')
 const ProjectType = require('./types/ProjectType')
 const ServiceDetailType = require('./types/ServiceDetailType')
@@ -10,6 +11,7 @@ const ServiceType = require('./types/ServiceType')
 const TestType = require('./types/TestType')
 
 // Import resolvers
+const ConsultationResolver = require('./resolvers/ConsultationResolver')
 const ProjectDetailResolver = require('./resolvers/ProjectDetailResolver')
 const ProjectResolver = require('./resolvers/ProjectResolver')
 const ServiceDetailResolver = require('./resolvers/ServiceDetailResolver')
@@ -19,6 +21,7 @@ const TestResolver = require('./resolvers/TestResolver')
 
 // Merge types
 const typeDefs = mergeTypeDefs([
+    ConsultationType,
     ProjectDetailType,
     ProjectType,
     ServiceDetailType,
@@ -29,6 +32,7 @@ const typeDefs = mergeTypeDefs([
 
 // Merge resolvers
 const resolvers = mergeResolvers([
+    ConsultationResolver,
     ProjectDetailResolver,
     ProjectResolver,
     ServiceDetailResolver,
