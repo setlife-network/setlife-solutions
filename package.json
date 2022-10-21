@@ -8,9 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "order-strings": "node -e \"require('./scripts/orderStrings').sortStrings()\"",
-    "tests:e2e:local": "SITE_URL=localhost:3000 testcafe chrome src/tests/e2e/",
+    "tests:e2e:local": "SITE_URL=localhost:3000 testcafe chrome tests/e2e/",
     "tests:e2e:local:args": "SITE_URL=localhost:3000 testcafe chrome",
-    "tests:e2e:staging": "SITE_URL=https://www.setlife.solutions testcafe chrome src/tests/e2e/",
+    "tests:e2e:staging": "SITE_URL=https://www.setlife.solutions testcafe chrome tests/e2e/",
     "tests:e2e:staging:args": "SITE_URL=https://www.setlife.solutions testcafe chrome"
   },
   "dependencies": {
@@ -32,7 +32,8 @@
     "rc-slider": "^10.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sequelize": "^6.21.3"
+    "sequelize": "^6.21.3",
+    "testcafe": "^2.0.1"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
