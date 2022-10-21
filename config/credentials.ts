@@ -1,8 +1,5 @@
 require('dotenv').config();
 
-console.log('process.env.POSTGRES_DB_HOST')
-console.log(process.env.POSTGRES_DB_HOST)
-
 module.exports = {
     POSTGRES: {
         DB_HOST: process.env.POSTGRES_DB_HOST,

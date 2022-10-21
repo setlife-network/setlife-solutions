@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { useMutation } from '@apollo/client'
 
 import BudgetTimelineForm from '../../components/BudgetTimelineForm'
 import Button from '../../components/Button'
@@ -9,6 +10,9 @@ import FormSection from '../../components/FormSection'
 import Headline from '../../components/Headline'
 import ProjectGoalsForm from '../../components/ProjectGoalsForm'
 import Section from '../../components/Section'
+import Subtitle from '../../components/Subtitle'
+
+import { CREATE_CONSULTATION } from '../../operations/mutations/ConsultationMutations'
 
 import {
     PLEASE_FILL_OUT_THE_FORM,
@@ -18,7 +22,21 @@ import {
     PROJECT_GOALS,
     FIELDS_WITH_ARE_REQUIRED
 } from '../../constants/strings'
-import Subtitle from '../../components/Subtitle'
+
+interface ContactInformationProps {
+    name?: string,
+    email?: string,
+    phoneNumber?: string,
+    clientType?: string
+}
+interface ServiceInformationFormProps {
+    serviceTypes?: string[],
+    projectGoal?: string
+}
+
+interface ServiceTypesFormProps {
+    serviceTypes?: string[]
+}
 
 const ConsultationPage: NextPage = () => {
 
@@ -29,15 +47,31 @@ const ConsultationPage: NextPage = () => {
         minBudget: DEFAULT_MIN_BUDGET,
         maxBudget: DEFAULT_MAX_BUDGET
     })
-    const [timeline, setTimeline] = useState({})
-    const [contactInformation, setContactInformation] = useState({})
-    const [serviceInformation, setServiceInformation] = useState({})
-    const [services, setServices] = useState({})
+    const [timeline, setTimeline] = useState<String[]>([])
+    const [contactInformation, setContactInformation] = useState<ContactInformationProps>({})
+    const [serviceInformation, setServiceInformation] = useState<ServiceInformationFormProps>({})
+    const [services, setServices] = useState<String[]>([])
     const [contactInformationError, setContactInformationError] = useState(true)
     const [serviceInformationError, setServiceInformationError] = useState(true)
     const [disabledButton, setDisabledButton] = useState(true)
 
     const router = useRouter()
+
+    const [createConsultation] = useMutation(
+        CREATE_CONSULTATION, {
+            variables: {
+                name: contactInformation.name,
+                email: contactInformation.email,
+                phone_number: contactInformation.phoneNumber,
+                max_budget: `${budget.maxBudget}`,
+                min_budget: `${budget.minBudget}`,
+                company_type: contactInformation.clientType,
+                project_goals: services.length ? services.join('. ') : '',
+                description: serviceInformation.projectGoal,
+                constraints: timeline.length ? timeline.join('. ') : ''
+            }
+        }
+    )
 
     useEffect(() => {
         setDisabledButton(
@@ -65,6 +99,7 @@ const ConsultationPage: NextPage = () => {
             })
             const { error } = await res.json()
             if (error) throw error
+            createConsultation()
             router.push('/consultation/thanks')
         } catch (error) {
             console.log(error)

@@ -9,9 +9,10 @@ module.exports = gql`
     phone_number: String
     max_budget: String
     min_budget: String
-    min_budget: String
-    min_budget: String
-    min_budget: String
+    company_type: String
+    project_goals: String
+    description: String
+    constraints: String
   }
 
   input createFields {
