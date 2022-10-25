@@ -2,6 +2,7 @@ import React from 'react'
 
 interface ButtonProps {
     children: any,
+    className?: string,
     link?: string | undefined,
     variant?: string,
     disabled?: boolean
@@ -41,14 +42,23 @@ const Button = ({
     children,
     link,
     variant,
-    disabled
+    disabled,
+    className
 }: ButtonProps) => {
 
     const styleProps: any = Object.values(variants.filter(v => Object.keys(v)[0] == variant)[0])[0]
 
     return (
         <button 
-            className={`Button rounded-full ${disabled ? 'bg-light-gray' : styleProps.background} ${styleProps.border} ${styleProps.color} px-8 py-4`}
+            className={`
+                Button
+                rounded-full
+                py-4
+                ${disabled ? 'bg-light-gray' : styleProps.background}
+                ${styleProps.border}
+                ${styleProps.color}
+                ${className}
+            `}
             type='button'
             disabled={disabled}
         >
@@ -62,7 +72,8 @@ const Button = ({
 Button.defaultProps = {
     variant: 'primary',
     link: null,
-    disabled: false
+    disabled: false,
+    className: ''
 }
 
 export default Button
