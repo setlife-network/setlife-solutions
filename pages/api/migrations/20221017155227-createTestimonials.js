@@ -1,6 +1,6 @@
 module.exports = {
-  
-    async up (queryInterface, Sequelize) {
+
+    async up(queryInterface, Sequelize) {
         return queryInterface.createTable('testimonials', {
             id: {
                 type: Sequelize.DataTypes.INTEGER,
@@ -8,11 +8,11 @@ module.exports = {
                 autoIncrement: true,
                 allowNull: false,
             },
-            person_name: {
-                type: Sequelize.DataTypes.STRING,
-                allowNull: false,
+            project_id: {
+                type: Sequelize.DataTypes.INTEGER,
+                allowNull: false
             },
-            company_name: {
+            person_name: {
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false,
             },
@@ -24,14 +24,10 @@ module.exports = {
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false,
             },
-            company_image_url: {
-                type: Sequelize.DataTypes.STRING,
-                allowNull: false,
-            },
         })
     },
 
-    async down (queryInterface, Sequelize) {
+    async down(queryInterface, Sequelize) {
         return queryInterface.dropTable('testimonials');
     }
 

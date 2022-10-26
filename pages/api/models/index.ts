@@ -64,11 +64,13 @@ const associations = ({
     Service,
     ServiceDetail,
     ServicePackage,
+    Testimonials
 }: any) => {
     PackagedService.belongsTo(Service, { foreignKey: 'service_id' })
     PackagedService.belongsTo(ServicePackage, { foreignKey: 'service_package_id' })
     Project.hasMany(ProjectDetail, { foreignKey: 'project_id' })
     Project.hasMany(ProvidedService, { foreignKey: 'project_id' }) 
+    Project.hasMany(Testimonials, { foreignKey: 'project_id' })
     ServicePackage.hasMany(PackagedService, { foreignKey: 'service_package_id' })
     Service.hasMany(PackagedService, { foreignKey: 'service_id' })
     Service.hasMany(ProvidedService, { foreignKey: 'service_id' })

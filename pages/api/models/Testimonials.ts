@@ -11,12 +11,12 @@ module.exports = (sequelize: any) => {
             autoIncrement: true,
             allowNull: false
         },
-        person_name: {
-            type: DataTypes.STRING,
+        project_id: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
-        company_name: {
-            type: DataTypes.TEXT,
+        person_name: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         testimony: {
@@ -24,10 +24,6 @@ module.exports = (sequelize: any) => {
             allowNull: false
         },
         person_image_url: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        company_image_url: {
             type: DataTypes.STRING,
             allowNull: false
         },
