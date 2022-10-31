@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import { getS3 } from '../utilities/s3';
+import { getS3 } from '../utilities/s3'
+import { validEmail } from '../utilities/validations'
 
 import Button from './Button'
 import Headline from './Headline'
@@ -30,42 +31,52 @@ const ContributorInquiryForm = ({}) => {
     const [moreDetails, setMoreDetails] = useState('')
     const [openMoreDetails, setOpenMoreDetails] = useState(false)
     const [disabled, setDisabled] = useState(true)
+    const [emailError, setEmailError] = useState(false)
 
     const hiddenFileInput = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
-        if (email && linkToWork && CV) {
+        if (email && linkToWork && CV && !emailError) {
             setDisabled(false)
             return
         }
         setDisabled(true)
     }, [email, linkToWork, CV])
 
+    useEffect(() => {
+        setEmailError(!validEmail.exec(email))
+    }, [email])
+
     const renderInputs = () => {
         const basicInformationFields = [
             {
                 name: EMAIL,
                 value: email,
-                setValue: setEmail
+                setValue: setEmail,
+                type: 'email'
             },
             {
                 name: LINK_TO_YOUR_WORK,
                 value: linkToWork,
-                setValue: setLinkToWork
+                setValue: setLinkToWork,
+                type: 'text'
             }
         ]
         return basicInformationFields.map(input => {
             return (
                 <div>
                     <label
-                        className='relative block p-3 border-2 rounded-full border-primary'
+                        className={`
+                            relative block p-3 border-2 rounded-full
+                            ${(input.type == 'email' && emailError && email) ? 'border-red-600' : 'border-primary'}
+                        `}
                         htmlFor={input.name}
                         key={input.name}
                     >
                         <input
                             className='w-full px-4 pt-3.5 pb-0 text-sm placeholder-transparent border-none focus:ring-0 peer'
                             id={input.name}
-                            type='text'
+                            type={input.type}
                             placeholder={input.name}
                             required
                             value={input.value}
@@ -92,6 +103,7 @@ const ContributorInquiryForm = ({}) => {
 
     const handleSubmit = async (e: any) => {
         if (disabled) return
+        setDisabled(true)
         try {
             const {
                 name
@@ -126,10 +138,10 @@ const ContributorInquiryForm = ({}) => {
             })
             const { error } = await res.json()
             if (error) throw error
-            return 
         } catch (error) {
             console.log(error)
         }
+        setDisabled(false)
     }
 
     return (
@@ -219,7 +231,10 @@ const ContributorInquiryForm = ({}) => {
                         placeholder={ADD_MORE_DETAILS + ' ' + OPTIONAL}
                     />
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2' onClick={(e: any) => handleSubmit(e)}>
+                <div 
+                    className='grid grid-cols-1 md:grid-cols-2' 
+                    onClick={(e: any) => handleSubmit(e)}
+                >
                     <div className='hidden md:block' />
                     <Button
                         variant='tertiary'
