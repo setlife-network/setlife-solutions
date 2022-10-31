@@ -36,6 +36,7 @@ export const sequelize = new Sequelize(
 export const db = {
     sequelize,
     models: {
+        Consultation: require('./Consultation')(sequelize),
         PackagedService: require('./PackagedService')(sequelize),
         Project: require('./Project')(sequelize),
         ProjectDetail: require('./ProjectDetail')(sequelize),

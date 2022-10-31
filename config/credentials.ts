@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
     POSTGRES: {
         DB_HOST: process.env.POSTGRES_DB_HOST,
@@ -7,5 +9,3 @@ module.exports = {
         DB_PORT: process.env.POSTGRES_DB_PORT
     }
 };
-
-export {}
