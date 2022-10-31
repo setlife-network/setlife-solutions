@@ -79,3 +79,17 @@ VALUES
     (2, 4, '2022-07-28', '2022-07-28'),
     (1, 5, '2022-07-28', '2022-07-28'),
     (2, 5, '2022-07-28', '2022-07-28');
+
+-- Testimonials
+INSERT INTO public.testimonials
+VALUES
+    (1, 1, 'Testimonial name test', 'Testimony', 'Person Image URL', '2022-10-26', '2022-10-26'),
+    (2, 1, 'Testimonial name test 2', 'Testimony 2', 'Person Image URL', '2022-10-26', '2022-10-26'),
+    (3, 3, 'Testimonial name test 3', 'Testimony 3', 'Person Image URL', '2022-10-26', '2022-10-26'),
+    (4, 4, 'Testimonial name test 4', 'Testimony 4', 'Person Image URL', '2022-10-26', '2022-10-26'),
+    (5, 5, 'Testimonial name test 5', 'Testimony 5', 'Person Image URL', '2022-10-26', '2022-10-26'),
+    (6, 2, 'Testimonial name test 6', 'Testimony 6', 'Person Image URL', '2022-10-26', '2022-10-26'),
+    (7, 2, 'Testimonial name test 7', 'Testimony 7', 'Person Image URL', '2022-10-26', '2022-10-26'),
+    (8, 3, 'Testimonial name test 8', 'Testimony 8', 'Person Image URL', '2022-10-26', '2022-10-26'),
+    (9, 4, 'Testimonial name test 9', 'Testimony 9', 'Person Image URL', '2022-10-26', '2022-10-26'),
+    (10, 5, 'Testimonial name test 10', 'Testimony 10', 'Person Image URL', '2022-10-26', '2022-10-26'),
