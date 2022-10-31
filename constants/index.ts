@@ -1,6 +1,7 @@
 import {
     ABOUT,
     CONSULTATION,
+    CONTRIBUTORS,
     PORTFOLIO,
     SERVICE_PACKAGES,
     SERVICES,
@@ -47,6 +48,9 @@ export const NAV_ITEMS: Array<any> = [
     }, {
         name: SERVICE_PACKAGES,
         link: '/service-packages'
+    }, {
+        name: CONTRIBUTORS,
+        link: '/contributor-inquiry'
     }
 ]
 export const FOOT_ITEMS: Array<any> = [
