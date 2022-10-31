@@ -8,8 +8,6 @@ AWS.config.update({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 })
 
-console.log(process.env.AWS_ACCESS_KEY_ID)
-
 export const getS3 = (bucketName = 'setlife-solutions') => {
     return new AWS.S3({
         params: { Bucket: bucketName }
