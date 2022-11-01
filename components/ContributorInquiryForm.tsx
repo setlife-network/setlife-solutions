@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
 
-import { getS3 } from '../utilities/s3';
+import { getS3 } from '../utilities/s3'
+import { validEmail } from '../utilities/validations'
 
 import Button from './Button'
 import Headline from './Headline'
@@ -30,55 +32,23 @@ const ContributorInquiryForm = ({}) => {
     const [moreDetails, setMoreDetails] = useState('')
     const [openMoreDetails, setOpenMoreDetails] = useState(false)
     const [disabled, setDisabled] = useState(true)
+    const [emailError, setEmailError] = useState(false)
 
     const hiddenFileInput = useRef<HTMLInputElement>(null)
 
+    const router = useRouter()
+
     useEffect(() => {
-        if (email && linkToWork && CV) {
+        if (email && linkToWork && CV && !emailError) {
             setDisabled(false)
             return
         }
         setDisabled(true)
     }, [email, linkToWork, CV])
 
-    const renderInputs = () => {
-        const basicInformationFields = [
-            {
-                name: EMAIL,
-                value: email,
-                setValue: setEmail
-            },
-            {
-                name: LINK_TO_YOUR_WORK,
-                value: linkToWork,
-                setValue: setLinkToWork
-            }
-        ]
-        return basicInformationFields.map(input => {
-            return (
-                <div>
-                    <label
-                        className='relative block p-3 border-2 rounded-full border-primary'
-                        htmlFor={input.name}
-                        key={input.name}
-                    >
-                        <input
-                            className='w-full px-4 pt-3.5 pb-0 text-sm placeholder-transparent border-none focus:ring-0 peer'
-                            id={input.name}
-                            type='text'
-                            placeholder={input.name}
-                            required
-                            value={input.value}
-                            onChange={(e) => { input.setValue(e.target.value) }}
-                        />
-                        <span className='absolute text-xs px-4 font-medium text-gray-500 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm'>
-                            { input.name }
-                        </span>
-                    </label>
-                </div>
-            )
-        })
-    }
+    useEffect(() => {
+        setEmailError(!validEmail.exec(email))
+    }, [email])
 
     const handleFile = (file: any) => {
         const fileUploaded = file.target.files[0]
@@ -92,6 +62,7 @@ const ContributorInquiryForm = ({}) => {
 
     const handleSubmit = async (e: any) => {
         if (disabled) return
+        setDisabled(true)
         try {
             const {
                 name
@@ -126,10 +97,55 @@ const ContributorInquiryForm = ({}) => {
             })
             const { error } = await res.json()
             if (error) throw error
-            return 
+            await router.push('/contributor-inquiry/thanks')
         } catch (error) {
             console.log(error)
         }
+        setDisabled(false)
+    }
+
+    const renderInputs = () => {
+        const basicInformationFields = [
+            {
+                name: EMAIL,
+                value: email,
+                setValue: setEmail,
+                type: 'email'
+            },
+            {
+                name: LINK_TO_YOUR_WORK,
+                value: linkToWork,
+                setValue: setLinkToWork,
+                type: 'text'
+            }
+        ]
+        return basicInformationFields.map(input => {
+            return (
+                <div>
+                    <label
+                        className={`
+                            relative block p-3 border-2 rounded-full
+                            ${(input.type == 'email' && emailError && email) ? 'border-red-600' : 'border-primary'}
+                        `}
+                        htmlFor={input.name}
+                        key={input.name}
+                    >
+                        <input
+                            className='w-full px-4 pt-3.5 pb-0 text-sm placeholder-transparent border-none focus:ring-0 peer'
+                            id={input.name}
+                            type={input.type}
+                            placeholder={input.name}
+                            required
+                            value={input.value}
+                            onChange={(e) => { input.setValue(e.target.value) }}
+                        />
+                        <span className='absolute text-xs px-4 font-medium text-gray-500 transition-all left-3 peer-focus:text-xs peer-focus:top-3 peer-focus:translate-y-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm'>
+                            { input.name }
+                        </span>
+                    </label>
+                </div>
+            )
+        })
     }
 
     return (
@@ -219,7 +235,10 @@ const ContributorInquiryForm = ({}) => {
                         placeholder={ADD_MORE_DETAILS + ' ' + OPTIONAL}
                     />
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2' onClick={(e: any) => handleSubmit(e)}>
+                <div 
+                    className='grid grid-cols-1 md:grid-cols-2' 
+                    onClick={(e: any) => handleSubmit(e)}
+                >
                     <div className='hidden md:block' />
                     <Button
                         variant='tertiary'

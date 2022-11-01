@@ -53,8 +53,6 @@ const BudgetTimelineForm = ({
     }
 
     const addTimelineValue = (timeline: string) => {
-        console.log('timeline')
-        console.log(timeline)
         if (timelineValues.includes(timeline)) {
             setTimelineValues(
                 timelineValues.filter(value => value != timeline)

@@ -79,3 +79,5 @@ export const WHAT_WE_DO: string = 'What we do'
 export const WHICH_SERVICE_BEST_FITS = 'Which service(s) best fit(s) your project goals? (select all that apply)'
 export const YOUR_SUPERPOWER = 'your superpower'
 export const YOU_MAY_ALSO_LIKE: string = 'You may also like'
+
+export const CONTRIBUTORS: string = 'Contributors'
