@@ -8,6 +8,8 @@ import { TESTIMONIALS } from '../constants/strings'
 
 // import ServiceProps from '../interfaces/ServiceProps'
 
+// Keep working on this file changing to testimonials Tile & Props
+
 const Testimonials = () => {
     return (
                 
