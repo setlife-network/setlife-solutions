@@ -7,7 +7,7 @@ module.exports = gql`
     person_name: String
     testimony: String
     person_image_url: String
-    project: [Project]
+    project: Project
   }
 
   type Query {
