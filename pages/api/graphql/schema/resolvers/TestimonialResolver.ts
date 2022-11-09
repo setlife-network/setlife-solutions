@@ -2,7 +2,7 @@ module.exports = {
 
     Testimonial: {
         project: (testimonials: any, args: any, { Project }: any) => (
-            Project.findAll({ where: { id: testimonials.project_id }})
+            Project.findByPk(testimonials.project_id)
         )
     },
 
