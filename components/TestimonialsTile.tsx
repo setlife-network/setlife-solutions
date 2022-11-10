@@ -49,7 +49,7 @@ const TestimonialTile = ({
                         <div className='rounded-full bg-primary h-24 w-24 m-auto' />
                     )
                 }
-            <div className=''>                
+            <div className='m-auto'>                
                 <Subtitle variant='m' alignment='text-center' color='solid-black'>
                     { project.name }
                 </Subtitle>
