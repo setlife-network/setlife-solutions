@@ -28,17 +28,17 @@ const Testimonials = () => {
 
     const renderTestimonials = () => {
         return testimonials.map((t, i) => {
-        return (
-            <div className='flex flex-initial w-full md:w-1/3 px-4' key={`st-${t.id}`}>
-                <TestimonialsTile
-                    person_name={t.person_name}
-                    testimony={t.testimony}
-                    person_image_url={t.person_image_url}
-                    project={t.project}
-                /> 
-            </div>
-        )
-    })
+            return (
+                <div className='m-auto snap-center' key={`st-${t.id}`}>
+                    <TestimonialsTile
+                        person_name={t.person_name}
+                        testimony={t.testimony}
+                        person_image_url={t.person_image_url}
+                        project={t.project}
+                    /> 
+                </div>
+            )
+        })
 }
         
     return (
@@ -47,11 +47,11 @@ const Testimonials = () => {
                 <Headline variant='h1' color='solid-black' alignment='text-center md:text-left'>
                     { TESTIMONIALS }
                 </Headline>
-                </div>
-                <div className='flex flex-row flex-wrap justify-center gap-y-8'>
-                    {renderTestimonials()}
-                </div>
             </div>
+            <div className='grid grid-flow-col auto-cols-max flex flex-nowrap gap-8 snap-x overflow-scroll'>
+                {renderTestimonials()}
+            </div>
+        </div>
         
     )
 }

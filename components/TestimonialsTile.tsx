@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import Paragraph from './Paragraph'
 import Subtitle from './Subtitle'
 
-
 interface TestimonialsTileProps {
     person_name: string,
     testimony: string,
@@ -27,45 +26,43 @@ const TestimonialTile = ({
 
     return (
         <div
-        className='TestimonialsTile grid grid-cols-1 gap-4 rounded-2xl border-solid border-2 rounded-lg border-primary  px-6 py-6 bg-solid-white'
+            className='TestimonialsTile grid grid-cols-1 gap-4 rounded-2xl border-solid border rounded-lg border-primary p-8 bg-solid-white'
             // onClick={() => {
             //     router.push(url)
             // }}
-        >
-            
-            
-        <div className='rounded-full bg-contain h-20 w-20 m-auto'
-            style={{ backgroundImage: `url(${person_image_url})` }} 
-        />
-            
-        <div className='flex flex-row'>
-            {project.logo_image_url
-                ? (
-                    <div
-                        className='rounded-full bg-contain h-20 w-20 m-left bg-no-repeat bg-center bg-black'
+        >  
+            <div 
+                className='rounded-full bg-contain h-20 w-20 m-auto'
+                style={{ backgroundImage: `url(${person_image_url})` }} 
+            />
+            <div className='flex gap-4 justify-items-center m-auto '>
+                {project.logo_image_url
+                    ? (
+                        <div
+                            className='rounded-full bg-contain h-9 w-9 m-left bg-no-repeat bg-center bg-black'
                             style={{ backgroundImage: `url(${project.logo_image_url})` }}
-                    />
+                        />
                     ) : (
                         <div className='rounded-full bg-primary h-24 w-24 m-auto' />
                     )
                 }
-            <div className='m-auto'>                
-                <Subtitle variant='m' alignment='text-center' color='solid-black'>
-                    { project.name }
-                </Subtitle>
-            </div>
+                <div className='w-fit'>                
+                    <Subtitle variant='s' alignment='text-center' color='solid-black'>
+                        { project.name }
+                    </Subtitle>
+                </div>
             </div>     
             <div className=''>
                 <Paragraph alignment='text-center'>
                     { testimony }
                 </Paragraph>
             </div>
-                <div className=''>
-                    <Subtitle variant='s' alignment='text-center'>
-                        { person_name }
-                    </Subtitle>
-                </div>            
-            </div>
+            <div className=''>
+                <Subtitle variant='xs' alignment='text-center'>
+                    { person_name }
+                </Subtitle>
+            </div>            
+        </div>
     )
 }
 

@@ -16,7 +16,7 @@ const Home: NextPage = () => {
             <Section color='light-gray'>
                 <Services />
             </Section>
-            <Section color='solid-white'>
+            <Section>
                 <Testimonials />
             </Section>
             <Section color='primary' paddingBottom=''>
