@@ -66,6 +66,7 @@ export const STARTED_DEVELOPMENT_BUT_NEED_ASSISTANCE = 'Started development but 
 export const STARTING_MY_PROJECT_FROM_SCRATCH = 'Starting my project from scratch'
 export const SUBMIT: string = 'Submit'
 export const SUBMIT_CV = 'Submit CV'
+export const TESTIMONIALS: string = 'Testimonials'
 export const THANK_YOU = 'Thank You'
 export const THE_SAMPLE_SERVICE_PACKAGES_LISTED_BELOW = 'The sample service packages listed below are meant to provide you with a reference for pricing and expectations for service quality. However, we can adapt our service offerings to your unique needs, so we encourage you to schedule a consultation to discuss further.'
 export const THIS_IS_THE_BEST_PLACE_TO_START: string = 'This is the best place to start if you just need some basic technical advisement on how to get your project going'
