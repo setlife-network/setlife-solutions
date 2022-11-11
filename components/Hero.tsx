@@ -34,7 +34,7 @@ const Hero = ({}) => {
                     </Paragraph>
                 </div>
                 <div className='text-center md:text-left'>
-                    <Button variant='tertiary' link={CONSULTATION.toLowerCase()}>
+                    <Button variant='tertiary' link={CONSULTATION.toLowerCase()} className='px-8'>
                         {SCHEDULE_CONSULTATION.toUpperCase()}
                     </Button>
                 </div>
