@@ -79,3 +79,17 @@ VALUES
     (2, 4, '2022-07-28', '2022-07-28'),
     (1, 5, '2022-07-28', '2022-07-28'),
     (2, 5, '2022-07-28', '2022-07-28');
+
+-- Testimonials
+INSERT INTO public.testimonials
+VALUES
+    (1, 1, 'Testimonial name test', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26'),
+    (2, 1, 'Testimonial name test 2', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26'),
+    (3, 3, 'Testimonial name test 3', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26'),
+    (4, 4, 'Testimonial name test 4', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26'),
+    (5, 5, 'Testimonial name test 5', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26'),
+    (6, 2, 'Testimonial name test 6', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26'),
+    (7, 2, 'Testimonial name test 7', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26'),
+    (8, 3, 'Testimonial name test 8', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26'),
+    (9, 4, 'Testimonial name test 9', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26'),
+    (10, 5, 'Testimonial name test 10', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'https://setlife-solutions.s3.amazonaws.com/images/Testimonial-test-image.jpg', '2022-10-26', '2022-10-26')

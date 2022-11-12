@@ -53,8 +53,6 @@ const BudgetTimelineForm = ({
     }
 
     const addTimelineValue = (timeline: string) => {
-        console.log('timeline')
-        console.log(timeline)
         if (timelineValues.includes(timeline)) {
             setTimelineValues(
                 timelineValues.filter(value => value != timeline)
@@ -62,8 +60,12 @@ const BudgetTimelineForm = ({
             return
         }
         setTimelineValues([...timelineValues, timeline])
-        console.log('timelineValues')
-        console.log(timelineValues)
+    }
+
+    const formatAmount = (amount: number) => {
+        if (amount == 100000) return `+$${amount / 1000}k`
+        if (amount > 999) return `$${amount / 1000}k`
+        return `$${amount}`
     }
 
     const renderTimelineTypes = () => {
@@ -138,7 +140,7 @@ const BudgetTimelineForm = ({
                             {MIN}
                         </Paragraph>
                         <Paragraph>
-                            {`$${String(minBudgetValue)}`}
+                            {formatAmount(minBudgetValue)}
                         </Paragraph>
                     </div>
                     <div>
@@ -146,11 +148,11 @@ const BudgetTimelineForm = ({
                             {MAX}
                         </Paragraph>
                         <Paragraph>
-                            {`$${String(maxBudgetValue)}`}
+                            {formatAmount(maxBudgetValue)}
                         </Paragraph>
                     </div>
                 </div>
-                <div className='RangeSlider px-8'>
+                <div className='range-slider px-8'>
                     <Slider
                         range
                         allowCross={false}
@@ -158,6 +160,7 @@ const BudgetTimelineForm = ({
                         max={100000}
                         defaultValue={[defaultBudget[0], defaultBudget[1]]}
                         onChange={onSliderChange}
+                        step={500}
                         railStyle={{
                             height: 2
                         }}

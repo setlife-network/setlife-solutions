@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "order-strings": "node -e \"require('./scripts/orderStrings').sortStrings()\""
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
@@ -15,6 +16,7 @@
     "@sendgrid/mail": "^7.7.0",
     "apollo-server": "^3.9.0",
     "apollo-server-micro": "^3.9.0",
+    "aws-sdk": "^2.1236.0",
     "dotenv": "^16.0.1",
     "graphql": "^16.5.0",
     "lodash": "^4.17.21",
