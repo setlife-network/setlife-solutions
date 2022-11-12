@@ -40,7 +40,7 @@ interface ServiceTypesFormProps {
 
 const ConsultationPage: NextPage = () => {
 
-    const DEFAULT_MIN_BUDGET = 10000
+    const DEFAULT_MIN_BUDGET = 2000
     const DEFAULT_MAX_BUDGET = 50000
 
     const [budget, setBudget] = useState({
