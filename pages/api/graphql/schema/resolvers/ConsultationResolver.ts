@@ -1,6 +1,4 @@
-
 module.exports = {
-
     Consultation: {},
 
     Query: {},
@@ -8,11 +6,10 @@ module.exports = {
     Mutation: {
         createConsultation: (root: any, { createFields }: any, { Consultation }: any) => {
             return Consultation.create({
-                ...createFields
-            })
-        }
-    }
-  
-}
+                ...createFields,
+            });
+        },
+    },
+};
 
-export {}
+export {};
