@@ -26,7 +26,7 @@ const Testimonials = () => {
     const renderTestimonials = () => {
         return testimonials.map((t, i) => {
             return (
-                <div className='m-auto snap-center' key={`st-${t.id}`}>
+                <div className='mx-auto snap-center h-auto' key={`st-${t.id}`}>
                     <TestimonialsTile
                         person_name={t.person_name}
                         testimony={t.testimony}
@@ -45,7 +45,7 @@ const Testimonials = () => {
                     {TESTIMONIALS}
                 </Headline>
             </div>
-            <div className='grid grid-flow-col auto-cols-max flex flex-nowrap gap-8 snap-x overflow-scroll'>
+            <div className='flex flex-nowrap gap-8 snap-x overflow-scroll justify-items-center'>
                 {renderTestimonials()}
             </div>
         </div>

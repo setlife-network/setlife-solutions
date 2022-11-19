@@ -26,16 +26,15 @@ const TestimonialTile = ({
 
     return (
         <div
-            className='TestimonialsTile grid grid-cols-1 gap-4 rounded-2xl border-solid border rounded-lg border-primary p-8 bg-solid-white'
-            // onClick={() => {
-            //     router.push(url)
-            // }}
+            className='TestimonialsTile grid grid-flow-row auto-rows-max gap-4 rounded-2xl border-solid border rounded-lg border-primary p-8 bg-solid-white max-w-md w-max h-full justify-items-center relative'
         >  
-            <div 
-                className='rounded-full bg-contain h-20 w-20 m-auto'
-                style={{ backgroundImage: `url(${person_image_url})` }} 
-            />
-            <div className='flex gap-4 justify-items-center m-auto '>
+            <div className='h-fit'>
+                <div 
+                    className='rounded-full bg-contain h-20 w-20 '
+                    style={{ backgroundImage: `url(${person_image_url})` }} 
+                />
+            </div>
+            <div className='flex gap-4 justify-items-center '>
                 {project.logo_image_url
                     ? (
                         <div
