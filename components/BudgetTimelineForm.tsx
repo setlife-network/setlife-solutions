@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
+import useScreenSize from 'use-screen-size'
 
 import Paragraph from './Paragraph'
 
@@ -38,6 +39,7 @@ const BudgetTimelineForm = ({
     const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
     const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
     const [timelineValues, setTimelineValues] = useState<string[]>([])
+    const size = useScreenSize()
 
     useEffect(() => {
         setTimeline(timelineValues)
@@ -152,7 +154,7 @@ const BudgetTimelineForm = ({
                         </Paragraph>
                     </div>
                 </div>
-                <div className='range-slider px-8'>
+                <div className='range-slider md:px-8 px-5'>
                     <Slider
                         range
                         allowCross={false}
@@ -165,10 +167,10 @@ const BudgetTimelineForm = ({
                             height: 2
                         }}
                         handleStyle={{
-                            height: 28,
-                            width: 28,
-                            marginLeft: -14,
-                            marginTop: -14,
+                            height: size.screen == 'xs' ? 18 : 28,
+                            width: size.screen == 'xs' ? 18 : 28,
+                            marginLeft: size.screen == 'xs' ? -5 : -14,
+                            marginTop: size.screen == 'xs' ? -8 : -14,
                             backgroundColor: '#00C2D4',
                             border: 0
                         }}
