@@ -28,7 +28,8 @@
     "rc-slider": "^10.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sequelize": "^6.21.3"
+    "sequelize": "^6.21.3",
+    "use-screen-size": "^1.1.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
