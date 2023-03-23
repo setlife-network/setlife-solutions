@@ -11,6 +11,12 @@ const nextConfig = {
         POSTGRES_DB_PORT: process.env.POSTGRES_DB_PORT,
         AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
         AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+        DISCORD_WEBHOOK: process.env.DISCORD_WEBHOOK,
+    },
+    webpack5: true,
+    webpack: (config) => {
+        config.resolve.fallback = { fs: false }
+        return config
     }
 }
 
