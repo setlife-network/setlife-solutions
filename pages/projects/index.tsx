@@ -48,6 +48,7 @@ const ProjectsPage: NextPage = () => {
                     name={p.name}
                     description={p.description}
                     image={p.tile_image_url}
+                    externalLink={p.other_resource}
                 />
             )
         })
