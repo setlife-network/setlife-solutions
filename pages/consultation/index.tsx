@@ -14,7 +14,8 @@ import ProjectGoalsForm from '../../components/ProjectGoalsForm'
 import Section from '../../components/Section'
 import Subtitle from '../../components/Subtitle'
 
-import ContactInformationProps from '../../interfaces/ConctactInformationProps'
+import BudgetFormProps from '../../interfaces/BudgetFormProps'
+import ContactInformationProps from '../../interfaces/ContactInformationProps'
 import ServiceInformationFormProps from '../../interfaces/ServiceInformationFormProps'
 
 import { CREATE_CONSULTATION } from '../../operations/mutations/ConsultationMutations'
@@ -37,7 +38,7 @@ const ConsultationPage: NextPage = () => {
     const DEFAULT_MIN_BUDGET = 10000
     const DEFAULT_MAX_BUDGET = 50000
 
-    const [budget, setBudget] = useState({
+    const [budget, setBudget] = useState<BudgetFormProps>({
         minBudget: DEFAULT_MIN_BUDGET,
         maxBudget: DEFAULT_MAX_BUDGET
     })
@@ -48,8 +49,8 @@ const ConsultationPage: NextPage = () => {
     const [contactInformationError, setContactInformationError] = useState(true)
     const [serviceInformationError, setServiceInformationError] = useState(true)
     const [disabledButton, setDisabledButton] = useState(true)
-    const [projectGoals, setProjectGoals] = useState(String)
-    const [constraints, setConstraints] = useState(String)
+    const [projectGoals, setProjectGoals] = useState<string>('')
+    const [constraints, setConstraints] = useState<string>('')
 
     const router = useRouter()
 

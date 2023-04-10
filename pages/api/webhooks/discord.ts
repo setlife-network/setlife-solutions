@@ -1,4 +1,5 @@
-import ContactInformationProps from '../../../interfaces/ConctactInformationProps';
+import BudgetFormProps from '../../../interfaces/BudgetFormProps';
+import ContactInformationProps from '../../../interfaces/ContactInformationProps';
 import ServiceInformationFormProps from '../../../interfaces/ServiceInformationFormProps';
 
 import {
@@ -18,21 +19,21 @@ const { Webhook, MessageBuilder } = require('discord-webhook-node');
 const hook = new Webhook(process.env.DISCORD_WEBHOOK);
 
 export default async function sendMessage(
-    conctactInformation: ContactInformationProps, 
-    budget: any, 
+    contactInformation: ContactInformationProps, 
+    budget: BudgetFormProps, 
     serviceInformation: ServiceInformationFormProps, 
-    projectGoals: String, 
-    constraints: String
+    projectGoals: string, 
+    constraints: string
 ) {
     try {
         const embed = new MessageBuilder()
             .setTitle(NEW_CONSULTATION)
-            .addField(NAME, conctactInformation.name)
-            .addField(EMAIL, conctactInformation.email)
-            .addField(PHONE_NUMBER, conctactInformation.phoneNumber)
+            .addField(NAME, contactInformation.name)
+            .addField(EMAIL, contactInformation.email)
+            .addField(PHONE_NUMBER, contactInformation.phoneNumber)
             .addField(MAX_BUDGET, budget.maxBudget)
             .addField(MIN_BUDGET, budget.minBudget)
-            .addField(COMPANY_TYPE, conctactInformation.clientType)
+            .addField(COMPANY_TYPE, contactInformation.clientType)
             .addField(PROJECT_GOALS, projectGoals)
             .addField(TIMELINE_BUDGET_CONSTRAINTS, constraints)
             .setDescription(serviceInformation.projectGoal)

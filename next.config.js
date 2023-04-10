@@ -13,6 +13,7 @@ const nextConfig = {
         AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
         DISCORD_WEBHOOK: process.env.DISCORD_WEBHOOK,
     },
+    // Enabling webpack5 and disabling fs will allow the usage of libraries that uses the fs module, if we dont do this we will getting module error
     webpack5: true,
     webpack: (config) => {
         config.resolve.fallback = { fs: false }
