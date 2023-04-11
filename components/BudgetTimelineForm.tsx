@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
-import useScreenSize from 'use-screen-size'
 
 import Paragraph from './Paragraph'
 
@@ -39,11 +38,19 @@ const BudgetTimelineForm = ({
     const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
     const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
     const [timelineValues, setTimelineValues] = useState<string[]>([])
-    const size = useScreenSize()
-
+    const [windowSize, setWindowSize] = useState<string>('')
+    
     useEffect(() => {
         setTimeline(timelineValues)
     }, [timelineValues])
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            if (window.innerWidth <= 640) {
+                setWindowSize('sm')
+            }
+        } 
+    }, [windowSize])
 
     const onSliderChange = (value: any) => {
         setMinBudgetValue(value[0])
@@ -164,13 +171,14 @@ const BudgetTimelineForm = ({
                         onChange={onSliderChange}
                         step={500}
                         railStyle={{
-                            height: 2
+                            height: 2,
+                            backgroundColor: '#C5C5C5'  
                         }}
                         handleStyle={{
-                            height: size.screen == 'xs' ? 18 : 28,
-                            width: size.screen == 'xs' ? 18 : 28,
-                            marginLeft: size.screen == 'xs' ? -5 : -14,
-                            marginTop: size.screen == 'xs' ? -8 : -14,
+                            height: windowSize == 'sm' ? 18 : 28,
+                            width: windowSize == 'sm' ? 18 : 28,
+                            marginLeft: windowSize == 'sm' ? -5 : -14,
+                            marginTop: windowSize == 'sm' ? -8 : -14,
                             backgroundColor: '#00C2D4',
                             border: 0
                         }}
