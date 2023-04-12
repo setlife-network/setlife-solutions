@@ -38,10 +38,19 @@ const BudgetTimelineForm = ({
     const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
     const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
     const [timelineValues, setTimelineValues] = useState<string[]>([])
-
+    const [windowSize, setWindowSize] = useState<string>('')
+    
     useEffect(() => {
         setTimeline(timelineValues)
     }, [timelineValues])
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            if (window.innerWidth <= 640) {
+                setWindowSize('sm')
+            }
+        } 
+    }, [windowSize])
 
     const onSliderChange = (value: any) => {
         setMinBudgetValue(value[0])
@@ -152,7 +161,7 @@ const BudgetTimelineForm = ({
                         </Paragraph>
                     </div>
                 </div>
-                <div className='range-slider px-8'>
+                <div className='range-slider md:px-8 px-5'>
                     <Slider
                         range
                         allowCross={false}
@@ -162,13 +171,14 @@ const BudgetTimelineForm = ({
                         onChange={onSliderChange}
                         step={500}
                         railStyle={{
-                            height: 2
+                            height: 2,
+                            backgroundColor: '#C5C5C5'  
                         }}
                         handleStyle={{
-                            height: 28,
-                            width: 28,
-                            marginLeft: -14,
-                            marginTop: -14,
+                            height: windowSize == 'sm' ? 18 : 28,
+                            width: windowSize == 'sm' ? 18 : 28,
+                            marginLeft: windowSize == 'sm' ? -5 : -14,
+                            marginTop: windowSize == 'sm' ? -8 : -14,
                             backgroundColor: '#00C2D4',
                             border: 0
                         }}
