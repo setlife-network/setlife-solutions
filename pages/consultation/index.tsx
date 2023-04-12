@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useMutation } from '@apollo/client'
 
+import sendMessage from '../api/webhooks/discord'
+
 import BudgetTimelineForm from '../../components/BudgetTimelineForm'
 import Button from '../../components/Button'
 import ContactInformation from '../../components/ContactInformation'
@@ -11,6 +13,10 @@ import Headline from '../../components/Headline'
 import ProjectGoalsForm from '../../components/ProjectGoalsForm'
 import Section from '../../components/Section'
 import Subtitle from '../../components/Subtitle'
+
+import BudgetFormProps from '../../interfaces/BudgetFormProps'
+import ContactInformationProps from '../../interfaces/ContactInformationProps'
+import ServiceInformationFormProps from '../../interfaces/ServiceInformationFormProps'
 
 import { CREATE_CONSULTATION } from '../../operations/mutations/ConsultationMutations'
 
@@ -23,17 +29,6 @@ import {
     FIELDS_WITH_ARE_REQUIRED
 } from '../../constants/strings'
 
-interface ContactInformationProps {
-    name?: string,
-    email?: string,
-    phoneNumber?: string,
-    clientType?: string
-}
-interface ServiceInformationFormProps {
-    serviceTypes?: string[],
-    projectGoal?: string
-}
-
 interface ServiceTypesFormProps {
     serviceTypes?: string[]
 }
@@ -43,7 +38,7 @@ const ConsultationPage: NextPage = () => {
     const DEFAULT_MIN_BUDGET = 10000
     const DEFAULT_MAX_BUDGET = 50000
 
-    const [budget, setBudget] = useState({
+    const [budget, setBudget] = useState<BudgetFormProps>({
         minBudget: DEFAULT_MIN_BUDGET,
         maxBudget: DEFAULT_MAX_BUDGET
     })
@@ -54,6 +49,8 @@ const ConsultationPage: NextPage = () => {
     const [contactInformationError, setContactInformationError] = useState(true)
     const [serviceInformationError, setServiceInformationError] = useState(true)
     const [disabledButton, setDisabledButton] = useState(true)
+    const [projectGoals, setProjectGoals] = useState<string>('')
+    const [constraints, setConstraints] = useState<string>('')
 
     const router = useRouter()
 
@@ -66,9 +63,9 @@ const ConsultationPage: NextPage = () => {
                 max_budget: `${budget.maxBudget}`,
                 min_budget: `${budget.minBudget}`,
                 company_type: contactInformation.clientType,
-                project_goals: services.length ? services.join('. ') : '',
+                project_goals: projectGoals,
                 description: serviceInformation.projectGoal,
-                constraints: timeline.length ? timeline.join('. ') : ''
+                constraints: constraints
             }
         }
     )
@@ -79,6 +76,14 @@ const ConsultationPage: NextPage = () => {
             serviceInformationError
         )
     }, [contactInformationError, serviceInformationError])
+
+    useEffect(() => {
+        setProjectGoals(services.length ? services.join('. ') : '')
+    }, [services])
+
+    useEffect(() => {
+        setConstraints(timeline.length ? timeline.join('. ') : '')
+    }, [timeline])
 
     const handleSubmit = async (e: any) => {
         if (disabledButton) return
@@ -100,6 +105,7 @@ const ConsultationPage: NextPage = () => {
             const { error } = await res.json()
             if (error) throw error
             createConsultation()
+            sendMessage(contactInformation, budget, serviceInformation, projectGoals, constraints)
             router.push('/consultation/thanks')
         } catch (error) {
             console.log(error)

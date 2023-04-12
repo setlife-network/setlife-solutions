@@ -81,3 +81,8 @@ export const YOUR_SUPERPOWER = 'your superpower'
 export const YOU_MAY_ALSO_LIKE: string = 'You may also like'
 
 export const CONTRIBUTORS: string = 'Contributors'
+export const NEW_CONSULTATION: string = 'New Consultation'
+export const MAX_BUDGET: string = 'Max Budget'
+export const MIN_BUDGET: string = 'Min Budget'
+export const COMPANY_TYPE: string = 'Company Type'
+export const TIMELINE_BUDGET_CONSTRAINTS: string = 'Timeline and Budget Constraints'
