@@ -101,6 +101,7 @@ const ProjectGoalsForm = ({
                             name='serviceRadio' 
                             id={service.name} 
                             checked={serviceTypes.includes(service.name)}
+                            onChange={() => {}}
                         />
                         { service.name }
                     </label>

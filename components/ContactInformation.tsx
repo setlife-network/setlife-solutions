@@ -166,6 +166,7 @@ const ContactInformation = ({
                             name='clientType' 
                             id={client.name} 
                             checked={clientType == client.name}
+                            onChange={() => {}}
                         />
                         { client.name }
                     </label>

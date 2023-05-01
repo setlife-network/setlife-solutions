@@ -120,6 +120,7 @@ const BudgetTimelineForm = ({
                             type='checkbox'
                             id={timeline.name}
                             checked={timelineValues.includes(timeline.name)}
+                            onChange={() => {}}
                         />
                         { timeline.name }
                     </label>
