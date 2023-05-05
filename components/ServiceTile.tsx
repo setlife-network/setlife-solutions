@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next';
 
 import Paragraph from './Paragraph'
 import Subtitle from './Subtitle'
@@ -20,6 +21,7 @@ const ServiceTile = ({
     imageUrl,
 }: ServiceTileProps) => {
     const router = useRouter()
+    const { t } = useTranslation()
 
     return (
         <div
@@ -53,7 +55,7 @@ const ServiceTile = ({
             <div className='text-right'>
                 <a href={url}>
                     <Paragraph variant='sm' alignment='text-right' color='primary'>
-                        { LEARN_MORE }
+                        { t(LEARN_MORE, { 'ns': 'common' }) }
                     </Paragraph>
                 </a>
             </div>

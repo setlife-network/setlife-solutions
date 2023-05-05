@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'next-i18next';
 
 import Headline from './Headline'
 
@@ -28,6 +29,8 @@ const ContactInformation = ({
     setContactInformation,
     setContactInformationError
 }: ContactInformationProps) => {
+
+    const { t } = useTranslation('consultation')
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -63,7 +66,7 @@ const ContactInformation = ({
     const renderInputs = () => {
         const basicInformationFields = [
             {
-                name: NAME,
+                name: t(NAME),
                 value: name,
                 error: nameError,
                 onChange: (nameInput: any) => {
@@ -72,7 +75,7 @@ const ContactInformation = ({
                 }
             },
             {
-                name: EMAIL,
+                name: t(EMAIL, { 'ns': 'common' }),
                 value: email,
                 error: emailError,
                 onChange: (emailInput: any) => {
@@ -81,7 +84,7 @@ const ContactInformation = ({
                 }
             },
             {
-                name: PHONE_NUMBER,
+                name: t(PHONE_NUMBER),
                 value: phoneNumber,
                 onChange: (phoneNumberInput: any) => {
                     setPhoneNumber(validNumber.exec(phoneNumberInput)
@@ -115,7 +118,7 @@ const ContactInformation = ({
                     </label>
                     {input.error && (
                         <span className='px-5 text-red-600'>
-                            { INVALID } { input.name }
+                            { t(INVALID) } { input.name }
                         </span> 
                     )}
                 </div>
@@ -168,7 +171,7 @@ const ContactInformation = ({
                             checked={clientType == client.name}
                             onChange={() => {}}
                         />
-                        { client.name }
+                        { t(client.name) }
                     </label>
                 </div>
             )
@@ -185,12 +188,12 @@ const ContactInformation = ({
                     color='primary'
                     variant='alternative'
                 >
-                    {THIS_PROJECT_IS_FOR + '*'}
+                    {t(THIS_PROJECT_IS_FOR) + '*'}
                 </Headline>
                 { renderClientTypes() }
                 {clientTypeError && (
                     <span className='px-5 text-red-600'>
-                        { PLEASE_SELECT_AT_LEAST_ONE_OPTION }
+                        { t(PLEASE_SELECT_AT_LEAST_ONE_OPTION) }
                     </span>
                 )}
             </div>

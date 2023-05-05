@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'next-i18next';
 
 import Headline from './Headline';
 import Paragraph from './Paragraph';
@@ -17,6 +18,8 @@ interface ProjectImpactProps {
 const ProjectImpact = ({
     projectDetails
 }: ProjectImpactProps) => {
+    
+    const { t } = useTranslation('project')
 
     const renderProductionGradeTile = () => {
         return projectDetails.map(projectDetail => {
@@ -42,7 +45,7 @@ const ProjectImpact = ({
         <div className='ProjectImpact'>
             <div className='mb-12'>
                 <Headline variant='h1' color='solid-black' alignment='text-left'>
-                    { IMPACT }
+                    { t(IMPACT) }
                 </Headline>
             </div>
             <div className='grid grid-rows-1 gap-8'>

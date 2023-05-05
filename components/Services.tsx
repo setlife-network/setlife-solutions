@@ -1,5 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/client'
+import { useTranslation } from 'next-i18next';
 
 import Pulse from './Pulse'
 import Headline from './Headline'
@@ -16,6 +17,8 @@ interface getServices {
 }
 
 const Services = () => {
+
+    const { t } = useTranslation()
 
     const { error, data, loading } = useQuery<getServices>(
         GET_SERVICES
@@ -50,7 +53,7 @@ const Services = () => {
         <div className='Services'>
             <div className='mb-12'>
                 <Headline variant='h1' color='solid-black' alignment='text-center md:text-left'>
-                    { SERVICES }
+                    { t(SERVICES) }
                 </Headline>
             </div>
             <div className='flex flex-row flex-wrap justify-center gap-y-8'>

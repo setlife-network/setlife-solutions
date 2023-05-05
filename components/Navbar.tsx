@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { i18n } from 'next-i18next';
 
 import { LOGO_URL, NAV_ITEMS } from '../constants'
 import {
@@ -16,7 +17,7 @@ const renderNavItems = () => {
                     className='text-2xl font-bold my-4 text-primary md:mx-4 md:text-base md:text-solid-black md:my-0' 
                     href={item.link} 
                 >
-                    {item.name}
+                    {i18n?.t(item.name)}
                 </a>
             )
         })

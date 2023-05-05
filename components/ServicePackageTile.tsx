@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'next-i18next';
 
 import Headline from '../components/Headline'
 import Subtitle from '../components/Subtitle'
@@ -22,6 +23,8 @@ const ServicePackageTile = ({
     servicePackage, 
     idx = null
 }: ServicePackageTileProps) => {
+
+    const { t } = useTranslation('packages')
 
     const {
         id,
@@ -76,7 +79,7 @@ const ServicePackageTile = ({
                 {estimated_cost && (
                     <>
                         <Paragraph alignment='text-center' color='primary'>
-                            { ESTIMATED_COST }
+                            { t(ESTIMATED_COST) }
                         </Paragraph>
                         <Paragraph alignment='text-center' color='primary' variant='m-bold'>
                             { estimated_cost }
@@ -86,13 +89,13 @@ const ServicePackageTile = ({
                 {minimum_cost && (
                     <>
                         <Paragraph alignment='text-center' color='primary'>
-                            { MINIMUM_COST }
+                            { t(MINIMUM_COST) }
                         </Paragraph>
                         <Paragraph alignment='text-center' color='primary' variant='m-bold'>
                             { minimum_cost }
                         </Paragraph>
                         <Paragraph alignment='text-center' color='red-600'>
-                            { THIS_PACKAGE_CAN_BE_SCALED_UP }
+                            { t(THIS_PACKAGE_CAN_BE_SCALED_UP) }
                         </Paragraph>
                     </>
                 )}

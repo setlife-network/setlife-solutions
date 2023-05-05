@@ -1,5 +1,7 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import { useQuery } from '@apollo/client'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
 import Headline from '../../components/Headline'
 import PageBanner from '../../components/PageBanner'
@@ -21,7 +23,15 @@ interface getProjects {
     fetchProjects: ProjectProps[]
 }
 
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale!, ['common', 'project'])),
+    },
+})
+
 const ProjectsPage: NextPage = () => {
+
+    const { t } = useTranslation()
 
     const { error, data, loading } = useQuery<getProjects>(
         GET_PROJECTS
@@ -58,13 +68,13 @@ const ProjectsPage: NextPage = () => {
         <div className='ProjectsPage'>
             <PageBanner
                 image={PROJECTS_BANNER_IMAGE_URL}
-                title={PORTFOLIO}
+                title={t(PORTFOLIO)}
                 titleAlignment='text-center'
             />
             <Section>
                 <div className='grid grid-flow-row'>
                     <Headline variant='h1' color='solid-black' alignment='text-center md:text-left'>
-                        { OUR_WORK }
+                        { t(OUR_WORK) }
                     </Headline>
                     <div 
                         className='grid grid-flow-row auto-rows-max grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-x-16 lg:gap-y-12 xl:gap-x-24 gap-y-6 xl:gap-y-16 mt-12'

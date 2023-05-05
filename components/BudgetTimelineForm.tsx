@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
+import { useTranslation } from 'next-i18next';
 
 import Paragraph from './Paragraph'
 
@@ -34,6 +35,7 @@ const BudgetTimelineForm = ({
     setTimeline,
     defaultBudget,
 }: BudgetTimelineFormProps) => {
+    const { t } = useTranslation('consultation')
 
     const [minBudgetValue, setMinBudgetValue] = useState(defaultBudget[0])
     const [maxBudgetValue, setMaxBudgetValue] = useState(defaultBudget[1])
@@ -109,7 +111,7 @@ const BudgetTimelineForm = ({
         ]
         return timelineTypes.map(timeline => {
             return (
-                <div className='w-fit' onClick={() => addTimelineValue(timeline.name)}>
+                <div className='w-fit' onClick={() => addTimelineValue(t(timeline.name))}>
                     <label 
                         className='form-check-label inline-block text-solid-black' 
                         htmlFor='timelineRadio'
@@ -119,10 +121,10 @@ const BudgetTimelineForm = ({
                             className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-primary checked:border-primary focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer' 
                             type='checkbox'
                             id={timeline.name}
-                            checked={timelineValues.includes(timeline.name)}
+                            checked={timelineValues.includes(t(timeline.name))}
                             onChange={() => {}}
                         />
-                        { timeline.name }
+                        { t(timeline.name) }
                     </label>
                 </div>
             )
@@ -134,20 +136,20 @@ const BudgetTimelineForm = ({
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
                 <Paragraph>
                     <>
-                        {PROJECT_WITH_PROPOSED_BUDGETS}
+                        {t(PROJECT_WITH_PROPOSED_BUDGETS)}
                         <a className='text-primary hover:underline hover:underline-offset-1' href='/service-packages'>
-                            {SERVICE_PACKAGES}
+                            {` ${t(SERVICE_PACKAGES, { ns: 'common' })} `}
                         </a>
-                        {TO_GET_A_SENSE}
+                        {t(TO_GET_A_SENSE)}
                     </>
                 </Paragraph>
                 <Paragraph variant='m-bold'>
-                    {SELECT_AN_ESTIMATED_BUDGET_RANGE_FOR_YOUR_PROJECT}
+                    {t(SELECT_AN_ESTIMATED_BUDGET_RANGE_FOR_YOUR_PROJECT)}
                 </Paragraph>
                 <div className='grid grid-cols-2 justify-items-center'>
                     <div>
                         <Paragraph variant='m-bold' color='primary' alignment='text-center'>
-                            {MIN}
+                            {t(MIN)}
                         </Paragraph>
                         <Paragraph>
                             {formatAmount(minBudgetValue)}
@@ -155,7 +157,7 @@ const BudgetTimelineForm = ({
                     </div>
                     <div>
                         <Paragraph variant='m-bold' color='primary' alignment='text-center'>
-                            {MAX}
+                            {t(MAX)}
                         </Paragraph>
                         <Paragraph>
                             {formatAmount(maxBudgetValue)}
@@ -190,7 +192,7 @@ const BudgetTimelineForm = ({
                 </div>
                 <div className='mt-8'>
                     <Paragraph variant='m-bold'>
-                        {DESCRIBE_ANY_TIMELINE_AND_BUDGET_CONSTRAINTS_FOR_YOUR_PROJECT}
+                        {t(DESCRIBE_ANY_TIMELINE_AND_BUDGET_CONSTRAINTS_FOR_YOUR_PROJECT)}
                     </Paragraph>
                 </div>
                 { renderTimelineTypes() }

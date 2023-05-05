@@ -1,4 +1,5 @@
 import { find } from 'lodash'
+import { useTranslation } from 'next-i18next';
 
 import ArrowIcon from './ArrowIcon'
 import Button from './Button'
@@ -33,6 +34,8 @@ const ProjectInformation = ({
     projectLink,
     projectName
 }: ProjectInformationProps) => {
+
+    const { t } = useTranslation('project')
 
     const renderServicesProvided = (servicesProvided: ProjectServiceProvided[]) => {
         return servicesProvided.map(s => {
@@ -76,7 +79,7 @@ const ProjectInformation = ({
                 </div>
                 <div className='grid grid-flow-col auto-cols-max'>
                     <Subtitle>
-                        { SERVICES_PROVIDED }
+                        { t(SERVICES_PROVIDED) }
                     </Subtitle>
                 </div>
                 <div className=''>
@@ -93,7 +96,7 @@ const ProjectInformation = ({
                     </div>
                     <div className='hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'>
                         <Button link='/'>
-                            { CAN_YOU_PROVIDE_THESE_SERVICES }
+                            { t(CAN_YOU_PROVIDE_THESE_SERVICES, { ns: 'common' }) }
                         </Button>   
                     </div>
                 </div>

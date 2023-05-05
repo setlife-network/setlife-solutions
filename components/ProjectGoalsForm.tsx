@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'next-i18next';
 
 import Paragraph from './Paragraph'
 
@@ -25,6 +26,7 @@ const ProjectGoalsForm = ({
     setServices,
     setServiceInformationError
 }: ProjectGoalsFormProps) => {
+    const { t } = useTranslation('consultation')
 
     const [serviceTypes, setServiceTypes] = useState<string[]>([])
     const [projectGoal, setProjectGoal] = useState('')
@@ -89,7 +91,7 @@ const ProjectGoalsForm = ({
         ]
         return services.map(service => {
             return (
-                <div className='w-fit' onClick={() => addServiceType(service.name)}>
+                <div className='w-fit' onClick={() => addServiceType(t(service.name))}>
                     <label 
                         className='form-check-label inline-block text-solid-black' 
                         htmlFor='flexRadioDefault1'
@@ -100,10 +102,10 @@ const ProjectGoalsForm = ({
                             type='checkbox' 
                             name='serviceRadio' 
                             id={service.name} 
-                            checked={serviceTypes.includes(service.name)}
+                            checked={serviceTypes.includes(t(service.name))}
                             onChange={() => {}}
                         />
-                        { service.name }
+                        { t(service.name) }
                     </label>
                 </div>
             )
@@ -114,11 +116,11 @@ const ProjectGoalsForm = ({
         <div className='ProjectGoalsForm'>
             <div className='grid grid-flow-row auto-rows-max gap-8 w-full md:w-8/12'>
                 <Paragraph variant='m-bold'>
-                    {WHICH_SERVICE_BEST_FITS + '*'}
+                    {t(WHICH_SERVICE_BEST_FITS) + '*'}
                 </Paragraph>
                 { renderServiceTypes() }
                 <Paragraph variant='m-bold'>
-                    {GIVE_US_BRIEF_DESCRIPTION + '*'}
+                    {t(GIVE_US_BRIEF_DESCRIPTION) + '*'}
                 </Paragraph>
                 <textarea
                     className={`
@@ -140,7 +142,7 @@ const ProjectGoalsForm = ({
                 />
                 {projectGoalError && (
                     <span className='px-5 text-red-600'>
-                        { PLEASE_GIVE_A_DESCRIPTION }
+                        { t(PLEASE_GIVE_A_DESCRIPTION) }
                     </span>
                 )}
             </div>

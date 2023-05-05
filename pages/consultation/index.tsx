@@ -1,7 +1,9 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useMutation } from '@apollo/client'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next';
 
 import sendMessage from '../api/webhooks/discord'
 
@@ -33,6 +35,12 @@ interface ServiceTypesFormProps {
     serviceTypes?: string[]
 }
 
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale!, ['common', 'consultation'])),
+    },
+})
+
 const ConsultationPage: NextPage = () => {
 
     const DEFAULT_MIN_BUDGET = 10000
@@ -53,6 +61,8 @@ const ConsultationPage: NextPage = () => {
     const [constraints, setConstraints] = useState<string>('')
 
     const router = useRouter()
+
+    const { t } = useTranslation('consultation')
 
     const [createConsultation] = useMutation(
         CREATE_CONSULTATION, {
@@ -116,23 +126,23 @@ const ConsultationPage: NextPage = () => {
         <div className='ConsultationPage'>
             <Section>
                 <Headline variant='h1'>
-                    {PLEASE_FILL_OUT_THE_FORM}
+                    {t(PLEASE_FILL_OUT_THE_FORM)}
                 </Headline>
             </Section>
-            <FormSection title={CONTACT_INFORMATION}>
+            <FormSection title={t(CONTACT_INFORMATION)}>
                 <ContactInformation 
                     setContactInformation={setContactInformation}
                     setContactInformationError={setContactInformationError}
                 />
             </FormSection>
-            <FormSection title={BUDGET_AND_TIMELINE}>
+            <FormSection title={t(BUDGET_AND_TIMELINE)}>
                 <BudgetTimelineForm
                     setBudget={setBudget}
                     setTimeline={setTimeline}
                     defaultBudget={[DEFAULT_MIN_BUDGET, DEFAULT_MAX_BUDGET]}
                 />
             </FormSection>
-            <FormSection title={PROJECT_GOALS}>
+            <FormSection title={t(PROJECT_GOALS)}>
                 <ProjectGoalsForm 
                     setServiceInformation={setServiceInformation}
                     setServices={setServices}
@@ -143,13 +153,13 @@ const ConsultationPage: NextPage = () => {
                 <div className={`grid grid-cols-1 md:grid-cols-3 ${disabledButton ? 'block' : 'hidden'}`}>
                     <div className='hidden md:block' />
                     <Subtitle variant='xs-light' alignment='text-center md:text-right'>
-                        {FIELDS_WITH_ARE_REQUIRED}
+                        {t(FIELDS_WITH_ARE_REQUIRED)}
                     </Subtitle>
                 </div>
                 <div className='grid grid-cols-1 mt-5 md:grid-cols-3' onClick={(e: any) => handleSubmit(e)}>
                     <div className='hidden md:block' />
                     <Button variant='tertiary' disabled={disabledButton}>
-                        {SUBMIT}
+                        {t(SUBMIT, { 'ns': 'common' })}
                     </Button>
                 </div>
             </Section>
