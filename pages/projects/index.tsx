@@ -5,6 +5,7 @@ import Headline from '../../components/Headline'
 import PageBanner from '../../components/PageBanner'
 import Section from '../../components/Section'
 import ProjectTile from '../../components/ProjectTile'
+import Pulse from '../../components/Pulse'
 
 import ProjectProps from '../../interfaces/ProjectProps'
 
@@ -28,8 +29,11 @@ const ProjectsPage: NextPage = () => {
 
     if (error || loading) {
         return (
-            <>
-            </>
+            <Section>
+                <div className='grid grid-rows place-content-center'>
+                    <Pulse />
+                </div>
+            </Section>
         )
     }
 
@@ -44,6 +48,7 @@ const ProjectsPage: NextPage = () => {
                     name={p.name}
                     description={p.description}
                     image={p.tile_image_url}
+                    externalLink={p.other_resource}
                 />
             )
         })

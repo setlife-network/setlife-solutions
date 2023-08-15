@@ -11,6 +11,7 @@ import {
     MINIMUM_COST,
     THIS_PACKAGE_CAN_BE_SCALED_UP
 } from '../constants/strings'
+import CheckTile from './CheckTile'
 
 interface ServicePackageTileProps {
     servicePackage: ServicePackageProps,
@@ -60,7 +61,7 @@ const ServicePackageTile = ({
                 {additional_notice && (
                     <div className='grid grid-cols-12'>
                         <div className='col-span-2 my-auto mr-auto'>
-                            <div className='rounded-full bg-green-400 h-8 w-8' /> 
+                            <CheckTile />
                         </div>
                         <div className='col-span-9'>
                             <Paragraph>

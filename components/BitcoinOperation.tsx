@@ -4,6 +4,7 @@ import Headline from './Headline'
 import LearnMore from './LearnMore'
 
 import { BITCOIN_BANNER_URL } from '../constants'
+
 import {
     SETLIFE_OPERATES,
     ON_A_BITCOIN_STANDARD,

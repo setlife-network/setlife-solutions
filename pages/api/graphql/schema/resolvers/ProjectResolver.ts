@@ -8,7 +8,7 @@ module.exports = {
 
     Query: {
         fetchProjects: (project: any, args: any, { Project }: any) => (
-            Project.findAll()
+            Project.findAll({ order: [['id', 'asc']]})
         ),
         fetchProject: (project: any, args: any, { Project }: any) => (
             Project.findByPk(args.id)

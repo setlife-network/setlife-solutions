@@ -18,8 +18,10 @@ module.exports = {
                 'solid-black': '#000000',
                 'solid-white': '#FFFFFF',
                 'light-gray': '#F2F2F2'
-            }
+            },
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
 }

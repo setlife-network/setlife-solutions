@@ -6,14 +6,17 @@ import Paragraph from '../../components/Paragraph'
 import Section from '../../components/Section'
 import ServicePackageTile from '../../components/ServicePackageTile'
 import Subtitle from '../../components/Subtitle'
+import Pulse from '../../components/Pulse'
 
 import { GET_SERVICE_PACKAGES } from '../../operations/queries/ServicePackagesQueries'
 
 import ServicePackageProps from '../../interfaces/ServicePackageProps'
 
 import {
-    GO_TO_CONSULTATION_FORM,
-    SERVICE_PACKAGES
+    THE_SAMPLE_SERVICE_PACKAGES_LISTED_BELOW,
+    SCHEDULE_CONSULTATION,
+    SERVICE_PACKAGES,
+    CONSULTATION
 } from '../../constants/strings'
 
 interface getServicePackages {
@@ -28,8 +31,11 @@ const ServicePackagesPage: NextPage = () => {
 
     if (error || loading) {
         return (
-            <>
-            </>
+            <Section>
+                <div className='grid grid-rows place-content-center'>
+                    <Pulse />
+                </div>
+            </Section>
         )
     }
 
@@ -38,7 +44,7 @@ const ServicePackagesPage: NextPage = () => {
     const renderServicePackages = (servicePackages: ServicePackageProps[]) => {
         return servicePackages.map((service, idx) => {
             return (
-                <ServicePackageTile servicePackage={service} idx={idx + 1} />
+                <ServicePackageTile servicePackage={service} idx={idx + 1} key={service.id} />
             )
         })
     }
@@ -52,12 +58,12 @@ const ServicePackagesPage: NextPage = () => {
                     </Subtitle>
                     <div className='grid grid-cols-1 md:grid-cols-2'>
                         <Paragraph>
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                            { THE_SAMPLE_SERVICE_PACKAGES_LISTED_BELOW }
                         </Paragraph>
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-                        <Button variant='secondary' link='/'>
-                            { GO_TO_CONSULTATION_FORM }
+                        <Button variant='secondary' link={CONSULTATION.toLowerCase()}>
+                            { SCHEDULE_CONSULTATION }
                         </Button>
                     </div>
                 </div>

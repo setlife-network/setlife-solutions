@@ -12,7 +12,7 @@ const LearnMore = ({
     return (
         <div className=''>
             <a 
-                href={url} 
+                href={url}
                 className='' 
                 rel={newTab ? 'noopener noreferrer' : ''}
                 target={newTab ? '_blank' : ''}

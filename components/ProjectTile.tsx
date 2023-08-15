@@ -10,8 +10,9 @@ interface ProjectProps {
     id: number,
     clientName: string,
     description: string,
-    image: String,
-    name: string
+    image: string,
+    name: string,
+    externalLink: string | null,
 }
 
 const ProjectTile = ({
@@ -20,9 +21,10 @@ const ProjectTile = ({
     id,
     name,
     image,
+    externalLink,
 }: ProjectProps) => {
     return (
-        <div className='ProjectTile grid grid-rows'>
+        <div className='ProjectTile grid grid-rows overflow-x-hidden'>
             <div>
                 <Subtitle 
                     color='primary'
@@ -37,11 +39,11 @@ const ProjectTile = ({
                     style={{ backgroundImage: `url(${image})` }}
                 >
                     <div className='title-container bg-primary-alt grid grid-cols px-6 py-4'>
-                        <div className=' grid grid-rows'>
-                            <Headline color='solid-white' variant='l' alignment='text-left'>
+                        <div className='grid grid-rows'>
+                            <Headline color='solid-white' variant='h1' alignment='text-left'>
                                 { name }
                             </Headline>
-                            <a href={`/projects/${id}`} className='mt-4'>
+                            <a href={externalLink ? externalLink : `/projects/${id}`} className='mt-4' target={externalLink ? `_blank` : '_self'}>
                                 <div className='grid grid-flow-col auto-cols-max'>
                                     <div>
                                         <Paragraph>

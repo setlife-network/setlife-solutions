@@ -8,6 +8,10 @@
   @include color-vars-default;
 };
 
+@import './ConsultationPage';
+@import './ContactInformation';
+@import './FormSection';
+@import './Layout';
 @import './PageBanner.scss';
 @import './ProjectDetailBanner.scss';
 @import './ProjectTile.scss';
@@ -18,7 +22,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Eina', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -34,3 +38,10 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Eina";
+  src: url('./fonts/Eina-01-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}

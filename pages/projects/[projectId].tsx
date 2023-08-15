@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useQuery } from '@apollo/client'
-import { remove, findIndex, shuffle } from 'lodash'
+import { shuffle } from 'lodash'
 
 import { GET_PROJECT, GET_PROJECTS } from '../../operations/queries/ProjectQueries'
 
@@ -10,6 +10,9 @@ import ProjectInformation from '../../components/ProjectInformation'
 import ProjectDetailBanner from '../../components/ProjectDetailBanner'
 import ProjectSimilarWork from '../../components/ProjectSimilarWork'
 import Section from '../../components/Section'
+import ProjectImpact from '../../components/ProjectImpact'
+import ProjectTitle from '../../components/ProjectTitle'
+import Pulse from '../../components/Pulse'
 
 import ProjectProps from '../../interfaces/ProjectProps'
 
@@ -61,8 +64,11 @@ const ProjectDetailPage: NextPage = () => {
     if (error || loading) {
         console.log('An error ocurred: ' + error)
         return (
-            <>
-            </>
+            <Section>
+                <div className='grid grid-rows place-content-center'>
+                    <Pulse />
+                </div>
+            </Section>
         )
     }
 
@@ -79,6 +85,9 @@ const ProjectDetailPage: NextPage = () => {
     return (
 
         <div className='ProjectDetailPage'>
+            <Section paddingBottom='' paddingTop='pt-8'>
+                <ProjectTitle title={name} />
+            </Section>
             <ProjectDetailBanner
                 backgroundImageUrl={background_banner_image_url}
                 deviceImageUrl={device_image_url}
@@ -94,12 +103,16 @@ const ProjectDetailPage: NextPage = () => {
                     projectName={name}
                 />
             </Section>
+            <Section color='light-gray'>
+                <ProjectImpact 
+                    projectDetails={projectDetails}
+                />
+            </Section>
             <Section>
                 <ProjectSimilarWork
                     projects={relatedProjects || []}
                 />
             </Section>
-          
         </div>
     )
 }
