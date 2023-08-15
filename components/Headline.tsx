@@ -6,7 +6,8 @@ const variants = [
     {
         'xxl': {
             'weight': 'font-bold',
-            'size': 'text-6xl'
+            'size': 'text-3xl',
+            'responsive': 'md:text-6xl'
         }
     },
     {
@@ -48,7 +49,8 @@ const variants = [
     {
         'alternative': {
             'weight': 'font-normal',
-            'size': 'text-xl'
+            'size': 'text-base',
+            'responsive': 'md:text-3xl'
         }
     },
     {
@@ -69,7 +71,7 @@ const Headline = ({
     const styleProps: any = Object.values(variants.filter(v => Object.keys(v)[0] == variant)[0])[0]
 
     return (
-        <div className={`Headline ${styleProps.weight} ${styleProps.size} text-${color} ${alignment}`}>
+        <div className={`Headline ${styleProps.weight} ${styleProps.size} text-${color} ${alignment} ${styleProps.responsive}`}>
             { children }
         </div>
     )

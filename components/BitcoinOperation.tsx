@@ -13,7 +13,7 @@ import {
 
 const BitcoinOperation = ({}) => {
     return (
-        <div className='BitcoinOperation bg-bitcoin bg-no-repeat mr-8 bg-right-bottom md:mr-24 md:bg-right bg-44 md:bg-contain'>
+        <div className='BitcoinOperation bg-bitcoin bg-no-repeat bg-right-bottom md:bg-right bg-44 md:bg-contain'>
             <div className='grid grid-rows-2 gap-6 pt-12'>
                 <div className=''>
                     <Headline variant='xxl' color='solid-white' alignment='text-left'>

@@ -19,7 +19,7 @@ const Home: NextPage = () => {
             <Section>
                 <Testimonials />
             </Section>
-            <Section color='primary' paddingBottom=''>
+            <Section color='primary' paddingBottom='' paddingTop=''>
                 <BitcoinOperation />
             </Section>
         </div>
