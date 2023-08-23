@@ -1,5 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
+import { useTranslation } from 'next-i18next';
+
 import Pulse from './Pulse';
 import Headline from './Headline';
 import { GET_TESTIMONIALS } from '../operations/queries/TestimonialsQueries';
@@ -12,6 +14,9 @@ interface getTestimonials {
 }
 
 const Testimonials = () => {
+
+    const { t } = useTranslation('home')
+
     const { error, data, loading } = useQuery<getTestimonials>(GET_TESTIMONIALS);
 
     if (error || loading) {
@@ -42,7 +47,7 @@ const Testimonials = () => {
         <div className='Testimonials'>
             <div className='mb-12'>
                 <Headline variant='h1' color='solid-black' alignment='text-center md:text-left'>
-                    {TESTIMONIALS}
+                    {t(TESTIMONIALS)}
                 </Headline>
             </div>
             <div className='flex flex-nowrap gap-8 snap-x overflow-scroll justify-items-center'>

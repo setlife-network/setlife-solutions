@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import Headline from '../components/Headline'
 import Subtitle from '../components/Subtitle'
@@ -23,6 +24,9 @@ const ProjectTile = ({
     image,
     externalLink,
 }: ProjectProps) => {
+
+    const { t } = useTranslation()
+    
     return (
         <div className='ProjectTile grid grid-rows overflow-x-hidden'>
             <div>
@@ -47,7 +51,7 @@ const ProjectTile = ({
                                 <div className='grid grid-flow-col auto-cols-max'>
                                     <div>
                                         <Paragraph>
-                                            { LEARN_MORE }
+                                            { t(LEARN_MORE) }
                                         </Paragraph>
                                     </div>
                                     <div>

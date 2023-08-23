@@ -1,4 +1,6 @@
 import React from 'react'
+import { useTranslation } from 'next-i18next';
+
 import { THUMBS_ICON } from '../constants'
 import { PRODUCTION_GRADE } from '../constants/strings'
 import Paragraph from './Paragraph'
@@ -12,6 +14,8 @@ interface ProductionGradeTileProps {
 const ProductionGradeTile = ({
     description
 }: ProductionGradeTileProps) => {
+
+    const { t } = useTranslation('project')
 
     return (
         <div className='grid grid-cols-1 gap-5 rounded-2xl p-8 bg-solid-white md:p-16'>
@@ -28,7 +32,7 @@ const ProductionGradeTile = ({
             </div>
             <div className=''>
                 <Subtitle variant='xs' alignment='text-center'>
-                    { PRODUCTION_GRADE }
+                    { t(PRODUCTION_GRADE) }
                 </Subtitle>
             </div>
             <div className=''>

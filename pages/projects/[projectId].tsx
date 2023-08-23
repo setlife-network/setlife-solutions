@@ -1,8 +1,9 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { shuffle } from 'lodash'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { GET_PROJECT, GET_PROJECTS } from '../../operations/queries/ProjectQueries'
 
@@ -22,6 +23,20 @@ interface getProject {
 
 interface getRelatedProjects {
     fetchProjects: ProjectProps[]
+}
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale!, ['common', 'project'])),
+    },
+})
+
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+
+    return {
+        paths: [], //indicates that no page needs be created at build time
+        fallback: 'blocking' //indicates the type of fallback
+    }
 }
 
 const ProjectDetailPage: NextPage = () => {

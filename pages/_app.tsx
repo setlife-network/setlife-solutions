@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Script from 'next/script'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { appWithTranslation } from 'next-i18next'
 
 import { ApolloProvider } from '@apollo/client'
 import client from '../config/apollo-client'
@@ -67,4 +68,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

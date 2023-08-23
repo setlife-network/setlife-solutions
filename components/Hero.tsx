@@ -1,4 +1,4 @@
-import React from 'react'
+import { useTranslation } from 'next-i18next';
 
 import Button from './Button'
 import Headline from './Headline'
@@ -17,25 +17,27 @@ import {
 } from '../constants'
 
 const Hero = ({}) => {
+    const { t } = useTranslation('home')
+
     return (
         <div className='Hero grid grid-cols-1 md:grid-cols-2'>
             <div className='grid grid-flow-row auto-rows-max px-2 lg:px-4 place-content-center gap-12 md:gap-16'>
                 <div className=''>
                     <Headline variant='xl' color='solid-black' alignment='text-center md:text-left'>
-                        { MAKE_SOFTWARE }
+                        {t(MAKE_SOFTWARE)} 
                     </Headline>
                     <Headline variant='xl' color='primary' alignment='text-center md:text-left'>
-                        { YOUR_SUPERPOWER }
+                        {t(YOUR_SUPERPOWER)}
                     </Headline>
                 </div>
                 <div className=''>
                     <Paragraph alignment='text-center md:text-left'>
-                        { RATHER_THAN_DELIVERING_A_BLACKBOX }
+                        {t(RATHER_THAN_DELIVERING_A_BLACKBOX)}
                     </Paragraph>
                 </div>
                 <div className='text-center md:text-left'>
-                    <Button variant='tertiary' link={CONSULTATION.toLowerCase()} className='px-8'>
-                        {SCHEDULE_CONSULTATION.toUpperCase()}
+                    <Button variant='tertiary' link={CONSULTATION} className='px-8'>
+                        {t(SCHEDULE_CONSULTATION, { 'ns': 'common' }).toUpperCase()}
                     </Button>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next';
 
 import { getS3 } from '../utilities/s3'
 import { validEmail } from '../utilities/validations'
@@ -24,6 +25,7 @@ import {
 } from '../constants/strings';
 
 const ContributorInquiryForm = ({}) => {
+    const { t } = useTranslation('inquiry')
 
     const [email, setEmail] = useState('')
     const [linkToWork, setLinkToWork] = useState('')
@@ -107,13 +109,13 @@ const ContributorInquiryForm = ({}) => {
     const renderInputs = () => {
         const basicInformationFields = [
             {
-                name: EMAIL,
+                name: t(EMAIL, { 'ns': 'common' }),
                 value: email,
                 setValue: setEmail,
                 type: 'email'
             },
             {
-                name: LINK_TO_YOUR_WORK,
+                name: t(LINK_TO_YOUR_WORK),
                 value: linkToWork,
                 setValue: setLinkToWork,
                 type: 'text'
@@ -153,7 +155,7 @@ const ContributorInquiryForm = ({}) => {
             <div className='grid grid-rows-7 gap-8 px-2 lg:px-4'>
                 <div>
                     <Headline variant='h1' color='solid-black'>
-                        {PLEASE_FILL_OUT_CONTRIBUTE_FORM}
+                        {t(PLEASE_FILL_OUT_CONTRIBUTE_FORM)}
                     </Headline>
                 </div>
                 <div>
@@ -172,7 +174,7 @@ const ContributorInquiryForm = ({}) => {
                                             {
                                                 submitCVName
                                                     ? submitCVName
-                                                    : SUBMIT_CV
+                                                    : t(SUBMIT_CV)
                                             }
                                         </span>
                                     </div>
@@ -209,7 +211,7 @@ const ContributorInquiryForm = ({}) => {
                 <div>
                     <div className={`cursor-pointer ml-1 ${openMoreDetails ? 'hidden' : ''}`} onClick={() => setOpenMoreDetails(true)}>
                         <Paragraph color='primary'>
-                            {ADD_MORE_DETAILS}
+                            {t(ADD_MORE_DETAILS)}
                         </Paragraph>
                     </div>
                     <textarea
@@ -232,7 +234,7 @@ const ContributorInquiryForm = ({}) => {
                         id='formControlTextarea'
                         rows={6}
                         onChange={(e) => setMoreDetails(e.target.value)}
-                        placeholder={ADD_MORE_DETAILS + ' ' + OPTIONAL}
+                        placeholder={t(ADD_MORE_DETAILS) + ' ' + t(OPTIONAL)}
                     />
                 </div>
                 <div 
@@ -244,7 +246,7 @@ const ContributorInquiryForm = ({}) => {
                         variant='tertiary'
                         disabled={disabled}
                     >
-                        {SUBMIT}
+                        {t(SUBMIT, { 'ns': 'common' })}
                     </Button>
                 </div>
             </div>

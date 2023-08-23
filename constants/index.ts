@@ -22,6 +22,8 @@ export const CONSULTATION_FORM_THANKS_IMAGE_URL: string = 'https://setlife-solut
 export const PDF_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/PDF_icon.png'
 export const CANCEL_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/Cancel_Icon.png'
 export const CONTRIBUTOR_INQUIRY_IMAGE = 'https://setlife-solutions.s3.amazonaws.com/images/Contributor_inquiry.png'
+export const US_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/US_icon.png'
+export const ES_ICON: string = 'https://setlife-solutions.s3.amazonaws.com/images/ES_icon.png'
 
 // URL
 export const YOUTUBE_URL: string = 'https://www.youtube.com/channel/UCjyzH2XN7qB3WuWTPFbJXCQ'
