@@ -9,6 +9,10 @@ import Button from '../../components/Button'
 const NextStepsPage: NextPage = () => {
     const router = useRouter()
 
+    const handleProceed = () => {
+        router.push('/ai-tool')
+    }
+
     return (
         <div className='NextStepsPage bg-gray-100 min-h-screen py-12'>
             <div className='container mx-auto px-4'>
@@ -44,13 +48,14 @@ const NextStepsPage: NextPage = () => {
                 <Section>
                     <h2 className="text-3xl font-bold mb-6 text-center">Ready to Start?</h2>
                     <div className="text-center">
-                        <Button 
-                            variant='primary' 
-                            onClick={() => router.push('/ai-tool')}
-                            className="px-8 py-3 text-lg font-semibold text-white bg-green-600 rounded-full hover:bg-green-700 transition-colors duration-300"
-                        >
-                            Proceed with AI-Driven Tool
-                        </Button>
+                        <div onClick={handleProceed} className="inline-block">
+                            <Button 
+                                variant='primary' 
+                                className="px-8 py-3 text-lg font-semibold text-white bg-green-600 rounded-full hover:bg-green-700 transition-colors duration-300"
+                            >
+                                Proceed with AI-Driven Tool
+                            </Button>
+                        </div>
                     </div>
                 </Section>
             </div>
