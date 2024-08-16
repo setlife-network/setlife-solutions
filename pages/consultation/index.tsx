@@ -106,7 +106,7 @@ const ConsultationPage: NextPage = () => {
             if (error) throw error
             createConsultation()
             sendMessage(contactInformation, budget, serviceInformation, projectGoals, constraints)
-            router.push('/consultation/thanks')
+            router.push('/consultation/next-steps')
         } catch (error) {
             console.log(error)
         }
