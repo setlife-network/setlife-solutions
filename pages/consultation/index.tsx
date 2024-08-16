@@ -106,7 +106,7 @@ const ConsultationPage: NextPage = () => {
             if (error) throw error
             createConsultation()
             sendMessage(contactInformation, budget, serviceInformation, projectGoals, constraints)
-            router.push('/consultation/thanks')
+            router.push('/consultation/further-actions') // Redirect to the new page
         } catch (error) {
             console.log(error)
         }
@@ -157,4 +157,4 @@ const ConsultationPage: NextPage = () => {
     )
 }
 
-export default ConsultationPage
+export default ConsultationPage;
