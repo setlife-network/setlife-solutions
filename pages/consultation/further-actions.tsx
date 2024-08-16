@@ -20,13 +20,13 @@ const FurtherActionsPage = () => {
                 </div>
             </div>
             <div className='mt-8'>
-                <Subtitle variant='h3'>Explore Sample Projects</Subtitle>
+                <Subtitle variant='s'>Explore Sample Projects</Subtitle>
                 <Link href='https://github.com/setlife-network/sample-projects'>
                     <a target='_blank' className='text-blue-600 hover:underline'>GitHub Repository</a>
                 </Link>
             </div>
             <div className='mt-4'>
-                <Subtitle variant='h3'>Proceed with the AI-Driven Tool</Subtitle>
+                <Subtitle variant='s'>Proceed with the AI-Driven Tool</Subtitle>
                 <Link href='/ai-tool'>
                     <a className='button bg-blue-600 text-white rounded-md px-4 py-2 hover:bg-blue-700'>Start Now</a>
                 </Link>
