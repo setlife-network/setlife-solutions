@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import Section from '../../components/Section';
 import Headline from '../../components/Headline';
 import Subtitle from '../../components/Subtitle';
@@ -12,12 +11,10 @@ const FurtherActionsPage = () => {
             <Headline variant='h1'>Next Steps for Your Project</Headline>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8'>
                 <div className='bg-white p-6 rounded-lg shadow-md'>
-                    <Image src='/path/to/graphic1.png' alt='Human Engagement' width={500} height={300} className='rounded-md mb-4' />
                     <h2 className='text-xl font-semibold'>Option 1: Human Engagement</h2>
                     <p className='mt-2 text-gray-600'>Negotiate a series of paid consultations which could cost between $500 and $3,000.</p>
                 </div>
                 <div className='bg-white p-6 rounded-lg shadow-md'>
-                    <Image src='/path/to/graphic2.png' alt='AI-Driven Tool' width={500} height={300} className='rounded-md mb-4' />
                     <h2 className='text-xl font-semibold'>Option 2: AI-Driven Tool</h2>
                     <p className='mt-2 text-gray-600'>Start your project with only a $20 upfront payment.</p>
                 </div>
