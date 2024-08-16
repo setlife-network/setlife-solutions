@@ -15,33 +15,35 @@ const AIToolPage: NextPage = () => {
   }
 
   return (
-    <div className='AIToolPage bg-gray-100 min-h-screen py-12'>
-      <div className='container mx-auto px-4'>
+    <div className="AIToolPage bg-gray-100 min-h-screen py-12">
+      <div className="container mx-auto px-4">
         <Section>
-          <Headline variant='h1' className='text-4xl font-bold text-center mb-12'>
+          <Headline variant="h1" className="text-4xl font-bold text-center mb-12">
             AI-Driven Project Start
           </Headline>
         </Section>
-        <Section className='bg-white shadow-lg rounded-lg p-6 mb-8'>
-          <h2 className='text-2xl font-semibold mb-4'>Describe Your Project</h2>
+        <Section className="bg-white shadow-lg rounded-lg p-6 mb-8">
+          <h2 className="text-2xl font-semibold mb-4">Describe Your Project</h2>
           <textarea
-            className='w-full h-40 p-2 border rounded-md mb-4'
-            placeholder='Enter your project description here...'
+            className="w-full h-40 p-2 border rounded-md mb-4"
+            placeholder="Enter your project description here..."
             value={projectDescription}
             onChange={(e) => setProjectDescription(e.target.value)}
           />
-          <Button 
-            variant='primary'
-            onClick={handleGeneratePlan}
-            className='px-6 py-2 text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-300'
-          >
-            Generate Project Plan
-          </Button>
+          <div className="text-center">
+            <Button
+              variant="primary"
+              onClick={handleGeneratePlan}
+              className="px-6 py-2 text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-300"
+            >
+              Generate Project Plan
+            </Button>
+          </div>
         </Section>
         {generatedPlan && (
-          <Section className='bg-white shadow-lg rounded-lg p-6'>
-            <h2 className='text-2xl font-semibold mb-4'>Your AI-Generated Project Plan</h2>
-            <div className='bg-gray-100 p-4 rounded-md'>
+          <Section className="bg-white shadow-lg rounded-lg p-6">
+            <h2 className="text-2xl font-semibold mb-4">Your AI-Generated Project Plan</h2>
+            <div className="bg-gray-100 p-4 rounded-md">
               <p>{generatedPlan}</p>
             </div>
           </Section>
