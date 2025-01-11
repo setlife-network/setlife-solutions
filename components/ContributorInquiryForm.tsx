@@ -16,6 +16,7 @@ import {
 import { 
     ADD_MORE_DETAILS,
     EMAIL, 
+    JOIN_US_AS_A_CONTRIBUTOR, 
     LINK_TO_YOUR_WORK, 
     OPTIONAL, 
     PLEASE_FILL_OUT_CONTRIBUTE_FORM, 
@@ -158,7 +159,7 @@ const ContributorInquiryForm = ({}) => {
                 </div>
                 <div>
                     <Paragraph>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ipsum vitae laudantium obcaecati quia! Cum, adipisci sit placeat odit, dolorum, quas nulla dolores ea tempore explicabo quod animi. Quos, incidunt?
+                        {JOIN_US_AS_A_CONTRIBUTOR}
                     </Paragraph>
                 </div>
                 {renderInputs()}
