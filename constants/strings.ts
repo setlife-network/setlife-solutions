@@ -81,6 +81,7 @@ export const YOUR_SUPERPOWER = 'your superpower'
 export const YOU_MAY_ALSO_LIKE: string = 'You may also like'
 
 export const CONTRIBUTORS: string = 'Contributors'
+export const JOIN_US_AS_A_CONTRIBUTOR: string = 'Join us as a contributor and help us build practical software solutions. Fill out the form below to get started.';
 export const NEW_CONSULTATION: string = 'New Consultation'
 export const MAX_BUDGET: string = 'Max Budget'
 export const MIN_BUDGET: string = 'Min Budget'
